@@ -4,7 +4,13 @@ import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
-import { Single } from "./pages/single";
+import { Petdetail } from "./pages/petdetail";
+import { Adoptform } from "./pages/adoptform";
+import { Login } from "./pages/login";
+import { Register } from "./pages/register";
+import { PasswordRecovery } from "./pages/passwordrecovery";
+import { PetCRUD } from "./pages/petcrud";
+
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -28,11 +34,26 @@ const Layout = () => {
 						<Route exact path="/demo">
 							<Demo />
 						</Route>
-						<Route exact path="/single/:theid">
-							<Single />
+						<Route exact path="/petdetail/:theid">
+							<Petdetail />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
+						</Route>
+						<Route exact path="/adoptform">
+							<Adoptform />
+						</Route>
+						<Route exact path="/login">
+							<Login />
+						</Route>
+						<Route exact path="/register">
+							<Register />
+						</Route>
+						<Route exact path="/passwordrecovery">
+							<PasswordRecovery />
+						</Route>
+						<Route exact path="/PetCRUD">
+							<PasswordRecovery />
 						</Route>
 					</Switch>
 					<Footer />
