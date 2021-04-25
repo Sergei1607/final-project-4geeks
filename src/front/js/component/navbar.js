@@ -1,17 +1,47 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Logo from "../../img/Logo proyecto.jpeg";
 
 export const Navbar = () => {
+	let colorStyle = {
+		backgroundColor: "#fbc381"
+	};
+	let titleStyle = {
+		marginLeft: "50px"
+	};
+
+	let imageStyle = {
+		marginLeft: "20px"
+	};
+
+	let buttonStyle = {
+		padding: "5px",
+		margin: "10px",
+		borderRadius: "10%"
+	};
+
 	return (
-		<nav className="navbar navbar-light bg-light mb-3">
-			<Link to="/">
-				<span className="navbar-brand mb-0 h1">React Boilerplate</span>
-			</Link>
-			<div className="ml-auto">
-				<Link to="/demo">
-					<button className="btn btn-primary">Check the Context in action</button>
+		<div className="container-flux">
+			<nav className="navbar navbar-light mb-3" style={colorStyle}>
+				<Link to="/">
+					<img src={Logo} height="70px" style={imageStyle} />
 				</Link>
-			</div>
-		</nav>
+				<span className="navbar-brand mb-0 h1" style={titleStyle}>
+					Ángeles de los Animales Santa Rosa
+				</span>
+				<div className="ml-auto">
+					<Link to="/register">
+						<button className="btn btn-primary" style={buttonStyle}>
+							Registrarse
+						</button>
+					</Link>
+					<Link to="/login">
+						<button className="btn btn-primary" style={buttonStyle}>
+							Acceder
+						</button>
+					</Link>
+				</div>
+			</nav>
+		</div>
 	);
 };
