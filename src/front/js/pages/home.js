@@ -1,9 +1,14 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-import Logo from "../../img/Logo proyecto.jpeg";
+import Logo from "../../img/Logo.png";
+import adoptar from "../../img/adoptar.png";
+import educacion from "../../img/educacion.png";
+import castrar from "../../img/castrar.png";
+import quienes from "../../img/quienes.png";
 import "../../styles/home.scss";
 import { Carousel } from "react-bootstrap";
 import { DogCards } from "../component/dogcards";
+import { CatCards } from "../component/catcards";
 import { Blogs } from "../component/blogs";
 
 export const Home = () => {
@@ -15,59 +20,73 @@ export const Home = () => {
 
 	let over = {
 		overflowX: "scroll",
-		flexWrap: "nowrap"
+		flexWrap: "nowrap",
+		marginBottom: "20px"
+	};
+
+	let separationstyle = {
+		marginTop: "50px"
+	};
+
+	let separationWITHIMAGEstyle = {
+		marginTop: "50px",
+		backgroundImage: `url(${quienes})`,
+		backgroundPosition: "center",
+		backgroundRepeat: "no-repeat",
+		backgroundSize: "cover",
+		height: "550px"
+	};
+
+	let h1style = {
+		fontSize: "60px",
+		marginTop: "70px",
+		color: "white"
+	};
+
+	let h1style2 = {
+		fontSize: "50px",
+		marginBottom: "1px"
+	};
+
+	let h2style = {
+		fontSize: "40px",
+		marginBottom: "30px"
+	};
+
+	let pstyle = {
+		paddingLeft: "80px",
+		paddingRight: "80px",
+		fontSize: "20px",
+		marginTop: "-140px",
+		color: "white"
 	};
 
 	return (
 		<div className="container">
 			<div className="row bg-danger">
 				<Carousel fade>
-					<Carousel.Item interval={3000}>
-						<img
-							className="d-block w-100"
-							src="https://vetsource.com/wp-content/uploads/2018/11/img-pet-adoption-101.jpg"
-							alt="First slide"
-							height="500px"
-							width="400px"
-						/>
-						<Carousel.Caption>
-							<h3>First slide label</h3>
-							<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-						</Carousel.Caption>
+					<Carousel.Item interval={4000}>
+						<img className="d-block w-100" src={adoptar} alt="First slide" height="500px" width="400px" />
 					</Carousel.Item>
-					<Carousel.Item interval={3000}>
+					<Carousel.Item interval={4000}>
 						<img
 							className="d-block w-100"
-							src="https://images.squarespace-cdn.com/content/v1/5cd493f1185add0001e4670d/1558988155986-PY602J3JHUN77WUMVRXS/ke17ZwdGBToddI8pDm48kFyD7pzB8zoMIVY5aiUuFlp7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0jG2lbcDYBOeMi4OFSYem8DMb5PTLoEDdB05UqhYu-xbnSznFxIRsaAU-3g5IaylIg/image-asset.jpeg?format=2500w"
+							src={educacion}
 							alt="Second slide"
 							height="500px"
 							width="400px"
 						/>
-
-						<Carousel.Caption>
-							<h3>Second slide label</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-						</Carousel.Caption>
 					</Carousel.Item>
-					<Carousel.Item interval={3000}>
-						<img
-							className="d-block w-100"
-							src="https://www.humanesocietymiami.org/wp-content/uploads/2020/04/Adopt-a-shelter-pet-today_dog-2000px.jpg"
-							alt="Third slide"
-							height="500px"
-							width="400px"
-						/>
-
-						<Carousel.Caption>
-							<h3>Third slide label</h3>
-							<p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-						</Carousel.Caption>
+					<Carousel.Item interval={4000}>
+						<img className="d-block w-100" src={castrar} alt="Third slide" height="500px" width="400px" />
 					</Carousel.Item>
 				</Carousel>
 			</div>
-			<div className="row justify-content-center bg-warning">
-				<h1 className="text-center"> ¿Qué somos?</h1>
-				<p className="text-center" style={fontstyle}>
+			<div className="row justify-content-center" style={separationWITHIMAGEstyle}>
+				<h1 className=" text-center" style={h1style}>
+					¿Qué somos?
+				</h1>
+				<p className=" text-center" style={pstyle}>
 					Ángeles de los animales Santa Rosa es un proyecto que surgió a nivel comunal en noviembre del 2016.
 					Busca promover el bienestar de los animales y ayudar a los que se encuentren en estado de
 					vulnerabilidad (castraciones, adopciones, tratamientos y recuperación veterinaria). Se trabaja y se
@@ -78,8 +97,30 @@ export const Home = () => {
 					instituciones públicas y privadas, urbanizaciones etc…)
 				</p>
 			</div>
-			<div className="row justify-content-center bg-danger">
-				<h1 className="text-center"> Perros</h1>
+			<div className="row justify-content-center" style={separationstyle}>
+				<h1 className="text-center" style={h1style2}>
+					{" "}
+					Mascotas en adopción
+				</h1>
+			</div>
+			<div className="row" style={separationstyle}>
+				<h2 className="text-center" style={h2style}>
+					{" "}
+					Gatos
+				</h2>
+			</div>
+			<div className="row overflow-scroll" style={over}>
+				<CatCards />
+				<CatCards />
+				<CatCards />
+				<CatCards />
+				<CatCards />
+			</div>
+			<div className="row">
+				<h2 className="text-center" style={h2style}>
+					{" "}
+					Perros
+				</h2>
 			</div>
 			<div className="row overflow-scroll" style={over}>
 				<DogCards />
@@ -89,25 +130,7 @@ export const Home = () => {
 				<DogCards />
 				<DogCards />
 			</div>
-			<div className="row justify-content-center bg-danger">
-				<h1 className="text-center"> Gatos</h1>
-			</div>
-			<div className="row overflow-scroll" style={over}>
-				<DogCards />
-				<DogCards />
-				<DogCards />
-				<DogCards />
-				<DogCards />
-				<DogCards />
-			</div>
-			<div className="row justify-content-center bg-danger">
-				<h1 className="text-center"> Blogs</h1>
-			</div>
-			<div className="row justify-content-center bg-danger">
-				<Blogs />
-				<Blogs />
-				<Blogs />
-			</div>
+			<div className="row justify-content-center" />
 		</div>
 	);
 };
