@@ -24,9 +24,11 @@ export function CatCards() {
 				<div className="card-body" style={backgrounstyle}>
 					<h5 className="card-title">Card title</h5>
 					<p className="card-text">Edad : 1 año</p>
-					<a href="#" className="btn btn-primary" style={buttonstyle}>
-						Conocer más
-					</a>
+					<Link to="/petdetail/1">
+						<button className="btn btn-primary" style={buttonstyle}>
+							Conocer más
+						</button>
+					</Link>
 				</div>
 			</div>
 		</div>
