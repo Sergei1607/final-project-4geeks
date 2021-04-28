@@ -9,15 +9,15 @@ export function DogCards() {
 	const { store, actions } = useContext(Context);
 
 	let textstyle = {
-		color: "white"
+		color: "black"
 	};
 
 	let backgrounstyle = {
-		backgroundColor: "#27A1C6"
+		backgroundColor: "#F2F2F2"
 	};
 
 	let buttonstyle = {
-		backgroundColor: "#f6b26b",
+		backgroundColor: "#00BCEB",
 		borderRadius: "10%"
 	};
 

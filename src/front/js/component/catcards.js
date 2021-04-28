@@ -9,11 +9,11 @@ export function CatCards() {
 	const { store, actions } = useContext(Context);
 
 	let backgrounstyle = {
-		backgroundColor: "#f6b26b"
+		backgroundColor: "lightgrey"
 	};
 
 	let buttonstyle = {
-		backgroundColor: "#27A1C6",
+		backgroundColor: "#00BCEB",
 		borderRadius: "10%"
 	};
 

@@ -18,14 +18,25 @@ export const Home = () => {
 		fontSize: "20px"
 	};
 
+	let backgroundstyle1 = {
+		backgroundColor: "#005073",
+		marginTop: "30px"
+	};
+
+	let backgroundstyle = {
+		backgroundColor: "rgb(180, 250, 255)",
+		marginTop: "20px"
+	};
+
 	let over = {
 		overflowX: "scroll",
 		flexWrap: "nowrap",
-		marginBottom: "20px"
+		marginBottom: "20px",
+		backgroundColor: "rgb(180, 250, 255  )"
 	};
 
-	let separationstyle = {
-		marginTop: "50px"
+	let backgroundstyle2 = {
+		backgroundColor: "rgb(255, 242, 180 )"
 	};
 
 	let separationWITHIMAGEstyle = {
@@ -45,12 +56,15 @@ export const Home = () => {
 
 	let h1style2 = {
 		fontSize: "50px",
-		marginBottom: "1px"
+		marginBottom: "20px",
+		marginTop: "20px",
+		color: "white"
 	};
 
 	let h2style = {
 		fontSize: "40px",
-		marginBottom: "30px"
+		marginBottom: "30px",
+		marginTop: "20px"
 	};
 
 	let pstyle = {
@@ -83,7 +97,7 @@ export const Home = () => {
 				</Carousel>
 			</div>
 			<div className="row justify-content-center" style={separationWITHIMAGEstyle}>
-				<h1 className=" text-center" style={h1style}>
+				<h1 className="text-center" style={h1style}>
 					¿Qué somos?
 				</h1>
 				<p className=" text-center" style={pstyle}>
@@ -97,32 +111,32 @@ export const Home = () => {
 					instituciones públicas y privadas, urbanizaciones etc…)
 				</p>
 			</div>
-			<div className="row justify-content-center" style={separationstyle}>
+			<div className="row justify-content-center" style={backgroundstyle1}>
 				<h1 className="text-center" style={h1style2}>
 					{" "}
 					Mascotas en adopción
 				</h1>
 			</div>
-			<div className="row" style={separationstyle}>
+			<div className="row justify-content-center" style={backgroundstyle}>
 				<h2 className="text-center" style={h2style}>
-					{" "}
 					Gatos
 				</h2>
 			</div>
-			<div className="row overflow-scroll" style={over}>
+			<div className="row overflow-scroll pb-5" style={over}>
+				<CatCards />
 				<CatCards />
 				<CatCards />
 				<CatCards />
 				<CatCards />
 				<CatCards />
 			</div>
-			<div className="row">
+			<div className="row justify-content-center" style={backgroundstyle}>
 				<h2 className="text-center" style={h2style}>
 					{" "}
 					Perros
 				</h2>
 			</div>
-			<div className="row overflow-scroll" style={over}>
+			<div className="row overflow-scroll pb-5" style={over}>
 				<DogCards />
 				<DogCards />
 				<DogCards />
