@@ -46,12 +46,25 @@ export const Petdetail = props => {
 						</tr>
 					</tbody>
 				</table>
-				<button type="button" href="#" className="btn btn-primary mr-2">
-					Regresar
-				</button>
-				<button type="button" href="#" className="btn btn-primary ml-auto">
-					Formulario de adopción
-				</button>
+
+				<div className="container">
+					<div className="row">
+						<div className="col-9">
+							<Link to="/">
+								<button type="button" className="btn btn-primary mr-2">
+									Regresar
+								</button>
+							</Link>
+						</div>
+						<div className="col-3 d-flex justify-content-end">
+							<Link to="/adoptform">
+								<button type="button" className="btn btn-primary ">
+									Formulario de adopción
+								</button>
+							</Link>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	);
