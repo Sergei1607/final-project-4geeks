@@ -14,10 +14,6 @@ import { Blogs } from "../component/blogs";
 export const Home = () => {
 	const { store, actions } = useContext(Context);
 
-	let fontstyle = {
-		fontSize: "20px"
-	};
-
 	let backgroundstyle1 = {
 		backgroundColor: "#005073",
 		marginTop: "30px"
@@ -33,10 +29,6 @@ export const Home = () => {
 		flexWrap: "nowrap",
 		marginBottom: "20px",
 		backgroundColor: "rgb(180, 250, 255  )"
-	};
-
-	let backgroundstyle2 = {
-		backgroundColor: "rgb(255, 242, 180 )"
 	};
 
 	let separationWITHIMAGEstyle = {
@@ -123,12 +115,9 @@ export const Home = () => {
 				</h2>
 			</div>
 			<div className="row overflow-scroll pb-5" style={over}>
-				<CatCards />
-				<CatCards />
-				<CatCards />
-				<CatCards />
-				<CatCards />
-				<CatCards />
+				{store.gatos.map((item, index) => {
+					return <CatCards key={index} name={item.name} age={item.age} sex={item.sex} index={index} />;
+				})}
 			</div>
 			<div className="row justify-content-center" style={backgroundstyle}>
 				<h2 className="text-center" style={h2style}>
@@ -137,14 +126,13 @@ export const Home = () => {
 				</h2>
 			</div>
 			<div className="row overflow-scroll pb-5" style={over}>
-				<DogCards />
-				<DogCards />
-				<DogCards />
-				<DogCards />
-				<DogCards />
-				<DogCards />
+				{store.perros.map((item, index) => {
+					return <DogCards key={index} name={item.name} age={item.age} sex={item.sex} index={index} />;
+				})}
 			</div>
-			<div className="row justify-content-center" />
+			<div className="row justify-content-center">
+				<button onClick={actions.login}>Click</button>
+			</div>
 		</div>
 	);
 };

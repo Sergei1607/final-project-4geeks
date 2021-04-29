@@ -5,7 +5,7 @@ import "../../styles/home.scss";
 import { Context } from "../store/appContext";
 import Logo from "../../img/Logo.png";
 
-export function CatCards() {
+export function CatCards(props) {
 	const { store, actions } = useContext(Context);
 
 	let backgrounstyle = {
@@ -22,9 +22,10 @@ export function CatCards() {
 			<div className="card">
 				<img className="card-img-top" src={Logo} alt="Card image cap" />
 				<div className="card-body" style={backgrounstyle}>
-					<h5 className="card-title">Card title</h5>
-					<p className="card-text">Edad : 1 año</p>
-					<Link to="/petdetail/1">
+					<h5 className="card-title">{props.name}</h5>
+					<p className="card-text"> {"Edad: " + props.age}</p>
+					<p className="card-text"> {"Sexo: " + props.sex}</p>
+					<Link to={"/catdetail/" + props.index}>
 						<button className="btn btn-primary" style={buttonstyle}>
 							Conocer más
 						</button>
@@ -34,3 +35,15 @@ export function CatCards() {
 		</div>
 	);
 }
+
+CatCards.propTypes = {
+	name: PropTypes.string,
+	sex: PropTypes.string,
+	age: PropTypes.string,
+	history: PropTypes.string,
+	behavior: PropTypes.string,
+	breed: PropTypes.string,
+	size: PropTypes.string,
+	other: PropTypes.string,
+	index: PropTypes.number
+};

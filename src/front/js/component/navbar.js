@@ -1,8 +1,10 @@
-import React from "react";
+import React, { Component, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../img/Logo.png";
+import { Context } from "../store/appContext";
 
 export const Navbar = () => {
+	const { store, actions } = useContext(Context);
 	let colorStyle = {
 		backgroundColor: "#f6b26b"
 	};
@@ -42,6 +44,11 @@ export const Navbar = () => {
 							Acceder
 						</button>
 					</Link>
+					{() => {
+						if (store.user != "[]") {
+							console.log("hi");
+						}
+					}}
 				</div>
 			</nav>
 		</div>

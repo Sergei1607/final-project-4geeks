@@ -5,7 +5,7 @@ import "../../styles/home.scss";
 import { Context } from "../store/appContext";
 import Logo from "../../img/Logo.png";
 
-export function DogCards() {
+export function DogCards(props) {
 	const { store, actions } = useContext(Context);
 
 	let textstyle = {
@@ -27,16 +27,30 @@ export function DogCards() {
 				<img className="card-img-top" src={Logo} alt="Card image cap" />
 				<div className="card-body" style={backgrounstyle}>
 					<h5 className="card-title" style={textstyle}>
-						Card title
+						{props.name}
 					</h5>
-					<p className="card-text" style={textstyle}>
-						Edad: 1 año.
-					</p>
-					<a href="#" className="btn btn-primary" style={buttonstyle}>
-						Conocer más
-					</a>
+					<p className="card-text"> {"Edad: " + props.age}</p>
+					<p className="card-text"> {"Sexo: " + props.sex}</p>
+
+					<Link to={"/dogdetail/" + props.index}>
+						<button className="btn btn-primary" style={buttonstyle}>
+							Conocer más
+						</button>
+					</Link>
 				</div>
 			</div>
 		</div>
 	);
 }
+
+DogCards.propTypes = {
+	name: PropTypes.string,
+	sex: PropTypes.string,
+	age: PropTypes.string,
+	history: PropTypes.string,
+	behavior: PropTypes.string,
+	breed: PropTypes.string,
+	size: PropTypes.string,
+	other: PropTypes.string,
+	index: PropTypes.number
+};
