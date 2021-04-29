@@ -131,7 +131,7 @@ export const Home = () => {
 				})}
 			</div>
 			<div className="row justify-content-center">
-				<button onClick={actions.login}>Click</button>
+				<button onClick={actions.login}>Login</button>
 			</div>
 		</div>
 	);

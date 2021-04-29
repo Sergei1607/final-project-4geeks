@@ -2,6 +2,7 @@ import React, { Component, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../img/Logo.png";
 import { Context } from "../store/appContext";
+import { Condicional } from "./condicional.js";
 
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
@@ -34,21 +35,7 @@ export const Navbar = () => {
 					Ángeles de los Animales Santa Rosa
 				</span>
 				<div className="ml-auto">
-					<Link to="/register">
-						<button className="btn btn-primary" style={buttonStyle}>
-							Registrarse
-						</button>
-					</Link>
-					<Link to="/login">
-						<button className="btn btn-primary" style={buttonStyle}>
-							Acceder
-						</button>
-					</Link>
-					{() => {
-						if (store.user != "[]") {
-							console.log("hi");
-						}
-					}}
+					<Condicional />
 				</div>
 			</nav>
 		</div>

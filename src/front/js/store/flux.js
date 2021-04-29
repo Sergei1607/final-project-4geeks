@@ -30,7 +30,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					redirect: "follow"
 				};
 
-				fetch("https://3001-sapphire-ladybug-qg2ql9ff.ws-us03.gitpod.io/api/get_caninos", requestOptions)
+				fetch("https://3001-emerald-unicorn-iacul3dd.ws-us04.gitpod.io/api/get_caninos", requestOptions)
 					.then(response => response.json())
 					.then(results => setStore({ perros: results }))
 					.catch(error => console.log("error", error));
@@ -40,7 +40,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					redirect: "follow"
 				};
 
-				fetch("https://3001-sapphire-ladybug-qg2ql9ff.ws-us03.gitpod.io/api/get_felinos", requestOptions)
+				fetch("https://3001-emerald-unicorn-iacul3dd.ws-us04.gitpod.io/api/get_felinos", requestOptions)
 					.then(response => response.json())
 					.then(result => setStore({ gatos: result }))
 					.catch(error => console.log("error", error));
@@ -63,11 +63,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 					redirect: "follow"
 				};
 
-				fetch("https://3001-sapphire-ladybug-qg2ql9ff.ws-us03.gitpod.io/api/login", requestOptions)
+				fetch("https://3001-emerald-unicorn-iacul3dd.ws-us04.gitpod.io/api/login", requestOptions)
 					.then(response => response.json())
-					.then(result => setStore({ user: result.user.user_adm }))
+					.then(result => setStore({ user: result.user }))
 					.then(console.log(store.user))
 					.catch(error => console.log("error", error));
+			},
+
+			getout: () => {
+				setStore({ user: "0" });
 			},
 
 			getMessage: () => {
