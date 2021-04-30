@@ -11,6 +11,7 @@ from api.models import db,User,Pet,Adopt
 from api.routes import api
 from api.admin import setup_admin
 #from models import Person
+from flask_jwt_extended import  JWTManager
 
 ENV = os.getenv("FLASK_ENV")
 static_file_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../public/')
@@ -26,6 +27,9 @@ else:
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 MIGRATE = Migrate(app, db)
 db.init_app(app)
+
+app.config["JWT_SECRET_KEY"] = "JWT_SECRET_KEY"
+jwt = JWTManager(app)
 
 # Allow CORS requests to this API
 CORS(app)
