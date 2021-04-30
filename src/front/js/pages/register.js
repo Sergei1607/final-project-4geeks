@@ -20,12 +20,19 @@ export const Register = () => {
 		marginTop: "70px",
 		color: "white"
 	};
+
+	let CreateUserContainer = {
+		Position: "absolute",
+		width: "100%",
+		height: "100%",
+		display: "flex"
+	};
 	return (
 		<div className="row justify-content-center" style={registerstyle}>
 			<div className="text-center" style={textstyle}>
 				<h1>Registro</h1>
 			</div>
-			<div className="CreateUserContainer">
+			<div className="CreateUserContainer" style={CreateUserContainer}>
 				<div className="ItemComponent">
 					<label className="LabelItemComponent">User</label>
 				</div>
