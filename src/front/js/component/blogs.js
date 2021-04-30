@@ -21,9 +21,9 @@ export function Blogs(props) {
 
 	return (
 		<div className="card mb-3">
-			<div className="row g-0 ">
+			<div className="row">
 				<div className="col-md-3 " style={imagestyle}>
-					<img src={Logo} alt="..." height="140px" width="200px" />
+					<img className="card-img-top" src={props.image} alt="..." height="165px" width="260px" />
 				</div>
 				<div className="col-md-9">
 					<div className="card-body" style={backgroundstyle}>
@@ -45,5 +45,6 @@ export function Blogs(props) {
 
 Blogs.propTypes = {
 	color: PropTypes.string,
-	title: PropTypes.string
+	title: PropTypes.string,
+	image: PropTypes.string
 };

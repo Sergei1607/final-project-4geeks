@@ -5,6 +5,8 @@ import adoptar from "../../img/adoptar.png";
 import educacion from "../../img/educacion.png";
 import castrar from "../../img/castrar.png";
 import quienes from "../../img/quienes.png";
+import blog1 from "../../img/blog1.jpg";
+import blog2 from "../../img/blog 2.jpg";
 import "../../styles/home.scss";
 import { Carousel } from "react-bootstrap";
 import { DogCards } from "../component/dogcards";
@@ -150,8 +152,8 @@ export const Home = () => {
 				})}
 			</div>
 			<div className="row">
-				<Blogs color={"#F2F2F2"} title={"Primeros días en casa de tu mascota"} />
-				<Blogs color={"#F2F2F2"} title={"Controlar los ladridos de tu mascota"} />
+				<Blogs image={blog1} color={"#F2F2F2"} title={"Primeros días en casa de tu mascota"} />
+				<Blogs image={blog2} color={"#F2F2F2"} title={"Controlar los ladridos de tu mascota"} />
 			</div>
 			<div className="row justify-content-center">
 				<button onClick={actions.login}>Login</button>

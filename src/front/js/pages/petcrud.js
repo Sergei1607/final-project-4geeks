@@ -9,10 +9,13 @@ import "../../styles/demo.scss";
 
 export function PetCRUD() {
 	const [show, setShow] = useState(false);
+	const [show2, setShow2] = useState(false);
 	const { store, actions } = useContext(Context);
 
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
+	const handleClose2 = () => setShow2(false);
+	const handleShow2 = () => setShow2(true);
 	const [loading, setLoading] = useState(false);
 	const [image, setImage] = useState("");
 	const [name, setName] = useState("");
@@ -96,6 +99,10 @@ export function PetCRUD() {
 			.catch(error => console.log("error", error));
 	}
 
+	function editPet() {
+		return "";
+	}
+
 	return (
 		<div className="container">
 			<div className="row">
@@ -136,7 +143,7 @@ export function PetCRUD() {
 						<div className="row d-flex align-items-center" style={over} key={index}>
 							<div className="col-2 text-center">
 								<span>
-									<i className="fas fa-edit fa-2x px-1" style={iconStyle}></i>
+									<i className="fas fa-edit fa-2x px-1" style={iconStyle} onClick={handleShow2}></i>
 								</span>
 								<span>
 									<i className="fas fa-trash fa-2x px-1" style={iconStyle}></i>
@@ -169,6 +176,136 @@ export function PetCRUD() {
 							<div className="col-2 text-center">
 								<h7>{item.other}</h7>
 							</div>
+
+							<Modal show={show2} onHide={handleClose2} size="lg">
+								<Modal.Header closeButton>
+									<Modal.Title>Editar Mascota</Modal.Title>
+								</Modal.Header>
+								<Modal.Body>
+									<form>
+										<div className="form-group">
+											<label htmlFor="exampleInputEmail1">Nombre de la mascota</label>
+											<input
+												type="text"
+												className="form-control"
+												id="exampleInputEmail1"
+												aria-describedby="emailHelp"
+												placeholder={item.name}
+												onChange={e => setName(e.target.value)}
+											/>
+										</div>
+										<div className="form-group">
+											<label htmlFor="exampleFormControlSelect1">Tipo de mascota</label>
+											<input
+												type="text"
+												className="form-control"
+												id="exampleInputEmail1"
+												aria-describedby="emailHelp"
+												placeholder={item.type_pet}
+												onChange={e => setTypepet(e.target.value)}
+											/>
+										</div>
+										<div className="form-group">
+											<label htmlFor="exampleFormControlSelect1">Sexo de la mascota</label>
+											<input
+												type="text"
+												className="form-control"
+												id="exampleInputEmail1"
+												aria-describedby="emailHelp"
+												placeholder={item.sex}
+												onChange={e => setSex(e.target.value)}
+											/>
+										</div>
+										<div className="form-group">
+											<label htmlFor="exampleInputEmail1">Edad</label>
+											<input
+												type="text"
+												className="form-control"
+												id="exampleInputEmail1"
+												aria-describedby="emailHelp"
+												placeholder={item.age}
+												onChange={e => setAge(e.target.value)}
+											/>
+										</div>
+										<div className="form-group">
+											<label htmlFor="exampleInputEmail1">Comportamiento</label>
+											<input
+												type="text"
+												className="form-control"
+												id="exampleInputEmail1"
+												aria-describedby="emailHelp"
+												placeholder={item.behaviour}
+												onChange={e => setBehaviour(e.target.value)}
+											/>
+										</div>
+										<div className="form-group">
+											<label htmlFor="exampleInputEmail1">Raza</label>
+											<input
+												type="text"
+												className="form-control"
+												id="exampleInputEmail1"
+												aria-describedby="emailHelp"
+												placeholder={item.breed}
+												onChange={e => setRaza(e.target.value)}
+											/>
+										</div>
+										<div className="form-group">
+											<label htmlFor="exampleInputEmail1">Tamaño</label>
+											<input
+												type="text"
+												className="form-control"
+												id="exampleInputEmail1"
+												aria-describedby="emailHelp"
+												placeholder={item.size}
+												onChange={e => setSize(e.target.value)}
+											/>
+										</div>
+										<div className="form-group">
+											<label htmlFor="exampleInputEmail1">Historia</label>
+											<input
+												type="text"
+												className="form-control"
+												id="exampleInputEmail1"
+												aria-describedby="emailHelp"
+												placeholder={item.history}
+												onChange={e => setHistory(e.target.value)}
+											/>
+										</div>
+										<div className="form-group">
+											<label htmlFor="exampleInputEmail1">Más información</label>
+											<input
+												type="text"
+												className="form-control"
+												id="exampleInputEmail1"
+												aria-describedby="emailHelp"
+												placeholder={item.other}
+												onChange={e => setOtro(e.target.value)}
+											/>
+										</div>
+										<form>
+											<div className="form-group">
+												<label htmlFor="exampleFormControlFile1">Carga una imagen</label>
+												<input
+													type="file"
+													className="form-control-file"
+													id="exampleFormControlFile1"
+													onChange={uploadImage}
+												/>
+												{loading ? <h3>Cargando...</h3> : <img src={image} style={styles} />}
+											</div>
+										</form>
+
+										<button className="btn btn-primary" onClick={editPet}>
+											Editar
+										</button>
+									</form>
+								</Modal.Body>
+								<Modal.Footer>
+									<Button variant="secondary" onClick={handleClose}>
+										Cerrar
+									</Button>
+								</Modal.Footer>
+							</Modal>
 						</div>
 					);
 				})}
