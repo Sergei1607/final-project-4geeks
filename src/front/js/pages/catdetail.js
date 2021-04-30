@@ -14,7 +14,7 @@ export const Catdetail = props => {
 						width={400}
 						height={300}
 						className="align-self-center mr-3"
-						src="https://vetsource.com/wp-content/uploads/2018/11/img-pet-adoption-101.jpg"
+						src={store.gatos[params.theid].image}
 						alt="Generic placeholder"
 					/>
 				</div>

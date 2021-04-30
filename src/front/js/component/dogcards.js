@@ -24,7 +24,7 @@ export function DogCards(props) {
 	return (
 		<div className="col-3">
 			<div className="card">
-				<img className="card-img-top" src={Logo} alt="Card image cap" />
+				<img className="card-img-top" src={props.image} alt="Card image cap" height="300px" />
 				<div className="card-body" style={backgrounstyle}>
 					<h5 className="card-title" style={textstyle}>
 						{props.name}
@@ -52,5 +52,6 @@ DogCards.propTypes = {
 	breed: PropTypes.string,
 	size: PropTypes.string,
 	other: PropTypes.string,
-	index: PropTypes.number
+	index: PropTypes.number,
+	image: PropTypes.string
 };

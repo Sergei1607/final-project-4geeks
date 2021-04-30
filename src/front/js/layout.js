@@ -11,6 +11,7 @@ import { Login } from "./pages/login.js";
 import { Register } from "./pages/register";
 import { PasswordRecovery } from "./pages/passwordrecovery";
 import { PetCRUD } from "./pages/petcrud";
+import { Test } from "./pages/test.js";
 
 import injectContext from "./store/appContext";
 

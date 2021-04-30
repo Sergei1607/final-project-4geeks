@@ -25,7 +25,7 @@ export function Condicional() {
 				<span className="navbar-brand mb-0 h1" style={textStyle}>
 					{"¡Hola " + store.user.username + "!"}
 				</span>
-				<Link to="/login">
+				<Link to="/PetCRUD">
 					<button className="btn btn-primary" style={buttonStyle}>
 						Administrar
 					</button>

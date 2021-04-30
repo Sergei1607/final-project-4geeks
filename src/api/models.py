@@ -40,6 +40,7 @@ class Pet(db.Model):
     breed = Column(String(250),nullable=False)
     size = Column(String(250),nullable=False)
     other = Column(String(250),nullable=False)
+    image = Column(String(250),nullable=False)
 
     def serialize(self):
         return {
@@ -53,6 +54,7 @@ class Pet(db.Model):
             "breed":self.breed,
             "size":self.size,
             "other":self.other,
+            "image":self.image
 
         }
     def get_pets():

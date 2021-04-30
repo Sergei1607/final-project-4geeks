@@ -10,6 +10,7 @@ import { Carousel } from "react-bootstrap";
 import { DogCards } from "../component/dogcards";
 import { CatCards } from "../component/catcards";
 import { Blogs } from "../component/blogs";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
@@ -116,7 +117,16 @@ export const Home = () => {
 			</div>
 			<div className="row overflow-scroll pb-5" style={over}>
 				{store.gatos.map((item, index) => {
-					return <CatCards key={index} name={item.name} age={item.age} sex={item.sex} index={index} />;
+					return (
+						<CatCards
+							key={index}
+							name={item.name}
+							age={item.age}
+							sex={item.sex}
+							index={index}
+							image={item.image}
+						/>
+					);
 				})}
 			</div>
 			<div className="row justify-content-center" style={backgroundstyle}>
@@ -127,7 +137,16 @@ export const Home = () => {
 			</div>
 			<div className="row overflow-scroll pb-5" style={over}>
 				{store.perros.map((item, index) => {
-					return <DogCards key={index} name={item.name} age={item.age} sex={item.sex} index={index} />;
+					return (
+						<DogCards
+							key={index}
+							name={item.name}
+							age={item.age}
+							sex={item.sex}
+							index={index}
+							image={item.image}
+						/>
+					);
 				})}
 			</div>
 			<div className="row">
@@ -137,6 +156,7 @@ export const Home = () => {
 			<div className="row justify-content-center">
 				<button onClick={actions.login}>Login</button>
 			</div>
+			<div className="row justify-content-center"></div>
 		</div>
 	);
 };
