@@ -4,9 +4,10 @@ import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
-import { Petdetail } from "./pages/petdetail";
+import { Catdetail } from "./pages/catdetail";
+import { Dogdetail } from "./pages/dogdetail";
 import { Adoptform } from "./pages/adoptform";
-import { Login } from "./pages/login";
+import { Login } from "./pages/login.js";
 import { Register } from "./pages/register";
 import { PasswordRecovery } from "./pages/passwordrecovery";
 import { PetCRUD } from "./pages/petcrud";
@@ -34,11 +35,11 @@ const Layout = () => {
 						<Route exact path="/demo">
 							<Demo />
 						</Route>
-						<Route exact path="/petdetail/:theid">
-							<Petdetail />
+						<Route exact path="/dogdetail/:theid">
+							<Dogdetail />
 						</Route>
-						<Route>
-							<h1>Not found!</h1>
+						<Route exact path="/catdetail/:theid">
+							<Catdetail />
 						</Route>
 						<Route exact path="/adoptform">
 							<Adoptform />
@@ -53,7 +54,7 @@ const Layout = () => {
 							<PasswordRecovery />
 						</Route>
 						<Route exact path="/PetCRUD">
-							<PasswordRecovery />
+							<PetCRUD />
 						</Route>
 					</Switch>
 					<Footer />

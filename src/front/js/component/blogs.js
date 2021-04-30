@@ -9,14 +9,21 @@ export function Blogs(props) {
 	const { store, actions } = useContext(Context);
 
 	let backgroundstyle = {
-		backgroundColor: props.color
+		backgroundColor: props.color,
+		borderStyle: "solid",
+		borderColor: "#005073"
+	};
+
+	let imagestyle = {
+		borderStyle: "solid",
+		borderColor: "#005073"
 	};
 
 	return (
 		<div className="card mb-3">
 			<div className="row g-0 ">
-				<div className="col-md-3 ">
-					<img src={Logo} alt="..." height="160px" width="200px" />
+				<div className="col-md-3 " style={imagestyle}>
+					<img src={Logo} alt="..." height="140px" width="200px" />
 				</div>
 				<div className="col-md-9">
 					<div className="card-body" style={backgroundstyle}>

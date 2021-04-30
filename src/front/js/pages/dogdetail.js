@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 
-export const Petdetail = props => {
+export const Dogdetail = props => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 	return (
@@ -19,30 +19,28 @@ export const Petdetail = props => {
 					/>
 				</div>
 				<div className="col-sm text-center">
-					<h5>Rocky</h5>
-					<p>
-						A proud world with a rich warrior culture, Mandalore is home to various clans united under
-						Bo-Katan Kryze, wielder of the Darksaber.
-					</p>
+					<h5>{store.perros[params.theid].name}</h5>
+					<p>{store.perros[params.theid].history}</p>
+					<p>{store.perros[params.theid].other}</p>
 				</div>
 				<table className="table m-3">
 					<thead>
 						<tr>
-							<th scope="col">Nombre</th>
-							<th scope="col">Raza</th>
 							<th scope="col">Sexo</th>
 							<th scope="col">Edad</th>
-							<th scope="col">Peso</th>
+							<th scope="col">Raza</th>
+							<th scope="col">Comportamiento</th>
+							<th scope="col">Tamaño</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
 							{/* <th scope="row">1</th> */}
-							<td>Rocky</td>
-							<td>Boxer</td>
-							<td>Macho</td>
-							<td>2 años</td>
-							<td>15 kg</td>
+							<td>{store.perros[params.theid].sex}</td>
+							<td>{store.perros[params.theid].age}</td>
+							<td>{store.perros[params.theid].breed}</td>
+							<td>{store.perros[params.theid].behaviour}</td>
+							<td>{store.perros[params.theid].size}</td>
 						</tr>
 					</tbody>
 				</table>
@@ -70,6 +68,6 @@ export const Petdetail = props => {
 	);
 };
 
-Petdetail.propTypes = {
+Dogdetail.propTypes = {
 	match: PropTypes.object
 };

@@ -13,12 +13,65 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			perros: [],
+			gatos: [],
+			user: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
+			},
+
+			loadSomedata: () => {
+				var requestOptions = {
+					method: "GET",
+					redirect: "follow"
+				};
+
+				fetch("https://3001-emerald-unicorn-iacul3dd.ws-us04.gitpod.io/api/get_caninos", requestOptions)
+					.then(response => response.json())
+					.then(results => setStore({ perros: results }))
+					.catch(error => console.log("error", error));
+
+				var requestOptions = {
+					method: "GET",
+					redirect: "follow"
+				};
+
+				fetch("https://3001-emerald-unicorn-iacul3dd.ws-us04.gitpod.io/api/get_felinos", requestOptions)
+					.then(response => response.json())
+					.then(result => setStore({ gatos: result }))
+					.catch(error => console.log("error", error));
+			},
+
+			login: () => {
+				var store = getStore();
+				var myHeaders = new Headers();
+				myHeaders.append("Content-Type", "application/json");
+
+				var raw = JSON.stringify({
+					password: "12345",
+					username: "Sergei16"
+				});
+
+				var requestOptions = {
+					method: "POST",
+					headers: myHeaders,
+					body: raw,
+					redirect: "follow"
+				};
+
+				fetch("https://3001-emerald-unicorn-iacul3dd.ws-us04.gitpod.io/api/login", requestOptions)
+					.then(response => response.json())
+					.then(result => setStore({ user: result.user }))
+					.then(console.log(store.user))
+					.catch(error => console.log("error", error));
+			},
+
+			getout: () => {
+				setStore({ user: "0" });
 			},
 
 			getMessage: () => {
@@ -27,20 +80,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(resp => resp.json())
 					.then(data => setStore({ message: data.message }))
 					.catch(error => console.log("Error loading message from backend", error));
-			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
 			}
 		}
 	};
