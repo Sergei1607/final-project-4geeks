@@ -130,6 +130,10 @@ export const Home = () => {
 					return <DogCards key={index} name={item.name} age={item.age} sex={item.sex} index={index} />;
 				})}
 			</div>
+			<div className="row">
+				<Blogs color={"#F2F2F2"} title={"Primeros días en casa de tu mascota"} />
+				<Blogs color={"#F2F2F2"} title={"Controlar los ladridos de tu mascota"} />
+			</div>
 			<div className="row justify-content-center">
 				<button onClick={actions.login}>Login</button>
 			</div>

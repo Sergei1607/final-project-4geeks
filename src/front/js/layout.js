@@ -7,7 +7,7 @@ import { Demo } from "./pages/demo";
 import { Catdetail } from "./pages/catdetail";
 import { Dogdetail } from "./pages/dogdetail";
 import { Adoptform } from "./pages/adoptform";
-import { Login } from "./pages/login";
+import { Login } from "./pages/login.js";
 import { Register } from "./pages/register";
 import { PasswordRecovery } from "./pages/passwordrecovery";
 import { PetCRUD } from "./pages/petcrud";
@@ -41,9 +41,6 @@ const Layout = () => {
 						<Route exact path="/catdetail/:theid">
 							<Catdetail />
 						</Route>
-						<Route>
-							<h1>Not found!</h1>
-						</Route>
 						<Route exact path="/adoptform">
 							<Adoptform />
 						</Route>
@@ -57,7 +54,7 @@ const Layout = () => {
 							<PasswordRecovery />
 						</Route>
 						<Route exact path="/PetCRUD">
-							<PasswordRecovery />
+							<PetCRUD />
 						</Route>
 					</Switch>
 					<Footer />

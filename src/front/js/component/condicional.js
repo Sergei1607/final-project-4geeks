@@ -6,9 +6,14 @@ import { Context } from "../store/appContext";
 
 let buttonStyle = {
 	padding: "5px",
-	margin: "10px",
+	marginLeft: "10px",
 	borderRadius: "10%",
-	backgroundColor: "#27A1C6"
+	backgroundColor: "#27A1C6",
+	width: "100px"
+};
+
+let textStyle = {
+	color: "white"
 };
 
 export function Condicional() {
@@ -17,7 +22,9 @@ export function Condicional() {
 	if (store.user.user_adm === "1") {
 		return (
 			<div className="ml-auto">
-				<span>{"Hola " + store.user.username}</span>
+				<span className="navbar-brand mb-0 h1" style={textStyle}>
+					{"¡Hola " + store.user.username + "!"}
+				</span>
 				<Link to="/login">
 					<button className="btn btn-primary" style={buttonStyle}>
 						Administrar

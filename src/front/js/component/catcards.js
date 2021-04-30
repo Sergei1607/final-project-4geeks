@@ -9,7 +9,7 @@ export function CatCards(props) {
 	const { store, actions } = useContext(Context);
 
 	let backgrounstyle = {
-		backgroundColor: "lightgrey"
+		backgroundColor: "#F2F2F2"
 	};
 
 	let buttonstyle = {

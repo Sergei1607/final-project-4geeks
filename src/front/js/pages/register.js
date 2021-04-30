@@ -7,5 +7,5 @@ import "../../styles/demo.scss";
 
 export const Register = () => {
 	const { store, actions } = useContext(Context);
-	return "";
+	return <div>sdsdsd</div>;
 };
