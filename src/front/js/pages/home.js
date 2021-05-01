@@ -6,7 +6,7 @@ import educacion from "../../img/educacion.png";
 import castrar from "../../img/castrar.png";
 import quienes from "../../img/quienes.png";
 import blog1 from "../../img/blog1.jpg";
-import blog2 from "../../img/blog 2.jpg";
+import blog2 from "../../img/blog2.jpg";
 import "../../styles/home.scss";
 import { Carousel } from "react-bootstrap";
 import { DogCards } from "../component/dogcards";
@@ -56,6 +56,13 @@ export const Home = () => {
 		color: "white"
 	};
 
+	let h1style3 = {
+		fontSize: "50px",
+		marginBottom: "30px",
+		marginTop: "15px",
+		color: "black"
+	};
+
 	let h2style = {
 		fontSize: "40px",
 		marginBottom: "30px",
@@ -68,6 +75,14 @@ export const Home = () => {
 		fontSize: "20px",
 		marginTop: "-140px",
 		color: "white"
+	};
+
+	let separation = { marginTop: "20px" };
+
+	let iconStyle = {
+		color: "#27A1C6",
+		marginBottom: "30px",
+		marginTop: "20px"
 	};
 
 	return (
@@ -112,10 +127,18 @@ export const Home = () => {
 					Mascotas en adopción
 				</h1>
 			</div>
-			<div className="row justify-content-center" style={backgroundstyle}>
-				<h2 className="text-center" style={h2style}>
-					Gatos
-				</h2>
+			<div className="row d-flex justify-content-center" style={backgroundstyle}>
+				<div className="col-1  text-center">
+					<i className="fas fa-paw fa-3x" style={iconStyle}></i>
+				</div>
+				<div className="col-2 text-center  ">
+					<h2 className="text-center" style={h1style3}>
+						Gatos
+					</h2>
+				</div>
+				<div className="col-1 text-center">
+					<i className="fas fa-paw fa-3x" style={iconStyle}></i>
+				</div>
 			</div>
 			<div className="row overflow-scroll pb-5" style={over}>
 				{store.gatos.map((item, index) => {
@@ -131,11 +154,18 @@ export const Home = () => {
 					);
 				})}
 			</div>
-			<div className="row justify-content-center" style={backgroundstyle}>
-				<h2 className="text-center" style={h2style}>
-					{" "}
-					Perros
-				</h2>
+			<div className="row d-flex justify-content-center" style={backgroundstyle}>
+				<div className="col-1  text-center">
+					<i className="fas fa-paw fa-3x" style={iconStyle}></i>
+				</div>
+				<div className="col-2 text-center  ">
+					<h2 className="text-center" style={h1style3}>
+						Perros
+					</h2>
+				</div>
+				<div className="col-1 text-center">
+					<i className="fas fa-paw fa-3x" style={iconStyle}></i>
+				</div>
 			</div>
 			<div className="row overflow-scroll pb-5" style={over}>
 				{store.perros.map((item, index) => {
@@ -151,14 +181,19 @@ export const Home = () => {
 					);
 				})}
 			</div>
-			<div className="row">
-				<Blogs image={blog1} color={"#F2F2F2"} title={"Primeros días en casa de tu mascota"} />
-				<Blogs image={blog2} color={"#F2F2F2"} title={"Controlar los ladridos de tu mascota"} />
+			<div className="row justify-content-center" style={backgroundstyle1}>
+				<h1 className="text-center" style={h1style2}>
+					{" "}
+					Blogs
+				</h1>
+			</div>
+			<div className="row" style={separation}>
+				<Blogs image={blog1} color={"#F2F2F2"} title={"Controlar los ladridos de tu mascota"} />
+				<Blogs image={blog2} color={"#F2F2F2"} title={"Primeros días de tu mascota en casa"} />
 			</div>
 			<div className="row justify-content-center">
 				<button onClick={actions.login}>Login</button>
 			</div>
-			<div className="row justify-content-center"></div>
 		</div>
 	);
 };
