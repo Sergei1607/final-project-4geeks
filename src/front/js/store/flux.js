@@ -61,6 +61,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => console.log("error", error));
 			},
 
+			deletepet: id => {
+				var raw = "";
+
+				var requestOptions = {
+					method: "DELETE",
+					body: raw,
+					redirect: "follow"
+				};
+
+				fetch("https://3001-emerald-unicorn-iacul3dd.ws-us04.gitpod.io/api/pet/" + id, requestOptions)
+					.then(response => response.json())
+					.then(result => console.log(result))
+					.catch(error => console.log("error", error));
+			},
+
 			login: () => {
 				var store = getStore();
 				var myHeaders = new Headers();

@@ -99,8 +99,34 @@ export function PetCRUD() {
 			.catch(error => console.log("error", error));
 	}
 
-	function editPet() {
-		return "";
+	function editPet(id) {
+		var myHeaders = new Headers();
+		myHeaders.append("Content-Type", "application/json");
+
+		var raw = JSON.stringify({
+			age: age,
+			behaviour: behaviour,
+			breed: breed,
+			history: history,
+			name: name,
+			other: other,
+			sex: sex,
+			size: size,
+			type_pet: typepet,
+			image: image
+		});
+
+		var requestOptions = {
+			method: "PUT",
+			headers: myHeaders,
+			body: raw,
+			redirect: "follow"
+		};
+
+		fetch("https://3001-emerald-unicorn-iacul3dd.ws-us04.gitpod.io/api/pet/" + id, requestOptions)
+			.then(response => response.text())
+			.then(result => console.log(result))
+			.catch(error => console.log("error", error));
 	}
 
 	return (
@@ -146,7 +172,13 @@ export function PetCRUD() {
 									<i className="fas fa-edit fa-2x px-1" style={iconStyle} onClick={handleShow2}></i>
 								</span>
 								<span>
-									<i className="fas fa-trash fa-2x px-1" style={iconStyle}></i>
+									<i
+										className="fas fa-trash fa-2x px-1"
+										style={iconStyle}
+										onClick={() => {
+											console.log(item.id);
+											actions.deletepet(item.id);
+										}}></i>
 								</span>
 							</div>
 							<div className="col-2 text-center">
@@ -295,7 +327,11 @@ export function PetCRUD() {
 											</div>
 										</form>
 
-										<button className="btn btn-primary" onClick={editPet}>
+										<button
+											className="btn btn-primary"
+											onClick={() => {
+												editPet(item.id);
+											}}>
 											Editar
 										</button>
 									</form>
