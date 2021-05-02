@@ -16,6 +16,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			],
 			perros: [],
 			gatos: [],
+			mascotas: [],
 			user: []
 		},
 		actions: {
@@ -43,6 +44,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch("https://3001-emerald-unicorn-iacul3dd.ws-us04.gitpod.io/api/get_felinos", requestOptions)
 					.then(response => response.json())
 					.then(result => setStore({ gatos: result }))
+					.catch(error => console.log("error", error));
+
+				var myHeaders = new Headers();
+				myHeaders.append("Content-Type", "application/json");
+
+				var requestOptions = {
+					method: "GET",
+					headers: myHeaders,
+					redirect: "follow"
+				};
+
+				fetch("https://3001-emerald-unicorn-iacul3dd.ws-us04.gitpod.io/api/pet", requestOptions)
+					.then(response => response.json())
+					.then(result => setStore({ mascotas: result }))
 					.catch(error => console.log("error", error));
 			},
 

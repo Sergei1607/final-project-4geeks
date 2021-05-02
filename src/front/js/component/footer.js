@@ -14,6 +14,11 @@ export const Footer = () => {
 		fontSize: "20px"
 	};
 
+	let fontStyle2 = {
+		fontSize: "20px",
+		marginTop: "4px"
+	};
+
 	return (
 		<div className="container-flux">
 			<div className="row " style={colorStyle}>
@@ -22,10 +27,8 @@ export const Footer = () => {
 						Correo: angelesdelosanimales@gmail.com
 					</p>
 				</div>
-				<div className="col-4 d-flex justify-content-center align-items-center">
-					<p className="mt-3" style={fontStyle}>
-						Teléfono: 8695-15-36
-					</p>
+				<div className="col-4 d-flex justify-content-center" style={fontStyle2}>
+					<p className="mt-2">Teléfono: 8695-15-36</p>
 				</div>
 				<div className="col-4 d-flex justify-content-end align-items-center">
 					<a href="https://www.facebook.com/%C3%81ngeles-de-los-animales-Santa-Rosa-1685466578449779/">

@@ -11,8 +11,6 @@ from flask_jwt_extended import create_access_token , get_jwt_identity , jwt_requ
 import  datetime
 
 
-
-
 api = Blueprint('api', __name__)
 
 
@@ -100,7 +98,7 @@ def get_type_canino():
 
 
 @api.route('/pet', methods=['POST'])
-@jwt_required()
+#@jwt_required()
 def create_pet():
     name = request.json.get("name", None)
     type_pet = request.json.get("type_pet", None)
@@ -111,6 +109,7 @@ def create_pet():
     breed = request.json.get("breed", None)
     size = request.json.get("size", None)
     other = request.json.get("other", None)
+    image = request.json.get("image", None)
 
     if name is None:
         return jsonify({"msg":"No name was provided"}), 400
@@ -130,8 +129,10 @@ def create_pet():
         return jsonify({"msg": "No size was provided"}), 400
     if other is None:
         return jsonify({"msg": "No other was provided"}), 400
+    if image is None:
+        return jsonify({"msg": "No image was provided"}), 400
     
-    pet = Pet.query.filter_by(name=name,type_pet=type_pet,age=age,history=history,behaviour=behaviour,breed=breed,size=size,other=other).first()
+    pet = Pet.query.filter_by(name=name,type_pet=type_pet,age=age,history=history,behaviour=behaviour,breed=breed,size=size,other=other, image=image).first()
     if pet:
         return jsonify({"msg": "Pet already exists"}), 401
     else:
@@ -145,6 +146,7 @@ def create_pet():
         new_pet.breed = breed
         new_pet.size = size
         new_pet.other = other
+        new_pet.image = image
 
 
         db.session.add(new_pet)
