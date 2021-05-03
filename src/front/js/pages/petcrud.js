@@ -26,6 +26,7 @@ export function PetCRUD() {
 	const [raza, setRaza] = useState("");
 	const [size, setSize] = useState("");
 	const [history, setHistory] = useState("");
+	const [ids, setIds] = useState("");
 	const [otro, setOtro] = useState("");
 
 	let styles = { height: "300", width: "300px" };
@@ -93,7 +94,7 @@ export function PetCRUD() {
 			redirect: "follow"
 		};
 
-		fetch("https://3001-emerald-unicorn-iacul3dd.ws-us04.gitpod.io/api/pet", requestOptions)
+		fetch("https://3001-emerald-unicorn-iacul3dd.ws-us03.gitpod.io/api/pet", requestOptions)
 			.then(response => response.text())
 			.then(result => console.log(result))
 			.catch(error => console.log("error", error));
@@ -106,10 +107,10 @@ export function PetCRUD() {
 		var raw = JSON.stringify({
 			age: age,
 			behaviour: behaviour,
-			breed: breed,
+			breed: raza,
 			history: history,
 			name: name,
-			other: other,
+			other: otro,
 			sex: sex,
 			size: size,
 			type_pet: typepet,
@@ -123,7 +124,9 @@ export function PetCRUD() {
 			redirect: "follow"
 		};
 
-		fetch("https://3001-emerald-unicorn-iacul3dd.ws-us04.gitpod.io/api/pet/" + id, requestOptions)
+		console.log(raw, id);
+
+		fetch("https://3001-emerald-unicorn-iacul3dd.ws-us03.gitpod.io/api/pet/" + id, requestOptions)
 			.then(response => response.text())
 			.then(result => console.log(result))
 			.catch(error => console.log("error", error));
@@ -169,14 +172,29 @@ export function PetCRUD() {
 						<div className="row d-flex align-items-center" style={over} key={index}>
 							<div className="col-2 text-center">
 								<span>
-									<i className="fas fa-edit fa-2x px-1" style={iconStyle} onClick={handleShow2}></i>
+									<i
+										className="fas fa-edit fa-2x px-1"
+										style={iconStyle}
+										onClick={() => {
+											setImage(item.image);
+											setName(item.name);
+											setTypepet(item.type_pet);
+											setSex(item.sex);
+											setAge(item.age);
+											setBehaviour(item.behaviour);
+											setRaza(item.breed);
+											setSize(item.size);
+											setHistory(item.history);
+											setOtro(item.other);
+											setIds(item.id);
+											handleShow2();
+										}}></i>
 								</span>
 								<span>
 									<i
 										className="fas fa-trash fa-2x px-1"
 										style={iconStyle}
 										onClick={() => {
-											console.log(item.id);
 											actions.deletepet(item.id);
 										}}></i>
 								</span>
@@ -222,7 +240,6 @@ export function PetCRUD() {
 												className="form-control"
 												id="exampleInputEmail1"
 												aria-describedby="emailHelp"
-												placeholder={item.name}
 												onChange={e => setName(e.target.value)}
 											/>
 										</div>
@@ -231,96 +248,87 @@ export function PetCRUD() {
 											<input
 												type="text"
 												className="form-control"
-												id="exampleInputEmail1"
+												id="exampleFormControlSelect1"
 												aria-describedby="emailHelp"
-												placeholder={item.type_pet}
 												onChange={e => setTypepet(e.target.value)}
 											/>
 										</div>
 										<div className="form-group">
-											<label htmlFor="exampleFormControlSelect1">Sexo de la mascota</label>
+											<label htmlFor="exampleFormControlSelect12">Sexo de la mascota</label>
 											<input
 												type="text"
 												className="form-control"
-												id="exampleInputEmail1"
+												id="exampleFormControlSelect12"
 												aria-describedby="emailHelp"
-												placeholder={item.sex}
 												onChange={e => setSex(e.target.value)}
 											/>
 										</div>
 										<div className="form-group">
-											<label htmlFor="exampleInputEmail1">Edad</label>
+											<label htmlFor="exampleInputEmail19">Edad</label>
 											<input
 												type="text"
 												className="form-control"
-												id="exampleInputEmail1"
+												id="exampleInputEmail19"
 												aria-describedby="emailHelp"
-												placeholder={item.age}
 												onChange={e => setAge(e.target.value)}
 											/>
 										</div>
 										<div className="form-group">
-											<label htmlFor="exampleInputEmail1">Comportamiento</label>
+											<label htmlFor="exampleInputEmail13">Comportamiento</label>
 											<input
 												type="text"
 												className="form-control"
-												id="exampleInputEmail1"
-												aria-describedby="emailHelp"
-												placeholder={item.behaviour}
+												id="exampleInputEmail13"
 												onChange={e => setBehaviour(e.target.value)}
 											/>
 										</div>
 										<div className="form-group">
-											<label htmlFor="exampleInputEmail1">Raza</label>
+											<label htmlFor="exampleInputEmail4">Raza</label>
 											<input
 												type="text"
 												className="form-control"
-												id="exampleInputEmail1"
+												id="exampleInputEmail4"
 												aria-describedby="emailHelp"
-												placeholder={item.breed}
 												onChange={e => setRaza(e.target.value)}
 											/>
 										</div>
 										<div className="form-group">
-											<label htmlFor="exampleInputEmail1">Tamaño</label>
+											<label htmlFor="exampleInputEmail5">Tamaño</label>
 											<input
 												type="text"
 												className="form-control"
-												id="exampleInputEmail1"
+												id="exampleInputEmail5"
 												aria-describedby="emailHelp"
-												placeholder={item.size}
 												onChange={e => setSize(e.target.value)}
 											/>
 										</div>
 										<div className="form-group">
-											<label htmlFor="exampleInputEmail1">Historia</label>
+											<label htmlFor="exampleInputEmail16">Historia</label>
 											<input
 												type="text"
 												className="form-control"
-												id="exampleInputEmail1"
+												id="exampleInputEmail16"
 												aria-describedby="emailHelp"
-												placeholder={item.history}
 												onChange={e => setHistory(e.target.value)}
 											/>
 										</div>
 										<div className="form-group">
-											<label htmlFor="exampleInputEmail1">Más información</label>
+											<label htmlFor="exampleInputEmail17">Más información</label>
 											<input
 												type="text"
 												className="form-control"
-												id="exampleInputEmail1"
+												id="exampleInputEmail17"
 												aria-describedby="emailHelp"
-												placeholder={item.other}
 												onChange={e => setOtro(e.target.value)}
 											/>
 										</div>
 										<form>
 											<div className="form-group">
-												<label htmlFor="exampleFormControlFile1">Carga una imagen</label>
+												<label htmlFor="exampleFormControlFile18">Carga una imagen</label>
 												<input
 													type="file"
 													className="form-control-file"
-													id="exampleFormControlFile1"
+													id="exampleFormControlFile18"
 													onChange={uploadImage}
 												/>
 												{loading ? <h3>Cargando...</h3> : <img src={image} style={styles} />}
@@ -330,7 +338,7 @@ export function PetCRUD() {
 										<button
 											className="btn btn-primary"
 											onClick={() => {
-												editPet(item.id);
+												editPet(ids);
 											}}>
 											Editar
 										</button>
@@ -371,92 +379,88 @@ export function PetCRUD() {
 								<input
 									type="text"
 									className="form-control"
-									id="exampleInputEmail1"
+									id="exampleFormControlSelect1"
 									aria-describedby="emailHelp"
-									placeholder="Canino/Felino"
 									onChange={e => setTypepet(e.target.value)}
 								/>
 							</div>
 							<div className="form-group">
-								<label htmlFor="exampleFormControlSelect1">Sexo de la mascota</label>
+								<label htmlFor="exampleFormControlSelect12">Sexo de la mascota</label>
 								<input
 									type="text"
 									className="form-control"
-									id="exampleInputEmail1"
+									id="exampleFormControlSelect12"
 									aria-describedby="emailHelp"
-									placeholder="Macho/Hembra"
 									onChange={e => setSex(e.target.value)}
 								/>
 							</div>
 							<div className="form-group">
-								<label htmlFor="exampleInputEmail1">Edad</label>
+								<label htmlFor="exampleInputEmail13">Edad</label>
 								<input
 									type="text"
 									className="form-control"
-									id="exampleInputEmail1"
+									id="exampleFormControlSelect13"
 									aria-describedby="emailHelp"
 									onChange={e => setAge(e.target.value)}
 								/>
 							</div>
 							<div className="form-group">
-								<label htmlFor="exampleInputEmail1">Comportamiento</label>
+								<label htmlFor="exampleFormControlSelect14">Comportamiento</label>
 								<input
 									type="text"
 									className="form-control"
-									id="exampleInputEmail1"
+									id="exampleFormControlSelect14"
 									aria-describedby="emailHelp"
 									onChange={e => setBehaviour(e.target.value)}
 								/>
 							</div>
 							<div className="form-group">
-								<label htmlFor="exampleInputEmail1">Raza</label>
+								<label htmlFor="exampleFormControlSelect15">Raza</label>
 								<input
 									type="text"
 									className="form-control"
-									id="exampleInputEmail1"
+									id="exampleFormControlSelect15"
 									aria-describedby="emailHelp"
-									placeholder="SRD"
 									onChange={e => setRaza(e.target.value)}
 								/>
 							</div>
 							<div className="form-group">
-								<label htmlFor="exampleInputEmail1">Tamaño</label>
+								<label htmlFor="exampleFormControlSelect17">Tamaño</label>
 								<input
 									type="text"
 									className="form-control"
-									id="exampleInputEmail1"
+									id="exampleFormControlSelect17"
 									aria-describedby="emailHelp"
-									placeholder="Pequeño/Mediano/Grande"
 									onChange={e => setSize(e.target.value)}
 								/>
 							</div>
 							<div className="form-group">
-								<label htmlFor="exampleInputEmail1">Historia</label>
+								<label htmlFor="exampleFormControlSelect18">Historia</label>
 								<input
 									type="text"
 									className="form-control"
-									id="exampleInputEmail1"
+									id="exampleFormControlSelect18"
 									aria-describedby="emailHelp"
 									onChange={e => setHistory(e.target.value)}
 								/>
 							</div>
 							<div className="form-group">
-								<label htmlFor="exampleInputEmail1">Más información</label>
+								<label htmlFor="exampleFormControlSelect19">Más información</label>
 								<input
 									type="text"
 									className="form-control"
-									id="exampleInputEmail1"
+									id="exampleFormControlSelect19"
 									aria-describedby="emailHelp"
 									onChange={e => setOtro(e.target.value)}
 								/>
 							</div>
 							<form>
 								<div className="form-group">
-									<label htmlFor="exampleFormControlFile1">Carga una imagen</label>
+									<label htmlFor="exampleFormControlSelect20">Carga una imagen</label>
 									<input
 										type="file"
 										className="form-control-file"
-										id="exampleFormControlFile1"
+										id="exampleFormControlSelect20"
 										onChange={uploadImage}
 									/>
 									{loading ? <h3>Cargando...</h3> : <img src={image} style={styles} />}

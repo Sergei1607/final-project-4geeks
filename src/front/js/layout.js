@@ -11,7 +11,7 @@ import { Login } from "./pages/login.js";
 import { Register } from "./pages/register";
 import { PasswordRecovery } from "./pages/passwordrecovery";
 import { PetCRUD } from "./pages/petcrud";
-import { Test } from "./pages/test.js";
+import { Adoptions } from "./pages/adoptions.js";
 
 import injectContext from "./store/appContext";
 
@@ -56,6 +56,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/PetCRUD">
 							<PetCRUD />
+						</Route>
+						<Route exact path="/adoptions">
+							<Adoptions />
 						</Route>
 					</Switch>
 					<Footer />

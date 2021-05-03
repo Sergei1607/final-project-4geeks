@@ -12,12 +12,28 @@ let buttonStyle = {
 	width: "100px"
 };
 
+let favoritestyle = {
+	backgroundColor: "white",
+	marginLeft: "5px",
+	marginRight: "5px",
+	borderRadius: "25%",
+	color: "black"
+};
+
 let textStyle = {
 	color: "white"
 };
 
 export function Condicional() {
 	const { store, actions } = useContext(Context);
+
+	let counter = 0;
+	function count() {
+		for (let i in store.gatos) {
+			counter++;
+		}
+		return counter;
+	}
 
 	if (store.user.user_adm === "1") {
 		return (
@@ -28,6 +44,12 @@ export function Condicional() {
 				<Link to="/PetCRUD">
 					<button className="btn btn-primary" style={buttonStyle}>
 						Administrar
+					</button>
+				</Link>
+				<Link to="/adoptions">
+					<button className="btn btn-primary" style={buttonStyle}>
+						Solicitudes
+						<span style={favoritestyle}>{count()}</span>
 					</button>
 				</Link>
 				<button className="btn btn-primary" style={buttonStyle} onClick={actions.getout}>

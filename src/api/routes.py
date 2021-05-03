@@ -175,10 +175,10 @@ def update_pet(id):
     age = request.json["age"]
     history = request.json["history"]
     behaviour = request.json["behaviour"]
-    breed = request.json["behaviour"]
+    breed = request.json["breed"]
     size = request.json["size"]
     other = request.json["other"]
-    image = request.json["image"]
+    
 
     pet1.name = name
     pet1.type_pet = type_pet
@@ -189,7 +189,7 @@ def update_pet(id):
     pet1.breed = breed
     pet1.size = size
     pet1.other = other    
-    pet1.image = image
+   
     
     db.session.commit()
     
