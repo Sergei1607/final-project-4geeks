@@ -21,7 +21,8 @@ let favoritestyle = {
 };
 
 let textStyle = {
-	color: "white"
+	color: "white",
+	marginTop: "7px"
 };
 
 export function Condicional() {
@@ -38,9 +39,6 @@ export function Condicional() {
 	if (store.user.user_adm === "1") {
 		return (
 			<div className="ml-auto">
-				<span className="navbar-brand mb-0 h1" style={textStyle}>
-					{"¡Hola " + store.user.username + "!"}
-				</span>
 				<Link to="/PetCRUD">
 					<button className="btn btn-primary" style={buttonStyle}>
 						Administrar
