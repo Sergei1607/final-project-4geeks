@@ -16,7 +16,7 @@ export const Footer = () => {
 
 	return (
 		<div className="container-flux">
-			<div className="row " style={colorStyle}>
+			<div className="row mt-1" style={colorStyle}>
 				<div className="col-4 d-flex justify-content-center align-items-center">
 					<p className="mt-2" style={fontStyle}>
 						Correo: angelesdelosanimales@gmail.com
