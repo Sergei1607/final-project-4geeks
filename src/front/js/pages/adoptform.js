@@ -14,12 +14,17 @@ export const Adoptform = () => {
 		backgroundRepeat: "no-repeat",
 		backgroundSize: "cover"
 	};
+
+	let colorFondo = {
+		background: "#00ffff"
+	};
+
 	return (
 		<div className="container-fluid" style={backgroundStyle}>
 			<div className="container">
 				<div className="row">
 					<div className="col-3"></div>
-					<div className="col-6 bg-danger">
+					<div className="col-6" style={colorFondo}>
 						<h1>Formulario de Adopción</h1>
 						<form>
 							<div className="form-row">
@@ -60,17 +65,23 @@ export const Adoptform = () => {
 									<input type="text" className="form-control" id="inputDistrito" />
 								</div>
 							</div>
-							<div className="form-group">
-								<div className="form-check">
-									<input className="form-check-input" type="checkbox" id="gridCheck" />
-									<label className="form-check-label" htmlFor="gridCheck">
-										Check me out
-									</label>
+							<div className="form-row">
+								<div className="form-group col-md-6">
+									<label htmlFor="inputTelefono">Telefono</label>
+									<input type="text" className="form-control" id="inputProvincia" />
+								</div>
+								<div className="form-group col-md-6">
+									<label htmlFor="inputCelular">Celular</label>
+									<input type="text" className="form-control" id="inputCelular" />
 								</div>
 							</div>
-							<button type="submit" className="btn btn-primary">
-								Sign in
-							</button>
+							<div className="form-group">
+								<div className="text-center">
+									<button type="submit" className="btn btn-primary">
+										Enviar
+									</button>
+								</div>
+							</div>
 						</form>
 					</div>
 					<div className="col-3"></div>
