@@ -25,45 +25,25 @@ export const Register = () => {
 							<label className="LabelItemComponent">Usuario</label>
 						</div>
 						<div className="inputContainer">
-							<input
-								id="username"
-								placeholder
-								name="username"
-								type="text"
-								className="regularStyle"></input>
+							<input id="username" placeholder name="username" type="text" className="regularStyle" />
 						</div>
 						<div className="ItemComponent">
 							<label className="LabelItemComponent">Nombre</label>
 						</div>
 						<div className="inputContainer">
-							<input
-								id="firstname"
-								placeholder
-								name="firstname"
-								type="text"
-								className="regularStyle"></input>
+							<input id="firstname" placeholder name="firstname" type="text" className="regularStyle" />
 						</div>
 						<div className="ItemComponent">
 							<label className="LabelItemComponent">Apellidos</label>
 						</div>
 						<div className="inputContainer">
-							<input
-								id="lastname"
-								placeholder
-								name="lastname"
-								type="text"
-								className="regularStyle"></input>
+							<input id="lastname" placeholder name="lastname" type="text" className="regularStyle" />
 						</div>
 						<div className="ItemComponent">
 							<label className="LabelItemComponent">Correo Electronico</label>
 						</div>
 						<div className="inputContainer">
-							<input
-								id="password"
-								placeholder
-								name="password"
-								type="password"
-								className="regularStyle"></input>
+							<input id="password" placeholder name="password" type="password" className="regularStyle" />
 						</div>
 						<div className="ItemComponent">
 							<label className="LabelItemComponent">Contraseña</label>
@@ -74,7 +54,8 @@ export const Register = () => {
 								placeholder
 								name="passwordAgain"
 								type="password"
-								className="regularStyle"></input>
+								className="regularStyle"
+							/>
 						</div>
 						<div className="ItemComponent">
 							<label className="LabelItemComponent">Pregunta Secreta</label>
@@ -92,7 +73,7 @@ export const Register = () => {
 							<label className="LabelItemComponent">Respuesta</label>
 						</div>
 						<div className="inputContainer">
-							<input id="answer" placeholder name="answer" type="text" className="regularStyle"></input>
+							<input id="answer" placeholder name="answer" type="text" className="regularStyle" />
 						</div>
 						<div className="regularButtonLoginContainer">
 							<Link to="/">
