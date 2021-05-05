@@ -26,18 +26,6 @@ export const Login = () => {
 							<input id="username" placeholder name="username" type="text" className="regularStyle" />
 						</div>
 						<div className="ItemComponent">
-							<label className="LabelItemComponent">Nombre</label>
-						</div>
-						<div className="inputContainer">
-							<input id="firstname" placeholder name="firstname" type="text" className="regularStyle" />
-						</div>
-						<div className="ItemComponent">
-							<label className="LabelItemComponent">Apellidos</label>
-						</div>
-						<div className="inputContainer">
-							<input id="lastname" placeholder name="lastname" type="text" className="regularStyle" />
-						</div>
-						<div className="ItemComponent">
 							<label className="LabelItemComponent">Correo Electronico</label>
 						</div>
 						<div className="inputContainer">
@@ -54,24 +42,6 @@ export const Login = () => {
 								type="password"
 								className="regularStyle"
 							/>
-						</div>
-						<div className="ItemComponent">
-							<label className="LabelItemComponent">Pregunta Secreta</label>
-						</div>
-						<div className="inputContainer">
-							<select name="transporte" className="regularStyle">
-								<option>¿Cual es tu Color Favorito?</option>
-
-								<option>¿Como se llama tu madre?</option>
-
-								<option>¿En donde Naciste?</option>
-							</select>
-						</div>
-						<div className="ItemComponent">
-							<label className="LabelItemComponent">Respuesta</label>
-						</div>
-						<div className="inputContainer">
-							<input id="answer" placeholder name="answer" type="text" className="regularStyle" />
 						</div>
 						<div className="regularButtonLoginContainer">
 							<Link to="/">
