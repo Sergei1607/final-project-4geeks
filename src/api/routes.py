@@ -48,16 +48,34 @@ def login():
 @api.route('/register', methods=['POST'])
 def register_user():
     username = request.json.get("username",None)
+    name = request.json.get("name",None)
+    last_name = request.json.get("last_name",None)
     email = request.json.get("email", None)
     password = request.json.get("password", None)
+    question = request.json.get("question",None)
+    answer = request.json.get("answer",None)
+
+
     if username is None:
         return jsonify({"msg":"No username was provided"}),400
     if email is None:
         return jsonify({"msg": "No email was provided"}), 400
     if password is None:
         return jsonify({"msg": "No password was provided"}), 400
+
+    if name is None:
+        return jsonify({"msg": "No name was provided"}), 400
     
-    user = User.query.filter_by(username=username,email=email, password=password).first()
+    if last_name is None:
+        return jsonify({"msg": "No last name was provided"}), 400
+    
+    if question is None:
+        return jsonify({"msg": "No question was provided"}), 400
+    
+    if answer is None:
+        return jsonify({"msg": "No answer was provided"}), 400
+    
+    user = User.query.filter_by(username=username,email=email,name=name,last_name=last_name, password=password,question=question,answer=answer).first()
     if user:
         # the user was not found on the database
         return jsonify({"msg": "User already exists"}), 401
@@ -65,12 +83,31 @@ def register_user():
         new_user = User()
         new_user.username = username
         new_user.email = email
+        new_user.name = name
+        new_user.last_name = last_name
         new_user.password = password
+        new_user.question = question
+        new_user.answer = answer
     
 
         db.session.add(new_user)
         db.session.commit()
         return jsonify({"msg": "User created successfully"}), 200
+
+
+# @api.route('/change_password', methods=['PUT'])
+# @jwt_required()
+# def change_password():
+#     user = request.json.get('id')
+#     question = request.json.get["question"]
+#     email = request.json.get["email"]
+#     password = request.json.get["password"]
+#     user.password = password
+    
+#     db.session.commit()
+   
+#     return jsonify(user.serialize()), 200
+
 
 #Endpoints Pets******************************************
 
@@ -155,18 +192,18 @@ def create_pet():
 
 
 @api.route('/pet/<int:id>', methods=['DELETE'])
-#@jwt_required()
+@jwt_required()
 def  delete_pet(id):
-    #current_user = get_jwt_identity()
+    current_user = get_jwt_identity()
     pet1 = Pet.query.get(id)
     if pet1 is None:
         raise APIException("Pet is not found",status_code=404)
     db.session.delete(pet1)
     db.session.commit()
-    return jsonify({"Succesfully delete by":"hi"}),200
+    return jsonify({"Succesfully delete by":current_user}),200
 
 @api.route('/pet/<int:id>', methods = ['PUT'])
-#@jwt_required()
+@jwt_required()
 def update_pet(id):
     pet1 = Pet.query.get(id)
     name = request.json["name"]
@@ -175,10 +212,9 @@ def update_pet(id):
     age = request.json["age"]
     history = request.json["history"]
     behaviour = request.json["behaviour"]
-    breed = request.json["breed"]
+    breed = request.json["behaviour"]
     size = request.json["size"]
     other = request.json["other"]
-    
 
     pet1.name = name
     pet1.type_pet = type_pet
@@ -189,10 +225,7 @@ def update_pet(id):
     pet1.breed = breed
     pet1.size = size
     pet1.other = other    
-   
-    
     db.session.commit()
-    
    
     return jsonify(pet1.serialize()), 200
 
@@ -206,7 +239,7 @@ def create_adopt():
     telephone = request.json.get("telephone", None)
     mobile_phone = request.json.get("mobile_phone", None)
     email = request.json.get("email", None)
-    pet_id = request.json.get("pet_id", None)
+    name_pet = request.json.get("name_pet", None)
    
     if full_name is None:
         return jsonify({"msg":"No full_name was provided"}), 400
@@ -219,11 +252,11 @@ def create_adopt():
     if email is None:
         return jsonify({"msg": "No email was provided"}), 400
 
-    if pet_id is None:
-        return jsonify({"msg": "No pet_id was provided"}), 400
+    if name_pet is None:
+        return jsonify({"msg": "No name_pet was provided"}), 400
     
     
-    adopt = Adopt.query.filter_by(full_name=full_name,address=address,telephone=telephone,mobile_phone=mobile_phone,email=email,pet_id=pet_id).first()
+    adopt = Adopt.query.filter_by(full_name=full_name,address=address,telephone=telephone,mobile_phone=mobile_phone,email=email,name_pet=name_pet).first()
     if adopt:
         return jsonify({"msg": "Error"}), 401
     else:
@@ -233,7 +266,7 @@ def create_adopt():
         new_adopt.telephone = telephone
         new_adopt.mobile_phone = mobile_phone
         new_adopt.email = email
-        new_adopt.pet_id = pet_id
+        new_adopt.name_pet = name_pet
        
 
         db.session.add(new_adopt)
