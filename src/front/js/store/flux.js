@@ -17,7 +17,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			perros: [],
 			gatos: [],
 			mascotas: [],
-			user: []
+			user: [],
+			adoptions: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -59,6 +60,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(response => response.json())
 					.then(result => setStore({ mascotas: result }))
 					.catch(error => console.log("error", error));
+
+				var requestOptions = {
+					method: "GET",
+					redirect: "follow"
+				};
+
+				fetch("https://3001-emerald-unicorn-iacul3dd.ws-us03.gitpod.io/api/adopt", requestOptions)
+					.then(response => response.json())
+					.then(result => setStore({ adoptions: result }))
+					.catch(error => console.log("error", error));
 			},
 
 			deletepet: id => {
@@ -99,7 +110,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(console.log(store.user))
 					.catch(error => console.log("error", error));
 			},
-
 			getout: () => {
 				setStore({ user: "0" });
 			}
