@@ -45,12 +45,12 @@ export const Login = () => {
 						</div>
 						<div className="regularButtonLoginContainer">
 							<Link to="/">
-								<button className="regularButtonLoginDisabled">Registrarse</button>
+								<button className="regularButtonLoginDisabled">Ingresar</button>
 							</Link>
 						</div>
 						<div className="ItemComponent">
-							<Link to="/login">
-								<label className="LabelItemComponent">Quiero Loguearme </label>
+							<Link to="/register">
+								<label className="LabelItemComponent">Quiero Registrarme </label>
 							</Link>
 						</div>{" "}
 					</div>
