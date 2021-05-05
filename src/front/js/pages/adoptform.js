@@ -24,46 +24,21 @@ export const Adoptform = () => {
 			<div className="container">
 				<div className="row">
 					<div className="col-3"></div>
-					<div className="col-6" style={colorFondo}>
+					<div className="col-6 mt-3 mb-3" style={colorFondo}>
 						<h1>Formulario de Adopción</h1>
 						<form>
-							<div className="form-row">
-								<div className="col">
-									<label htmlFor="inputEmail4">Nombre</label>
-									<input type="text" className="form-control" />
-								</div>
-								<div className="col">
-									<label htmlFor="inputEmail4">Apellidos</label>
-									<input type="text" className="form-control" />
-								</div>
+							<div className="form-group">
+								<label htmlFor="inputEmail4">Nombre</label>
+								<input type="text" className="form-control" />
 							</div>
 
 							<div className="form-group">
 								<label htmlFor="inputAddress">Email</label>
-								<input type="email" className="form-control" id="inputEmail3" placeholder="Email" />
+								<input type="email" className="form-control" id="inputEmail3" placeholder="@" />
 							</div>
 							<div className="form-group">
 								<label htmlFor="inputAddress2">Dirección</label>
-								<input
-									type="text"
-									className="form-control"
-									id="inputAddress1"
-									placeholder="numero de calle o casa color"
-								/>
-							</div>
-							<div className="form-row">
-								<div className="form-group col-md-4">
-									<label htmlFor="inputProvincia">Provincia</label>
-									<input type="text" className="form-control" id="inputProvincia" />
-								</div>
-								<div className="form-group col-md-4">
-									<label htmlFor="inputCanton">Cantón</label>
-									<input type="text" className="form-control" id="inputCanton" />
-								</div>
-								<div className="form-group col-md-4">
-									<label htmlFor="inputDistrito">Distrito</label>
-									<input type="text" className="form-control" id="inputDistrito" />
-								</div>
+								<input type="text" className="form-control" id="inputAddress1" />
 							</div>
 							<div className="form-row">
 								<div className="form-group col-md-6">
@@ -75,6 +50,24 @@ export const Adoptform = () => {
 									<input type="text" className="form-control" id="inputCelular" />
 								</div>
 							</div>
+							<div className="form-row">
+								<div className="form-group col-md-6">
+									<label htmlFor="inputTelefono">Mascotas</label>
+									<select className="custom-select mr-sm-2" id="inlineFormCustomSelect">
+										<option selected>Choose...</option>
+										<option value="1">One</option>
+										<option value="2">Two</option>
+										<option value="3">Three</option>
+									</select>
+								</div>
+							</div>
+							{/* <div className="form-row align-items-center">
+								<div className="col-auto my-1">
+									
+									
+								</div>
+							</div> */}
+
 							<div className="form-group">
 								<div className="text-center">
 									<button type="submit" className="btn btn-primary">
