@@ -40,13 +40,14 @@ export const Home = () => {
 		backgroundPosition: "center",
 		backgroundRepeat: "no-repeat",
 		backgroundSize: "cover",
-		height: "550px"
+		height: "700px"
 	};
 
 	let h1style = {
-		fontSize: "60px",
-		marginTop: "70px",
-		color: "white"
+		fontSize: "5vw",
+		marginTop: "50px",
+		color: "white",
+		marginBottom: "20px"
 	};
 
 	let h1style2 = {
@@ -63,17 +64,11 @@ export const Home = () => {
 		color: "black"
 	};
 
-	let h2style = {
-		fontSize: "40px",
-		marginBottom: "30px",
-		marginTop: "20px"
-	};
-
 	let pstyle = {
-		paddingLeft: "80px",
-		paddingRight: "80px",
-		fontSize: "20px",
-		marginTop: "-140px",
+		paddingLeft: "100px",
+		paddingRight: "100px",
+		fontSize: "2vw",
+		marginTop: "-120px",
 		color: "white"
 	};
 
@@ -107,7 +102,7 @@ export const Home = () => {
 				</Carousel>
 			</div>
 			<div className="row justify-content-center" style={separationWITHIMAGEstyle}>
-				<h1 className="text-center" style={h1style}>
+				<h1 className=" text-center" style={h1style}>
 					¿Qué somos?
 				</h1>
 				<p className=" text-center" style={pstyle}>
@@ -128,10 +123,10 @@ export const Home = () => {
 				</h1>
 			</div>
 			<div className="row d-flex justify-content-center" style={backgroundstyle}>
-				<div className="col-1  text-center">
+				<div className="col-lg-1 col-sm-2  text-center">
 					<i className="fas fa-paw fa-3x" style={iconStyle}></i>
 				</div>
-				<div className="col-2 text-center  ">
+				<div className="col-lg-2 col-sm-6 text-center  ">
 					<h2 className="text-center" style={h1style3}>
 						Gatos
 					</h2>
@@ -155,10 +150,10 @@ export const Home = () => {
 				})}
 			</div>
 			<div className="row d-flex justify-content-center" style={backgroundstyle}>
-				<div className="col-1  text-center">
+				<div className="col-lg-1 col-sm-2   text-center">
 					<i className="fas fa-paw fa-3x" style={iconStyle}></i>
 				</div>
-				<div className="col-2 text-center  ">
+				<div className="col-lg-2 col-sm-6 text-center  ">
 					<h2 className="text-center" style={h1style3}>
 						Perros
 					</h2>

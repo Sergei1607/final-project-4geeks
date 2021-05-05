@@ -91,8 +91,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				myHeaders.append("Content-Type", "application/json");
 
 				var raw = JSON.stringify({
-					password: "123456",
-					username: "Usuario1"
+					password: "12345",
+					username: "Sergei16"
 				});
 
 				var requestOptions = {

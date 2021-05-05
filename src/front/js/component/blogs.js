@@ -22,15 +22,15 @@ export function Blogs(props) {
 	let size = { width: "1510px", marginLeft: "14px" };
 
 	return (
-		<div className="card mb-3" style={size}>
+		<div className="col-lg-12 col-sm-5 mb-3" style={size}>
 			<div className="row">
-				<div className="col-md-3 " style={imagestyle}>
+				<div className="col-lg-3 col-sm-12 " style={imagestyle}>
 					<img className="card-img-top" src={props.image} alt="..." height="165px" width="260px" />
 				</div>
-				<div className="col-md-9">
+				<div className="col-lg-9 col-sm-12">
 					<div className="card-body" style={backgroundstyle}>
-						<h5 className="card-title">{props.title}</h5>
-						<p className="card-text">
+						<h5 className="card-title ">{props.title}</h5>
+						<p className="card-text d-sm-none d-md-block">
 							It is a long established fact that a reader will be distracted by the readable content of a
 							page when looking at its layout. The point of using Lorem Ipsum is that it has a
 							more-or-less normal distribution of letters.

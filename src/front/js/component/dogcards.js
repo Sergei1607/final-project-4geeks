@@ -22,7 +22,7 @@ export function DogCards(props) {
 	};
 
 	return (
-		<div className="col-3">
+		<div className="col-lg-3 col-sm-6">
 			<div className="card">
 				<img className="card-img-top" src={props.image} alt="Card image cap" height="300px" />
 				<div className="card-body" style={backgrounstyle}>
