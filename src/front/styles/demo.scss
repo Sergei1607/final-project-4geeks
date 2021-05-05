@@ -17,7 +17,7 @@
 .LoginHigher {
     width: 100%;
     height: 30%;
-    background-image: url('../img/quienes.png');
+    // background-image: url('../img/blue.jpg');
 }
 
 .LoginLower {
@@ -199,7 +199,7 @@
         background: #ffffff
     }
     .LoginContent {
-        background-image:  linear-gradient(90deg, rgba(117,70,138,1) 0%, rgba(117,70,138,0) 100%, rgba(255,255,255,1) 100%), url('../img/quienes.png');
+        // background-image:  linear-gradient(90deg, rgba(117,70,138,1) 0%, rgba(117,70,138,0) 100%, rgba(255,255,255,1) 100%), url('../img/blue.jpg');
         display: flex;
         justify-content: center;
         background-size: cover;
@@ -250,17 +250,12 @@
         display: none;
     }
     .CreateUserContainer {
-        position: absolute;
+        position: relative;
         width: 100%;
         height: 100%;
         display: flex;
         flex-direction: row-reverse;
-        background-image: url('../img/quienes.png');
+        // background-image: url('../img/blue.jpg');
     }
-    .BackgroundWeb {
-        width: 60%;
-        height: 100%;
-        background-image: linear-gradient(90deg, rgba(117,70,138,1) 0%, rgba(117,70,138,0) 100%, rgba(255,255,255,1) 100%), url('../img/quienes.png');
-        background-size: cover;
-    } 
+   
 }
