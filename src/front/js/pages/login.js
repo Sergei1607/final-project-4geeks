@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import blue from "../../img/blue.jpg";
+import naranja from "../../img/naranja.jpg";
 import { Context } from "../store/appContext";
 import "../../styles/demo.scss";
 
@@ -8,7 +8,7 @@ export const Login = () => {
 	const { store, actions } = useContext(Context);
 
 	let registerstyle = {
-		backgroundImage: `url(${blue})`,
+		backgroundImage: `url(${naranja})`,
 		position: "relative",
 		backgroundRepeat: "no-repeat",
 		height: "1400px"
