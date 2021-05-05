@@ -155,18 +155,18 @@ def create_pet():
 
 
 @api.route('/pet/<int:id>', methods=['DELETE'])
-@jwt_required()
+#@jwt_required()
 def  delete_pet(id):
-    current_user = get_jwt_identity()
+    #current_user = get_jwt_identity()
     pet1 = Pet.query.get(id)
     if pet1 is None:
         raise APIException("Pet is not found",status_code=404)
     db.session.delete(pet1)
     db.session.commit()
-    return jsonify({"Succesfully delete by":current_user}),200
+    return jsonify({"Succesfully delete by":"hi"}),200
 
 @api.route('/pet/<int:id>', methods = ['PUT'])
-@jwt_required()
+#@jwt_required()
 def update_pet(id):
     pet1 = Pet.query.get(id)
     name = request.json["name"]
@@ -175,9 +175,10 @@ def update_pet(id):
     age = request.json["age"]
     history = request.json["history"]
     behaviour = request.json["behaviour"]
-    breed = request.json["behaviour"]
+    breed = request.json["breed"]
     size = request.json["size"]
     other = request.json["other"]
+    
 
     pet1.name = name
     pet1.type_pet = type_pet
@@ -188,7 +189,10 @@ def update_pet(id):
     pet1.breed = breed
     pet1.size = size
     pet1.other = other    
+   
+    
     db.session.commit()
+    
    
     return jsonify(pet1.serialize()), 200
 
