@@ -27,7 +27,7 @@ export const Navbar = () => {
 
 	return (
 		<div className="container-flux">
-			<nav className="navbar navbar-light mb-3" style={colorStyle}>
+			<nav className="navbar navbar-light" style={colorStyle}>
 				<Link to="/">
 					<img src={Logo} height="75px" width="80px" style={imageStyle} />
 				</Link>

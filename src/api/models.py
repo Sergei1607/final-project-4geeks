@@ -7,10 +7,12 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(120), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
+    name = db.Column(db.String(120),nullable=False)
+    last_name = db.Column(db.String(120),nullable=False)
     password = db.Column(db.String(80), unique=True, nullable=False)
     user_adm = db.Column(db.String(80))
-
-
+    answer = db.Column(db.String(80),nullable=False)
+    question = Column(String(250),nullable=False)
 
     def __repr__(self):
         return '<User %r>' % self.username
@@ -20,13 +22,34 @@ class User(db.Model):
             "id": self.id,
             "email": self.email,
             "username":self.username,
+            "name":self.name,
+            "last_name":self.last_name,
             "user_adm":self.user_adm,
+            "question":self.question,
+            "answer":self.answer
             # do not serialize the password, its a security breach
         }
+        
     def get_users():
         all_users = User.query.all()
         all_users = list(map(lambda x: x.serialize(),all_users))
         return all_users
+
+# class Question_secret(db.Model):
+#     id = Colum(Integer,primary_key = True)
+#     question = Colum(String(250),nullable=False)
+    
+#     def serialize(self):
+#         return {
+#             "id": self.id,
+#             "question": self.question
+          
+#         }
+
+#     def get_question():
+#         all_question = Question.query.all()
+#         all_question = list(map(lambda x: x.serialize(),all_question))
+#         return all_question
 
 
 class Pet(db.Model):
@@ -76,8 +99,10 @@ class Adopt(db.Model):
     telephone = Column(String(250),nullable=True)
     mobile_phone = Column(String(250),nullable=False)
     email = Column(String(250),nullable=False)
-    pet_id = Column(Integer, ForeignKey('pet.id'))
-    pet = db.relationship("Pet", lazy=True)
+    # pet_id = Column(Integer, ForeignKey('pet.id'))
+    # pet = db.relationship("Pet", lazy=True)
+    name_pet = Column(String(250),nullable=False)
+
 
 
     def serialize(self):
@@ -88,7 +113,8 @@ class Adopt(db.Model):
             "telephone":self.telephone,
             "mobile_phone":self.mobile_phone,
             "email":self.email,
-            "pet_id":self.pet_id,
+            "name_pet":self.name_pet
+            # "pet_id":self.pet_id,
 
         }
     def get_adopt():

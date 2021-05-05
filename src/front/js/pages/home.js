@@ -86,8 +86,8 @@ export const Home = () => {
 	};
 
 	return (
-		<div className="container">
-			<div className="row bg-danger">
+		<div className="container mt-3">
+			<div className="row">
 				<Carousel fade>
 					<Carousel.Item interval={4000}>
 						<img className="d-block w-100" src={adoptar} alt="First slide" height="500px" width="400px" />
