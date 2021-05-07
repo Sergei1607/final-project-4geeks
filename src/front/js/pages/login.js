@@ -57,6 +57,7 @@ export const Login = () => {
 							</div>
 							<div className="regularButtonLoginContainer">
 								<button
+									id="test"
 									className="regularButtonLoginDisabled"
 									onClick={() => {
 										actions.login(password, user);

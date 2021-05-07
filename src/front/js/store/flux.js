@@ -105,6 +105,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch("https://3001-purple-cattle-f93fcd45.ws-us03.gitpod.io/api/login", requestOptions)
 					.then(response => response.json())
 					.then(result => setStore({ user: result.user }))
+					//.then(result => sessionStorage.setItem("token", data.token))
+					.then(result => console.log(store.user))
 					.catch(error => console.log("error", error));
 			},
 			getout: () => {

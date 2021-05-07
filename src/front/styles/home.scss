@@ -1,2 +1,26 @@
 body {
     background-color: rgb(255, 255, 255)}
+
+#changecolor {
+  color: "#005073";
+  animation-name: example;
+  animation-duration: 30s;
+  animation-delay: 2s;
+  animation-iteration-count: 3
+}
+
+@keyframes example {
+  0%   {color: rgb(56, 56, 243)}
+  25%  {color: rgb(245, 223, 28)}
+  50%  {color: rgb(56, 243, 87);}
+  100% {color: rgb(245, 188, 33);}
+}
+
+
+
+#test:hover
+{
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+}

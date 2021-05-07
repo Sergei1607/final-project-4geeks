@@ -23,7 +23,7 @@ export const Navbar = () => {
 		<div className="container-flux">
 			<nav className="navbar navbar-light" style={colorStyle}>
 				<Link to="/">
-					<img src={Logo} height="75px" width="80px" style={imageStyle} />
+					<img id="test" src={Logo} height="75px" width="80px" style={imageStyle} />
 				</Link>
 				<span className="navbar-brand mb-0 h1" style={titleStyle}>
 					Ángeles de los Animales Santa Rosa

@@ -38,7 +38,7 @@ def login():
         access_token = create_access_token(identity=username,expires_delta=expiration_date)
 
         request_body = {
-            "user":user.serialize(),
+            "user":user.serialize(), 
             "token":access_token
         }
 
