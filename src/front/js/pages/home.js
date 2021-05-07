@@ -187,7 +187,12 @@ export const Home = () => {
 				<Blogs image={blog2} color={"#F2F2F2"} title={"Primeros días de tu mascota en casa"} />
 			</div>
 			<div className="row justify-content-center">
-				<button onClick={actions.login}>Login</button>
+				<button
+					onClick={() => {
+						console.log(store.mascotas);
+					}}>
+					Login
+				</button>
 			</div>
 		</div>
 	);

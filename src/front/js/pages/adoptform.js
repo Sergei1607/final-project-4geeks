@@ -54,10 +54,14 @@ export const Adoptform = () => {
 								<div className="form-group col-md-6">
 									<label htmlFor="inputTelefono">Mascotas</label>
 									<select className="custom-select mr-sm-2" id="inlineFormCustomSelect">
-										<option selected>Choose...</option>
-										<option value="1">One</option>
-										<option value="2">Two</option>
-										<option value="3">Three</option>
+										<option selected>Elige una mascota </option>
+										{store.mascotas.map((item, index) => {
+											return (
+												<option value="1" key={index}>
+													{item.name}
+												</option>
+											);
+										})}
 									</select>
 								</div>
 							</div>
