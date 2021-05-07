@@ -188,7 +188,8 @@ export function PetCRUD() {
 											setOtro(item.other);
 											setIds(item.id);
 											handleShow2();
-										}}></i>
+										}}
+									/>
 								</span>
 								<span>
 									<i
@@ -196,7 +197,8 @@ export function PetCRUD() {
 										style={iconStyle}
 										onClick={() => {
 											actions.deletepet(item.id);
-										}}></i>
+										}}
+									/>
 								</span>
 							</div>
 							<div className="col-2 text-center">
@@ -479,7 +481,7 @@ export function PetCRUD() {
 					</Modal.Footer>
 				</Modal>
 			</div>
-			<br></br>
+			<br />
 		</div>
 	);
 }

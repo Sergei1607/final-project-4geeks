@@ -23,9 +23,9 @@ export const Adoptform = () => {
 		<div className="container-fluid" style={backgroundStyle}>
 			<div className="container justify-content-center">
 				<div className="row">
-					<div className="col-3"></div>
-					<div className="col-6 mt-3 mb-3 " style={colorFondo}>
-						<h1 className="text-center">Formulario de Adopción</h1>
+					<div className="col-3" />
+					<div className="col-6 mt-3 mb-3" style={colorFondo}>
+						<h1>Formulario de Adopción</h1>
 						<form>
 							<div className="form-group">
 								<label htmlFor="inputEmail4">Nombre</label>
@@ -83,7 +83,7 @@ export const Adoptform = () => {
 							</div>
 						</form>
 					</div>
-					<div className="col-3"></div>
+					<div className="col-3" />
 				</div>
 			</div>
 		</div>

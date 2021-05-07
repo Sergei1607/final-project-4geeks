@@ -61,7 +61,8 @@ export const Adoptions = () => {
 								style={iconStyle}
 								onClick={() => {
 									actions.deletepet(item.id);
-								}}></i>
+								}}
+							/>
 						</div>
 
 						<div className="col-2 text-center">
