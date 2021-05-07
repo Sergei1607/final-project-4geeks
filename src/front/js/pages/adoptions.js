@@ -27,8 +27,13 @@ export const Adoptions = () => {
 		backgroundColor: "rgb(180, 250, 255  )"
 	};
 
+	let containerStyle = {
+		height: "1000px",
+		marginTop: "10px"
+	};
+
 	return (
-		<div className="container">
+		<div className="container" style={containerStyle}>
 			<div className="row d-flex align-items-center" style={over2}>
 				<div className="col-2 text-center">
 					<h4>Acción</h4>
@@ -66,7 +71,7 @@ export const Adoptions = () => {
 						</div>
 
 						<div className="col-2 text-center">
-							<h7>Negra</h7>
+							<h7>{item.name_pet}</h7>
 						</div>
 						<div className="col-2 text-center">
 							<h7>{item.full_name}</h7>

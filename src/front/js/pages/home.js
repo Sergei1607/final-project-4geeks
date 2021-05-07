@@ -186,14 +186,6 @@ export const Home = () => {
 				<Blogs image={blog1} color={"#F2F2F2"} title={"Controlar los ladridos de tu mascota"} />
 				<Blogs image={blog2} color={"#F2F2F2"} title={"Primeros días de tu mascota en casa"} />
 			</div>
-			<div className="row justify-content-center">
-				<button
-					onClick={() => {
-						console.log(store.mascotas);
-					}}>
-					Login
-				</button>
-			</div>
 		</div>
 	);
 };

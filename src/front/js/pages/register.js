@@ -24,6 +24,11 @@ export const Register = () => {
 		height: "1400px"
 	};
 
+	let colorStyle = {
+		backgroundColor: "#f6b26b",
+		borderRadius: "20%"
+	};
+
 	function registerUser() {
 		var myHeaders = new Headers();
 		myHeaders.append("Content-Type", "application/json");
@@ -56,11 +61,6 @@ export const Register = () => {
 			<div className="CreateUserContainer">
 				<div className="createUserContent">
 					<div className="formCreateUser">
-						<div className="input-group-prepend">
-							<span className="input-group-text" id="inputGroup-sizing-sm">
-								Small
-							</span>
-						</div>
 						<div className="ItemComponent">
 							<label className="LabelItemComponent">Usuario</label>
 						</div>
@@ -101,7 +101,7 @@ export const Register = () => {
 							/>
 						</div>
 						<div className="ItemComponent">
-							<label className="LabelItemComponent">Correo Electronico</label>
+							<label className="LabelItemComponent">Correo Electrónico</label>
 						</div>
 						<div className="inputContainer">
 							<input
@@ -156,7 +156,8 @@ export const Register = () => {
 						</div>
 						<div className="regularButtonLoginContainer">
 							<button
-								className="regularButtonLoginDisabled"
+								style={colorStyle}
+								className="btn btn-primary"
 								onClick={() => {
 									registerUser();
 								}}>
