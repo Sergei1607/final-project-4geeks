@@ -31,7 +31,7 @@ export function Condicional() {
 
 	let counter = 0;
 	function count() {
-		for (let i in store.gatos) {
+		for (let i in store.adoptions) {
 			counter++;
 		}
 		return counter;

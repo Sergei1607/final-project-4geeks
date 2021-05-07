@@ -11,23 +11,21 @@ export const Footer = () => {
 	};
 
 	let fontStyle = {
-		fontSize: "2vw"
-	};
-
-	let fontStyle2 = {
-		fontSize: "2vw"
+		fontSize: "20px"
 	};
 
 	return (
 		<div className="container-flux">
 			<div className="row" style={colorStyle}>
-				<div className="col-lg-4 col-sm-4 d-flex justify-content-center align-items-center">
+				<div className="col 4 d-flex justify-content-center align-items-center">
 					<p className="mt-2 ml-5" style={fontStyle}>
 						angelesdelosanimales@gmail.com
 					</p>
 				</div>
-				<div className="col-4 d-flex justify-content-center align-items-center" style={fontStyle2}>
-					<p className="mt-2">Teléfono: 8695-15-36</p>
+				<div className="col-4 d-flex justify-content-center align-items-center">
+					<p className="mt-2" style={fontStyle}>
+						Teléfono: 8695-15-36
+					</p>
 				</div>
 				<div className="col-4 d-flex justify-content-end align-items-center">
 					<a href="https://www.facebook.com/%C3%81ngeles-de-los-animales-Santa-Rosa-1685466578449779/">

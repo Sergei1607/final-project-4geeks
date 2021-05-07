@@ -85,14 +85,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => console.log("error", error));
 			},
 
-			login: () => {
+			login: (contraseña, usuario) => {
 				var store = getStore();
 				var myHeaders = new Headers();
 				myHeaders.append("Content-Type", "application/json");
 
 				var raw = JSON.stringify({
-					password: "12345",
-					username: "Sergei16"
+					password: contraseña,
+					username: usuario
 				});
 
 				var requestOptions = {

@@ -7,6 +7,9 @@ import "../../styles/demo.scss";
 export const Login = () => {
 	const { store, actions } = useContext(Context);
 
+	const [password, setPassword] = useState("");
+	const [user, setUser] = useState("");
+
 	let registerstyle = {
 		backgroundImage: `url(${blue})`,
 		position: "relative",
@@ -26,29 +29,40 @@ export const Login = () => {
 								</label>
 							</div>
 							<div className="inputContainer">
-								<input id="username" placeholder=" Usuario" type="text" className="regularStyle" />
+								<input
+									id="username"
+									placeholder=" Usuario"
+									type="text"
+									className="regularStyle"
+									onChange={e => setUser(e.target.value)}
+								/>
 							</div>
 							<div className="ItemComponent">
 								<label className="LabelItemComponent"></label>
 							</div>
 							<div className="inputContainer">
-								<input id="password" placeholder=" Correo" type="password" className="regularStyle" />
+								<input id="email" placeholder=" Correo" type="email" className="regularStyle" />
 							</div>
 							<div className="ItemComponent">
 								<label className="LabelItemComponent"></label>
 							</div>
 							<div className="inputContainer">
 								<input
-									id="passwordAgain"
+									id="password"
 									placeholder=" Contraseña"
 									type="password"
 									className="regularStyle"
+									onChange={e => setPassword(e.target.value)}
 								/>
 							</div>
 							<div className="regularButtonLoginContainer">
-								<Link to="/">
-									<button className="regularButtonLoginDisabled">Ingresar</button>
-								</Link>
+								<button
+									className="regularButtonLoginDisabled"
+									onClick={() => {
+										actions.login(password, user);
+									}}>
+									Ingresar
+								</button>
 							</div>
 							<div className="ItemComponent">
 								<Link to="/register">
