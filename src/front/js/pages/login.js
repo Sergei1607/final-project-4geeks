@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import naranja from "../../img/naranja.jpg";
+import blue from "../../img/blue.jpg";
 import { Context } from "../store/appContext";
 import "../../styles/demo.scss";
 
@@ -8,7 +8,8 @@ export const Login = () => {
 	const { store, actions } = useContext(Context);
 
 	let registerstyle = {
-		backgroundImage: `url(${naranja})`,
+		backgroundImage: `url(${blue})`,
+
 		position: "relative",
 		backgroundRepeat: "no-repeat",
 		height: "1400px"
@@ -20,25 +21,26 @@ export const Login = () => {
 				<div className="createUserContent">
 					<div className="formCreateUser">
 						<div className="ItemComponent">
-							<label className="LabelItemComponent">Usuario</label>
+							<label className="LabelItemTitle">
+								<strong>Inicio de Sesión</strong>
+							</label>
 						</div>
 						<div className="inputContainer">
-							<input id="username" placeholder name="username" type="text" className="regularStyle" />
+							<input id="username" placeholder=" Usuario" type="text" className="regularStyle" />
 						</div>
 						<div className="ItemComponent">
-							<label className="LabelItemComponent">Correo Electronico</label>
+							<label className="LabelItemComponent"></label>
 						</div>
 						<div className="inputContainer">
-							<input id="password" placeholder name="password" type="password" className="regularStyle" />
+							<input id="password" placeholder=" Correo" type="password" className="regularStyle" />
 						</div>
 						<div className="ItemComponent">
-							<label className="LabelItemComponent">Contraseña</label>
+							<label className="LabelItemComponent"></label>
 						</div>
 						<div className="inputContainer">
 							<input
 								id="passwordAgain"
-								placeholder
-								name="passwordAgain"
+								placeholder=" Contraseña"
 								type="password"
 								className="regularStyle"
 							/>
@@ -50,7 +52,12 @@ export const Login = () => {
 						</div>
 						<div className="ItemComponent">
 							<Link to="/register">
-								<label className="LabelItemComponent">Quiero Registrarme </label>
+								<a className="LabelItemComponent">Quiero Registrarme </a>
+							</Link>
+						</div>{" "}
+						<div className="ItemComponent">
+							<Link to="/passwordrecovery">
+								<a className="LabelItemComponent">¿Olvidó su Contraseña?</a>
 							</Link>
 						</div>{" "}
 					</div>

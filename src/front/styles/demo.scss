@@ -216,6 +216,14 @@
     .LabelItemComponent {
         margin-top: 10px
     }
+    .LabelItemTitle{
+
+    font-size: 25px;
+    color: rgb(0, 80, 115);
+    font-weight: 600;
+    font-family: 'system-ui';
+        
+    }
     .LoginLower {
         width: 85%;
         padding: 10px 0 0 10px
@@ -238,13 +246,15 @@
 
 @media screen and (min-width: 1030px) {
     .createUserContent {
-        width: 40%;
-        height: 100%;
+        width: 30%;
+        height: 60%;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         margin: auto;
+        background: #1de4e4;
+        border-radius: 30px;
     }
     .CreateUserImg {
         display: none;
