@@ -60,13 +60,21 @@ export const Adoptform = () => {
 										<option value="3">Three</option>
 									</select>
 								</div>
+								{/* <div className="form-group col-md-6">
+									<label htmlFor="inputTelefono">
+										Nota: El envio de este formulario es para contactar al interesado para un
+										estudio previo.{" "}
+									</label>
+								</div> */}
 							</div>
-							{/* <div className="form-row align-items-center">
-								<div className="col-auto my-1">
-									
-									
-								</div>
-							</div> */}
+							<div className="form-group">
+								<label htmlFor="inputEmail4">
+									<b>
+										El envio de este formulario es para contactar al interesado para un estudio
+										previo
+									</b>
+								</label>
+							</div>
 
 							<div className="form-group">
 								<div className="text-center">
@@ -80,8 +88,6 @@ export const Adoptform = () => {
 					<div className="col-3"></div>
 				</div>
 			</div>
-
-			{/* <div className="col h-90 w-50 mx-auto  bg-danger mb-5"></div> */}
 		</div>
 	);
 };
