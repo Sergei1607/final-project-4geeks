@@ -15,8 +15,8 @@ export const Login = () => {
 		position: "relative",
 		backgroundRepeat: "no-repeat",
 		height: "500px"
-    };
-    
+	};
+
 	return (
 		<div className="container-flux">
 			<div className="row justify-content-center" style={registerstyle}>
