@@ -21,11 +21,11 @@ export const Adoptform = () => {
 
 	return (
 		<div className="container-fluid" style={backgroundStyle}>
-			<div className="container">
+			<div className="container justify-content-center">
 				<div className="row">
 					<div className="col-3"></div>
-					<div className="col-6 mt-3 mb-3" style={colorFondo}>
-						<h1>Formulario de Adopción</h1>
+					<div className="col-6 mt-3 mb-3 " style={colorFondo}>
+						<h1 className="text-center">Formulario de Adopción</h1>
 						<form>
 							<div className="form-group">
 								<label htmlFor="inputEmail4">Nombre</label>
@@ -52,7 +52,7 @@ export const Adoptform = () => {
 							</div>
 							<div className="form-row">
 								<div className="form-group col-md-6">
-									<label htmlFor="inputTelefono">Mascotas</label>
+									<label htmlFor="inputTelefono">Mascotas de interés</label>
 									<select className="custom-select mr-sm-2" id="inlineFormCustomSelect">
 										<option selected>Elige una mascota </option>
 										{store.mascotas.map((item, index) => {
@@ -65,12 +65,14 @@ export const Adoptform = () => {
 									</select>
 								</div>
 							</div>
-							{/* <div className="form-row align-items-center">
-								<div className="col-auto my-1">
-									
-									
-								</div>
-							</div> */}
+							<div className="form-group">
+								<label htmlFor="inputEmail4">
+									<b>
+										El envio de este formulario es para contactar al interesado para un estudio
+										previo
+									</b>
+								</label>
+							</div>
 
 							<div className="form-group">
 								<div className="text-center">
@@ -84,8 +86,6 @@ export const Adoptform = () => {
 					<div className="col-3"></div>
 				</div>
 			</div>
-
-			{/* <div className="col h-90 w-50 mx-auto  bg-danger mb-5"></div> */}
 		</div>
 	);
 };

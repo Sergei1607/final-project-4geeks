@@ -67,7 +67,7 @@ export const Home = () => {
 	let pstyle = {
 		paddingLeft: "100px",
 		paddingRight: "100px",
-		fontSize: "2vw",
+		fontSize: "25px",
 		marginTop: "-120px",
 		color: "white"
 	};

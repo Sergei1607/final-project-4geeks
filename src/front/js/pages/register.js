@@ -56,8 +56,10 @@ export const Register = () => {
 			<div className="CreateUserContainer">
 				<div className="createUserContent">
 					<div className="formCreateUser">
-						<div className="row justify-content-center">
-							<h2>¡Gracias por querer ser parte!</h2>
+						<div className="input-group-prepend">
+							<span className="input-group-text" id="inputGroup-sizing-sm">
+								Small
+							</span>
 						</div>
 						<div className="ItemComponent">
 							<label className="LabelItemComponent">Usuario</label>
