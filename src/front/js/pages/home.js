@@ -124,7 +124,7 @@ export const Home = () => {
 			</div>
 			<div className="row d-flex justify-content-center" style={backgroundstyle}>
 				<div className="col-lg-1 col-sm-2  text-center">
-					<i className="fas fa-paw fa-3x" style={iconStyle}></i>
+					<i className="fas fa-paw fa-3x" style={iconStyle} />
 				</div>
 				<div className="col-lg-2 col-sm-6 text-center  ">
 					<h2 className="text-center" style={h1style3}>
@@ -151,7 +151,7 @@ export const Home = () => {
 			</div>
 			<div className="row d-flex justify-content-center" style={backgroundstyle}>
 				<div className="col-lg-1 col-sm-2   text-center">
-					<i className="fas fa-paw fa-3x" style={iconStyle}></i>
+					<i className="fas fa-paw fa-3x" style={iconStyle} />
 				</div>
 				<div className="col-lg-2 col-sm-6 text-center  ">
 					<h2 className="text-center" style={h1style3}>
