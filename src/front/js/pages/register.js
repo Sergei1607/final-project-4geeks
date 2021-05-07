@@ -71,7 +71,8 @@ export const Register = () => {
 								name="username"
 								type="text"
 								className="regularStyle"
-								onChange={e => setUsername(e.target.value)}></input>
+								onChange={e => setUsername(e.target.value)}
+							/>
 						</div>
 						<div className="ItemComponent">
 							<label className="LabelItemComponent">Nombre</label>
@@ -83,7 +84,8 @@ export const Register = () => {
 								name="firstname"
 								type="text"
 								className="regularStyle"
-								onChange={e => setName(e.target.value)}></input>
+								onChange={e => setName(e.target.value)}
+							/>
 						</div>
 						<div className="ItemComponent">
 							<label className="LabelItemComponent">Apellidos</label>
@@ -95,7 +97,8 @@ export const Register = () => {
 								name="lastname"
 								type="text"
 								className="regularStyle"
-								onChange={e => setLast_name(e.target.value)}></input>
+								onChange={e => setLast_name(e.target.value)}
+							/>
 						</div>
 						<div className="ItemComponent">
 							<label className="LabelItemComponent">Correo Electronico</label>
@@ -107,7 +110,8 @@ export const Register = () => {
 								name="email"
 								type="email"
 								className="regularStyle"
-								onChange={e => setEmail(e.target.value)}></input>
+								onChange={e => setEmail(e.target.value)}
+							/>
 						</div>
 						<div className="ItemComponent">
 							<label className="LabelItemComponent">Contraseña</label>
@@ -119,7 +123,8 @@ export const Register = () => {
 								name="passwordAgain"
 								type="password"
 								className="regularStyle"
-								onChange={e => setPassword(e.target.value)}></input>
+								onChange={e => setPassword(e.target.value)}
+							/>
 						</div>
 						<div className="ItemComponent">
 							<label className="LabelItemComponent">Pregunta Secreta</label>
@@ -146,7 +151,8 @@ export const Register = () => {
 								name="answer"
 								type="text"
 								className="regularStyle"
-								onChange={e => setAnswer(e.target.value)}></input>
+								onChange={e => setAnswer(e.target.value)}
+							/>
 						</div>
 						<div className="regularButtonLoginContainer">
 							<button
@@ -161,9 +167,9 @@ export const Register = () => {
 							<Link to="/login">
 								<a className="LabelItemComponent">Quiero Acceder </a>
 							</Link>
-							<br></br>
-							<br></br>
-							<br></br>
+							<br />
+							<br />
+							<br />
 						</div>{" "}
 					</div>
 				</div>

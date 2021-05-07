@@ -12,8 +12,8 @@ export const Login = () => {
 		position: "relative",
 		backgroundRepeat: "no-repeat",
 		height: "500px"
-	};
-
+    };
+    
 	return (
 		<div className="container-flux">
 			<div className="row justify-content-center" style={registerstyle}>
@@ -29,13 +29,13 @@ export const Login = () => {
 								<input id="username" placeholder=" Usuario" type="text" className="regularStyle" />
 							</div>
 							<div className="ItemComponent">
-								<label className="LabelItemComponent"></label>
+								<label className="LabelItemComponent" />
 							</div>
 							<div className="inputContainer">
 								<input id="password" placeholder=" Correo" type="password" className="regularStyle" />
 							</div>
 							<div className="ItemComponent">
-								<label className="LabelItemComponent"></label>
+								<label className="LabelItemComponent" />
 							</div>
 							<div className="inputContainer">
 								<input
