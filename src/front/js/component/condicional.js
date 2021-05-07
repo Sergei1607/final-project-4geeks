@@ -22,7 +22,8 @@ let favoritestyle = {
 
 let textStyle = {
 	color: "white",
-	marginTop: "7px"
+	marginTop: "17px",
+	fontSize: "20px"
 };
 
 export function Condicional() {
@@ -55,10 +56,10 @@ export function Condicional() {
 				</button>
 			</div>
 		);
-	} else if (store.user.user_adm === "2") {
+	} else if (store.user.user_adm === null) {
 		return (
 			<div className="ml-auto">
-				<span>{"Hola " + store.user.username}</span>
+				<span style={textStyle}>{"¡Hola " + store.user.username + "!"}</span>
 				<button className="btn btn-primary" style={buttonStyle} onClick={actions.getout}>
 					Salir
 				</button>

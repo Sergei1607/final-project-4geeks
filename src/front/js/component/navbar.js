@@ -11,23 +11,17 @@ export const Navbar = () => {
 	};
 	let titleStyle = {
 		marginLeft: "50px",
-		color: "white"
+		color: "white",
+		fontSize: "2vw"
 	};
 
 	let imageStyle = {
 		marginLeft: "20px"
 	};
 
-	let buttonStyle = {
-		padding: "5px",
-		margin: "10px",
-		borderRadius: "10%",
-		backgroundColor: "#27A1C6"
-	};
-
 	return (
 		<div className="container-flux">
-			<nav className="navbar navbar-light mb-3" style={colorStyle}>
+			<nav className="navbar navbar-light" style={colorStyle}>
 				<Link to="/">
 					<img src={Logo} height="75px" width="80px" style={imageStyle} />
 				</Link>

@@ -29,6 +29,7 @@ class User(db.Model):
             "answer":self.answer
             # do not serialize the password, its a security breach
         }
+        
     def get_users():
         all_users = User.query.all()
         all_users = list(map(lambda x: x.serialize(),all_users))

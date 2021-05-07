@@ -21,7 +21,7 @@ export const Adoptform = () => {
 
 	return (
 		<div className="container-fluid" style={backgroundStyle}>
-			<div className="container">
+			<div className="container justify-content-center">
 				<div className="row">
 					<div className="col-3" />
 					<div className="col-6 mt-3 mb-3" style={colorFondo}>
@@ -52,20 +52,18 @@ export const Adoptform = () => {
 							</div>
 							<div className="form-row">
 								<div className="form-group col-md-6">
-									<label htmlFor="inputTelefono">Mascotas</label>
+									<label htmlFor="inputTelefono">Mascotas de interés</label>
 									<select className="custom-select mr-sm-2" id="inlineFormCustomSelect">
-										<option selected>Choose...</option>
-										<option value="1">One</option>
-										<option value="2">Two</option>
-										<option value="3">Three</option>
+										<option selected>Elige una mascota </option>
+										{store.mascotas.map((item, index) => {
+											return (
+												<option value="1" key={index}>
+													{item.name}
+												</option>
+											);
+										})}
 									</select>
 								</div>
-								{/* <div className="form-group col-md-6">
-									<label htmlFor="inputTelefono">
-										Nota: El envio de este formulario es para contactar al interesado para un
-										estudio previo.{" "}
-									</label>
-								</div> */}
 							</div>
 							<div className="form-group">
 								<label htmlFor="inputEmail4">

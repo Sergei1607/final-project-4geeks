@@ -9,6 +9,14 @@ import "../../styles/demo.scss";
 export const Register = () => {
 	const { store, actions } = useContext(Context);
 
+	const [name, setName] = useState("");
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	const [username, setUsername] = useState("");
+	const [last_name, setLast_name] = useState("");
+	const [question, setQuestion] = useState("");
+	const [answer, setAnswer] = useState("");
+
 	let registerstyle = {
 		backgroundImage: `url(${blue})`,
 		position: "relative",
@@ -16,34 +24,90 @@ export const Register = () => {
 		height: "1400px"
 	};
 
+	function registerUser() {
+		var myHeaders = new Headers();
+		myHeaders.append("Content-Type", "application/json");
+
+		var raw = JSON.stringify({
+			username: username,
+			email: email,
+			password: password,
+			name: name,
+			last_name: last_name,
+			question: question,
+			answer: answer
+		});
+
+		var requestOptions = {
+			method: "POST",
+			headers: myHeaders,
+			body: raw,
+			redirect: "follow"
+		};
+
+		fetch("https://3001-purple-cattle-f93fcd45.ws-us03.gitpod.io/api/register", requestOptions)
+			.then(response => response.text())
+			.then(result => console.log(result))
+			.catch(error => console.log("error", error));
+	}
+
 	return (
 		<div className="row justify-content-center" style={registerstyle}>
 			<div className="CreateUserContainer">
 				<div className="createUserContent">
 					<div className="formCreateUser">
+						<div className="input-group-prepend">
+							<span className="input-group-text" id="inputGroup-sizing-sm">
+								Small
+							</span>
+						</div>
 						<div className="ItemComponent">
 							<label className="LabelItemComponent">Usuario</label>
 						</div>
 						<div className="inputContainer">
-							<input id="username" placeholder name="username" type="text" className="regularStyle" />
+							<input
+								id="username"
+								placeholder
+								name="username"
+								type="text"
+								className="regularStyle"
+								onChange={e => setUsername(e.target.value)}></input>
 						</div>
 						<div className="ItemComponent">
 							<label className="LabelItemComponent">Nombre</label>
 						</div>
 						<div className="inputContainer">
-							<input id="firstname" placeholder name="firstname" type="text" className="regularStyle" />
+							<input
+								id="firstname"
+								placeholder
+								name="firstname"
+								type="text"
+								className="regularStyle"
+								onChange={e => setName(e.target.value)}></input>
 						</div>
 						<div className="ItemComponent">
 							<label className="LabelItemComponent">Apellidos</label>
 						</div>
 						<div className="inputContainer">
-							<input id="lastname" placeholder name="lastname" type="text" className="regularStyle" />
+							<input
+								id="lastname"
+								placeholder
+								name="lastname"
+								type="text"
+								className="regularStyle"
+								onChange={e => setLast_name(e.target.value)}></input>
 						</div>
 						<div className="ItemComponent">
 							<label className="LabelItemComponent">Correo Electronico</label>
 						</div>
 						<div className="inputContainer">
-							<input id="password" placeholder name="password" type="password" className="regularStyle" />
+							<input
+								id="email"
+								placeholder
+								name="email"
+								type="email"
+								className="regularStyle"
+								onChange={e => setEmail(e.target.value)}></input>
 						</div>
 						<div className="ItemComponent">
 							<label className="LabelItemComponent">Contraseña</label>
@@ -55,13 +119,16 @@ export const Register = () => {
 								name="passwordAgain"
 								type="password"
 								className="regularStyle"
-							/>
+								onChange={e => setPassword(e.target.value)}></input>
 						</div>
 						<div className="ItemComponent">
 							<label className="LabelItemComponent">Pregunta Secreta</label>
 						</div>
 						<div className="inputContainer">
-							<select name="transporte" className="regularStyle">
+							<select
+								name="transporte"
+								className="regularStyle"
+								onChange={e => setQuestion(e.target.value)}>
 								<option>¿Cual es tu Color Favorito?</option>
 
 								<option>¿Como se llama tu madre?</option>
@@ -73,17 +140,30 @@ export const Register = () => {
 							<label className="LabelItemComponent">Respuesta</label>
 						</div>
 						<div className="inputContainer">
-							<input id="answer" placeholder name="answer" type="text" className="regularStyle" />
+							<input
+								id="answer"
+								placeholder
+								name="answer"
+								type="text"
+								className="regularStyle"
+								onChange={e => setAnswer(e.target.value)}></input>
 						</div>
 						<div className="regularButtonLoginContainer">
-							<Link to="/">
-								<button className="regularButtonLoginDisabled">Registrarse</button>
-							</Link>
+							<button
+								className="regularButtonLoginDisabled"
+								onClick={() => {
+									registerUser();
+								}}>
+								Registrarse
+							</button>
 						</div>
 						<div className="ItemComponent">
 							<Link to="/login">
-								<label className="LabelItemComponent">Quiero Loguearme </label>
+								<a className="LabelItemComponent">Quiero Acceder </a>
 							</Link>
+							<br></br>
+							<br></br>
+							<br></br>
 						</div>{" "}
 					</div>
 				</div>

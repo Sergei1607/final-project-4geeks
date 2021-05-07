@@ -192,18 +192,18 @@ def create_pet():
 
 
 @api.route('/pet/<int:id>', methods=['DELETE'])
-@jwt_required()
+#@jwt_required()
 def  delete_pet(id):
-    current_user = get_jwt_identity()
+    #current_user = get_jwt_identity()
     pet1 = Pet.query.get(id)
     if pet1 is None:
         raise APIException("Pet is not found",status_code=404)
     db.session.delete(pet1)
     db.session.commit()
-    return jsonify({"Succesfully delete by":current_user}),200
+    return jsonify({"Succesfully delete by":"hi"}),200
 
 @api.route('/pet/<int:id>', methods = ['PUT'])
-@jwt_required()
+#@jwt_required()
 def update_pet(id):
     pet1 = Pet.query.get(id)
     name = request.json["name"]
@@ -232,7 +232,7 @@ def update_pet(id):
 #Endpoints Adopt************************************
 
 @api.route('/adopt', methods=['POST'])
-@jwt_required()
+#@jwt_required()
 def create_adopt():
     full_name = request.json.get("full_name", None)
     address = request.json.get("address", None)

@@ -7,7 +7,9 @@ export const Catdetail = props => {
 	const { store, actions } = useContext(Context);
 	const params = useParams();
 
-	let nameStyle = { fontSize: "65px", marginTop: "100px", color: "#f6b26b" };
+	let nameStyle = { fontSize: "60px", marginTop: "100px", color: "#f6b26b" };
+
+	let nStyle = { fontSize: "2vw" };
 
 	let columnStyle = { color: "#005073" };
 
@@ -19,7 +21,7 @@ export const Catdetail = props => {
 	return (
 		<div className="container mt-5">
 			<div className="row">
-				<div className="col-sm">
+				<div className="col-lg-6  col-md-6 col-sm-6">
 					<img
 						width={500}
 						height={500}
@@ -28,7 +30,7 @@ export const Catdetail = props => {
 						alt="Generic placeholder"
 					/>
 				</div>
-				<div className="col-sm text-center">
+				<div className="col-lg-6 col-md-6 col-sm-6 d-sm-none d-md-block text-center">
 					<h5 style={nameStyle}>{store.gatos[params.theid].name}</h5>
 					<p style={textStyle}>{store.gatos[params.theid].history}</p>
 					<p style={textStyle}>{store.gatos[params.theid].other}</p>
@@ -36,44 +38,44 @@ export const Catdetail = props => {
 
 				<div className="container mt-5">
 					<div className="row d-flex align-items-center" style={columnStyle}>
-						<div className="col-2 text-center">
-							<h4>Nombre</h4>
+						<div className="col-lg-2 col-sm-2 text-center text-center">
+							<h4 style={nStyle}>Nombre</h4>
 						</div>
-						<div className="col-2 text-center">
-							<h4>Sexo</h4>
+						<div className="col-lg-2 col-sm-2 text-center">
+							<h4 style={nStyle}>Sexo</h4>
 						</div>
-						<div className="col-2 text-center">
-							<h4>Edad</h4>
+						<div className="col-lg-2 col-sm-2 text-center">
+							<h4 style={nStyle}>Edad</h4>
 						</div>
-						<div className="col-2 text-center">
-							<h4>Comportamiento</h4>
+						<div className="col-lg-2 col-sm-2 text-center">
+							<h4 style={nStyle}>Comportamiento</h4>
 						</div>
-						<div className="col-2 text-center">
-							<h4>Raza</h4>
+						<div className="col-lg-2 col-sm-2 text-center">
+							<h4 style={nStyle}>Raza</h4>
 						</div>
-						<div className="col-2 text-center">
-							<h4>Tamaño</h4>
+						<div className="col-lg-2 col-sm-2 text-center">
+							<h4 style={nStyle}>Tamaño</h4>
 						</div>
 					</div>
 					<hr className="my-4 bg-warning" />
 					<div className="row d-flex align-items-center" style={rowStyle}>
 						<div className="col-2 text-center">
-							<h5>{store.gatos[params.theid].name}</h5>
+							<h5 style={nStyle}>{store.gatos[params.theid].name}</h5>
 						</div>
 						<div className="col-2 text-center">
-							<h5>{store.gatos[params.theid].sex}</h5>
+							<h5 style={nStyle}>{store.gatos[params.theid].sex}</h5>
 						</div>
 						<div className="col-2 text-center">
-							<h5>{store.gatos[params.theid].age}</h5>
+							<h5 style={nStyle}>{store.gatos[params.theid].age}</h5>
 						</div>
 						<div className="col-2 text-center">
-							<h5>{store.gatos[params.theid].behaviour}</h5>
+							<h5 style={nStyle}>{store.gatos[params.theid].behaviour}</h5>
 						</div>
 						<div className="col-2 text-center">
-							<h5>{store.gatos[params.theid].breed}</h5>
+							<h5 style={nStyle}>{store.gatos[params.theid].breed}</h5>
 						</div>
 						<div className="col-2 text-center">
-							<h5>{store.gatos[params.theid].size}</h5>
+							<h5 style={nStyle}>{store.gatos[params.theid].size}</h5>
 						</div>
 					</div>
 				</div>
@@ -89,7 +91,7 @@ export const Catdetail = props => {
 						<div className="col-3 d-flex justify-content-end">
 							<Link to="/adoptform">
 								<button type="button" className="btn btn-primary" style={buttonStyle}>
-									Formulario de adopción
+									Adopción
 								</button>
 							</Link>
 						</div>

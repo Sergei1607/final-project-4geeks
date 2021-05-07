@@ -94,7 +94,7 @@ export function PetCRUD() {
 			redirect: "follow"
 		};
 
-		fetch("https://3001-emerald-unicorn-iacul3dd.ws-us03.gitpod.io/api/pet", requestOptions)
+		fetch("https://3001-purple-cattle-f93fcd45.ws-us03.gitpod.io/api/pet", requestOptions)
 			.then(response => response.text())
 			.then(result => console.log(result))
 			.catch(error => console.log("error", error));
@@ -126,7 +126,7 @@ export function PetCRUD() {
 
 		console.log(raw, id);
 
-		fetch("https://3001-emerald-unicorn-iacul3dd.ws-us03.gitpod.io/api/pet/" + id, requestOptions)
+		fetch("https://3001-purple-cattle-f93fcd45.ws-us03.gitpod.io/api/pet/" + id, requestOptions)
 			.then(response => response.text())
 			.then(result => console.log(result))
 			.catch(error => console.log("error", error));
