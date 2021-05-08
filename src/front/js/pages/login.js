@@ -1,11 +1,18 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import Logo from "../../img/Logo.png";
 import blue from "../../img/blue.jpg";
 import { Context } from "../store/appContext";
+import { Row, Col, Toast, Button } from "react-bootstrap";
 import "../../styles/demo.scss";
 
 export const Login = () => {
 	const { store, actions } = useContext(Context);
+	const [show, setShow] = useState(false);
+	const [show1, setShow1] = useState(false);
+
+	const toggleShow = () => setShow(true);
+	const toggleShow1 = () => setShow1(true);
 
 	const [password, setPassword] = useState("");
 	const [user, setUser] = useState("");
@@ -61,6 +68,11 @@ export const Login = () => {
 									className="regularButtonLoginDisabled"
 									onClick={() => {
 										actions.login(password, user);
+										if (store.user.user_adm === "1") {
+											toggleShow1();
+										} else {
+											toggleShow();
+										}
 									}}>
 									Ingresar
 								</button>
@@ -77,6 +89,52 @@ export const Login = () => {
 							</div>{" "}
 						</div>
 					</div>
+				</div>
+				<div className="row" style={registerstyle}>
+					<Row>
+						<Col>
+							<Toast
+								show={show}
+								onClose={() => setShow(false)}
+								delay={3000}
+								autohide
+								style={{
+									position: "absolute",
+									top: 50,
+									right: 50,
+									width: "350px"
+								}}>
+								<Toast.Header>
+									<img src={Logo} className="rounded mr-2" alt="" height="30px" width="30px" />
+									<strong className="mr-auto">Ángeles de los animales Santa Rosa</strong>
+								</Toast.Header>
+								<Toast.Body className="text-center"> Bienvenida Administradora</Toast.Body>
+							</Toast>
+						</Col>
+					</Row>
+				</div>
+				<div className="row" style={registerstyle}>
+					<Row>
+						<Col>
+							<Toast
+								show={show1}
+								onClose={() => setShow1(false)}
+								delay={3000}
+								autohide
+								style={{
+									position: "absolute",
+									top: 50,
+									right: 50,
+									width: "350px"
+								}}>
+								<Toast.Header>
+									<img src={Logo} className="rounded mr-2" alt="" height="30px" width="30px" />
+									<strong className="mr-auto">Ángeles de los animales Santa Rosa</strong>
+								</Toast.Header>
+								<Toast.Body className="text-center"> ¡Hola, gracias por estár acá!</Toast.Body>
+							</Toast>
+						</Col>
+					</Row>
 				</div>
 			</div>
 		</div>
