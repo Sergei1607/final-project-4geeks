@@ -133,7 +133,7 @@ export function PetCRUD() {
 	}
 
 	return (
-		<div className="container">
+		<div className="container mt-2">
 			<div className="row">
 				<div className="row d-flex align-items-center" style={over2}>
 					<div className="col-2 text-center">
@@ -242,6 +242,7 @@ export function PetCRUD() {
 												className="form-control"
 												id="exampleInputEmail1"
 												aria-describedby="emailHelp"
+												placeholder={name}
 												onChange={e => setName(e.target.value)}
 											/>
 										</div>
@@ -253,6 +254,8 @@ export function PetCRUD() {
 												id="exampleFormControlSelect1"
 												aria-describedby="emailHelp"
 												onChange={e => setTypepet(e.target.value)}
+												placeholder={typepet}
+												p
 											/>
 										</div>
 										<div className="form-group">
@@ -263,6 +266,7 @@ export function PetCRUD() {
 												id="exampleFormControlSelect12"
 												aria-describedby="emailHelp"
 												onChange={e => setSex(e.target.value)}
+												placeholder={sex}
 											/>
 										</div>
 										<div className="form-group">
@@ -273,6 +277,7 @@ export function PetCRUD() {
 												id="exampleInputEmail19"
 												aria-describedby="emailHelp"
 												onChange={e => setAge(e.target.value)}
+												placeholder={age}
 											/>
 										</div>
 										<div className="form-group">
@@ -282,6 +287,7 @@ export function PetCRUD() {
 												className="form-control"
 												id="exampleInputEmail13"
 												onChange={e => setBehaviour(e.target.value)}
+												placeholder={behaviour}
 											/>
 										</div>
 										<div className="form-group">
@@ -292,6 +298,7 @@ export function PetCRUD() {
 												id="exampleInputEmail4"
 												aria-describedby="emailHelp"
 												onChange={e => setRaza(e.target.value)}
+												placeholder={raza}
 											/>
 										</div>
 										<div className="form-group">
@@ -302,6 +309,7 @@ export function PetCRUD() {
 												id="exampleInputEmail5"
 												aria-describedby="emailHelp"
 												onChange={e => setSize(e.target.value)}
+												placeholder={size}
 											/>
 										</div>
 										<div className="form-group">
@@ -312,6 +320,7 @@ export function PetCRUD() {
 												id="exampleInputEmail16"
 												aria-describedby="emailHelp"
 												onChange={e => setHistory(e.target.value)}
+												placeholder={history}
 											/>
 										</div>
 										<div className="form-group">
@@ -322,6 +331,7 @@ export function PetCRUD() {
 												id="exampleInputEmail17"
 												aria-describedby="emailHelp"
 												onChange={e => setOtro(e.target.value)}
+												placeholder={otro}
 											/>
 										</div>
 										<form>

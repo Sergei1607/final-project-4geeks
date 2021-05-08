@@ -156,6 +156,7 @@ export const Register = () => {
 						</div>
 						<div className="regularButtonLoginContainer">
 							<button
+								id="test"
 								style={colorStyle}
 								className="btn btn-primary"
 								onClick={() => {

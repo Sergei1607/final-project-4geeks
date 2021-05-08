@@ -124,7 +124,7 @@ export const Home = () => {
 			</div>
 			<div className="row d-flex justify-content-center" style={backgroundstyle}>
 				<div className="col-lg-1 col-sm-2  text-center">
-					<i className="fas fa-paw fa-3x" style={iconStyle} />
+					<i className="fas fa-paw fa-3x" id="changecolor" style={iconStyle} />
 				</div>
 				<div className="col-lg-2 col-sm-6 text-center  ">
 					<h2 className="text-center" style={h1style3}>
@@ -132,7 +132,7 @@ export const Home = () => {
 					</h2>
 				</div>
 				<div className="col-1 text-center">
-					<i className="fas fa-paw fa-3x" style={iconStyle} />
+					<i className="fas fa-paw fa-3x" id="changecolor" style={iconStyle} />
 				</div>
 			</div>
 			<div className="row overflow-scroll pb-5" style={over}>
@@ -151,7 +151,7 @@ export const Home = () => {
 			</div>
 			<div className="row d-flex justify-content-center" style={backgroundstyle}>
 				<div className="col-lg-1 col-sm-2   text-center">
-					<i className="fas fa-paw fa-3x" style={iconStyle} />
+					<i className="fas fa-paw fa-3x" id="changecolor" style={iconStyle} />
 				</div>
 				<div className="col-lg-2 col-sm-6 text-center  ">
 					<h2 className="text-center" style={h1style3}>
@@ -159,7 +159,7 @@ export const Home = () => {
 					</h2>
 				</div>
 				<div className="col-1 text-center">
-					<i className="fas fa-paw fa-3x" style={iconStyle} />
+					<i className="fas fa-paw fa-3x" id="changecolor" style={iconStyle} />
 				</div>
 			</div>
 			<div className="row overflow-scroll pb-5" style={over}>

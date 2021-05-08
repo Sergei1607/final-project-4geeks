@@ -32,13 +32,13 @@ def login():
         user = User.query.filter_by(username=username).first()
 
         if not user:
-            return jsonify({"Error":"User not found"}),400
+            return jsonify({"user":"O"}),400
         #Create Tokken
         expiration_date = datetime.timedelta(days=1)
         access_token = create_access_token(identity=username,expires_delta=expiration_date)
 
         request_body = {
-            "user":user.serialize(),
+            "user":user.serialize(), 
             "token":access_token
         }
 
