@@ -85,17 +85,7 @@ export const PasswordRecovery = () => {
 											</a>
 										</div>
 									</div> */}
-									<Dropdown>
-										<Dropdown.Toggle variant="success" id="dropdown-basic">
-											Pregunta
-										</Dropdown.Toggle>
-
-										<Dropdown.Menu onChange={e => setQuestion(e.target.value)}>
-											<Dropdown.Item href="#/action-1">¿Cual es tu Color Favorito?</Dropdown.Item>
-											<Dropdown.Item href="#/action-2">¿Como se llama tu madre?</Dropdown.Item>
-											<Dropdown.Item href="#/action-3">¿En donde Naciste?</Dropdown.Item>
-										</Dropdown.Menu>
-									</Dropdown>
+									<h3>{store.user.question}</h3>
 								</div>
 
 								<div className="form-group">
