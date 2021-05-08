@@ -69,7 +69,7 @@ export const Login = () => {
 									onClick={() => {
 										actions.login(password, user);
 										if (store.user.user_adm === "1") {
-											toggleShow1();
+											toggleShow();
 										} else {
 											toggleShow();
 										}
@@ -108,7 +108,7 @@ export const Login = () => {
 									<img src={Logo} className="rounded mr-2" alt="" height="30px" width="30px" />
 									<strong className="mr-auto">Ángeles de los animales Santa Rosa</strong>
 								</Toast.Header>
-								<Toast.Body className="text-center"> Bienvenida Administradora</Toast.Body>
+								<Toast.Body className="text-center"> ¡Gracias por estar acá!</Toast.Body>
 							</Toast>
 						</Col>
 					</Row>
@@ -131,7 +131,7 @@ export const Login = () => {
 									<img src={Logo} className="rounded mr-2" alt="" height="30px" width="30px" />
 									<strong className="mr-auto">Ángeles de los animales Santa Rosa</strong>
 								</Toast.Header>
-								<Toast.Body className="text-center"> ¡Hola, gracias por estár acá!</Toast.Body>
+								<Toast.Body className="text-center"> ¡Gsadsd!</Toast.Body>
 							</Toast>
 						</Col>
 					</Row>
