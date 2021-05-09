@@ -21,7 +21,7 @@ export const Register = () => {
 		backgroundImage: `url(${blue})`,
 		position: "relative",
 		backgroundRepeat: "no-repeat",
-		height: "1400px"
+		height: "2000px"
 	};
 
 	let colorStyle = {
@@ -29,6 +29,11 @@ export const Register = () => {
 		borderRadius: "20%"
 	};
 
+	let iconStyle = {
+		color: "#27A1C6",
+		// marginBottom: "30px",
+		marginTop: "20px"
+	};
 	function registerUser() {
 		var myHeaders = new Headers();
 		myHeaders.append("Content-Type", "application/json");
@@ -59,80 +64,69 @@ export const Register = () => {
 	return (
 		<div className="row justify-content-center" style={registerstyle}>
 			<div className="CreateUserContainer">
-				<div className="createUserContent">
+				<div className="createUserContent2">
 					<div className="formCreateUser">
+						<div className=" text-center">
+							<i className="fas fa-paw fa-3x mt-5" id="changecolor" style={iconStyle} />
+						</div>
 						<div className="ItemComponent">
-							<label className="LabelItemComponent">Usuario</label>
+							<label className="LabelItemTitleRegister">Registro de Usuario</label>
 						</div>
 						<div className="inputContainer">
 							<input
 								id="username"
-								placeholder
-								name="username"
+								placeholder=" Usuario"
 								type="text"
 								className="regularStyle"
 								onChange={e => setUsername(e.target.value)}
 							/>
 						</div>
-						<div className="ItemComponent">
-							<label className="LabelItemComponent">Nombre</label>
-						</div>
+						<div className="ItemComponent"></div>
 						<div className="inputContainer">
 							<input
 								id="firstname"
-								placeholder
-								name="firstname"
+								placeholder=" Nombre"
 								type="text"
 								className="regularStyle"
 								onChange={e => setName(e.target.value)}
 							/>
 						</div>
-						<div className="ItemComponent">
-							<label className="LabelItemComponent">Apellidos</label>
-						</div>
+						<div className="ItemComponent"></div>
 						<div className="inputContainer">
 							<input
 								id="lastname"
-								placeholder
-								name="lastname"
+								placeholder=" Apellidos"
 								type="text"
 								className="regularStyle"
 								onChange={e => setLast_name(e.target.value)}
 							/>
 						</div>
-						<div className="ItemComponent">
-							<label className="LabelItemComponent">Correo Electrónico</label>
-						</div>
+						<div className="ItemComponent"></div>
 						<div className="inputContainer">
 							<input
 								id="email"
-								placeholder
-								name="email"
+								placeholder=" Correo Electronico"
 								type="email"
 								className="regularStyle"
 								onChange={e => setEmail(e.target.value)}
 							/>
 						</div>
-						<div className="ItemComponent">
-							<label className="LabelItemComponent">Contraseña</label>
-						</div>
+						<div className="ItemComponent"></div>
 						<div className="inputContainer">
 							<input
 								id="passwordAgain"
-								placeholder
-								name="passwordAgain"
+								placeholder=" Contraseña"
 								type="password"
 								className="regularStyle"
 								onChange={e => setPassword(e.target.value)}
 							/>
 						</div>
-						<div className="ItemComponent">
-							<label className="LabelItemComponent">Pregunta Secreta</label>
-						</div>
+						<div className="ItemComponent"></div>
 						<div className="inputContainer">
 							<select
 								name="transporte"
 								className="regularStyle"
+								placeholder="Pregunta Secreta"
 								onChange={e => setQuestion(e.target.value)}>
 								<option>¿Cuál es su pelicula favorita?</option>
 
@@ -141,14 +135,11 @@ export const Register = () => {
 								<option>¿Nombre de la escuela a la que asististe?</option>
 							</select>
 						</div>
-						<div className="ItemComponent">
-							<label className="LabelItemComponent">Respuesta</label>
-						</div>
+						<div className="ItemComponent"></div>
 						<div className="inputContainer">
 							<input
 								id="answer"
-								placeholder
-								name="answer"
+								placeholder=" Respuesta"
 								type="text"
 								className="regularStyle"
 								onChange={e => setAnswer(e.target.value)}
