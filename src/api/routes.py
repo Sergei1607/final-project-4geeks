@@ -44,6 +44,32 @@ def login():
 
         return jsonify(request_body),200
 
+@api.route('/recovery',methods=['GET'])
+def recovery():
+    if request.method == "GET":
+        email =  request.json["username"]
+       
+        if not username:
+            return jsonify({"Error":"usarname Invalid"}), 400
+        if not password:
+            return jsonify({"Error":"Password Invalid"}),400
+            
+        user = User.query.filter_by(email=email).first()
+
+        if not user:
+            return jsonify({"user":"O"}),400
+        #Create Tokken
+        expiration_date = datetime.timedelta(days=1)
+        access_token = create_access_token(identity=username,expires_delta=expiration_date)
+
+        request_body = {
+            "user":user.serialize(), 
+            "token":access_token
+        }
+
+        return jsonify(request_body),200
+
+
 
 @api.route('/register', methods=['POST'])
 def register_user():
