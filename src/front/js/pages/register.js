@@ -134,11 +134,11 @@ export const Register = () => {
 								name="transporte"
 								className="regularStyle"
 								onChange={e => setQuestion(e.target.value)}>
-								<option>¿Cual es tu Color Favorito?</option>
+								<option>¿Cuál es su pelicula favorita?</option>
 
-								<option>¿Como se llama tu madre?</option>
+								<option>¿Cuál fue el nombre de su primera mascota?</option>
 
-								<option>¿En donde Naciste?</option>
+								<option>¿Nombre de la escuela a la que asististe?</option>
 							</select>
 						</div>
 						<div className="ItemComponent">

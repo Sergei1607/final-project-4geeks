@@ -10,9 +10,11 @@ export const Login = () => {
 	const { store, actions } = useContext(Context);
 	const [show, setShow] = useState(false);
 	const [show1, setShow1] = useState(false);
+	const [show2, setShow2] = useState(false);
 
 	const toggleShow = () => setShow(true);
 	const toggleShow1 = () => setShow1(true);
+	const toggleShow2 = () => setShow2(true);
 
 	const [password, setPassword] = useState("");
 	const [user, setUser] = useState("");
@@ -70,8 +72,10 @@ export const Login = () => {
 										actions.login(password, user);
 										if (store.user.user_adm === "1") {
 											toggleShow();
+										} else if (store.user.user_adm === null) {
+											toggleShow1();
 										} else {
-											toggleShow();
+											toggleShow2();
 										}
 									}}>
 									Ingresar
@@ -108,7 +112,7 @@ export const Login = () => {
 									<img src={Logo} className="rounded mr-2" alt="" height="30px" width="30px" />
 									<strong className="mr-auto">Ángeles de los animales Santa Rosa</strong>
 								</Toast.Header>
-								<Toast.Body className="text-center"> ¡Gracias por estar acá!</Toast.Body>
+								<Toast.Body className="text-center"> ¡Bienvenida Administradora!</Toast.Body>
 							</Toast>
 						</Col>
 					</Row>
@@ -131,7 +135,30 @@ export const Login = () => {
 									<img src={Logo} className="rounded mr-2" alt="" height="30px" width="30px" />
 									<strong className="mr-auto">Ángeles de los animales Santa Rosa</strong>
 								</Toast.Header>
-								<Toast.Body className="text-center"> ¡Gsadsd!</Toast.Body>
+								<Toast.Body className="text-center"> ¡Hola, gracias por estar acá!</Toast.Body>
+							</Toast>
+						</Col>
+					</Row>
+				</div>
+				<div className="row" style={registerstyle}>
+					<Row>
+						<Col>
+							<Toast
+								show={show2}
+								onClose={() => setShow2(false)}
+								delay={3000}
+								autohide
+								style={{
+									position: "absolute",
+									top: 50,
+									right: 50,
+									width: "350px"
+								}}>
+								<Toast.Header>
+									<img src={Logo} className="rounded mr-2" alt="" height="30px" width="30px" />
+									<strong className="mr-auto">Ángeles de los animales Santa Rosa</strong>
+								</Toast.Header>
+								<Toast.Body className="text-center"> Contraseña o usuario no encontrado</Toast.Body>
 							</Toast>
 						</Col>
 					</Row>

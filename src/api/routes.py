@@ -22,14 +22,14 @@ def get_users():
 @api.route('/login',methods=['POST'])
 def login():
     if request.method == "POST":
-        username =  request.json["username"]
-        password = request.json["password"]
-        if not username:
-            return jsonify({"Error":"usarname Invalid"}), 400
-        if not password:
-            return jsonify({"Error":"Password Invalid"}),400
+        username =  request.json.get("username", None)
+        password = request.json.get("password", None)
+        if username is None:
+            return jsonify({"user":{"user_adm":"4"}}), 400
+        if password is None:
+            return jsonify({"user":{"user_adm":"4"}}),400
             
-        user = User.query.filter_by(username=username).first()
+        user = User.query.filter_by(username=username, password=password).first()
 
         if not user:
             return jsonify({"user":"O"}),400
