@@ -71,6 +71,18 @@ def recovery():
 
 
 
+@api.route('/change_password', methods = ['PUT'])
+def change_password():
+    question = request.json["question"]
+    answer =  request.json["answer"]
+    password = request.json["password"]
+    user = User.query.filter_by(answer=answer,question=question).first()
+    if user.answer == answer and user.question==question:
+        user.password = password
+        db.session.commit() 
+        return jsonify(user.serialize()), 200
+
+
 @api.route('/register', methods=['POST'])
 def register_user():
     username = request.json.get("username",None)
