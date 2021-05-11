@@ -11,8 +11,8 @@ class User(db.Model):
     last_name = db.Column(db.String(120),nullable=False)
     password = db.Column(db.String(80), unique=True, nullable=False)
     user_adm = db.Column(db.String(80))
-    answer = db.Column(db.String(80),nullable=False)
     question = Column(String(250),nullable=False)
+    answer = db.Column(db.String(80),nullable=False)
 
     def __repr__(self):
         return '<User %r>' % self.username
@@ -34,22 +34,6 @@ class User(db.Model):
         all_users = User.query.all()
         all_users = list(map(lambda x: x.serialize(),all_users))
         return all_users
-
-# class Question_secret(db.Model):
-#     id = Colum(Integer,primary_key = True)
-#     question = Colum(String(250),nullable=False)
-    
-#     def serialize(self):
-#         return {
-#             "id": self.id,
-#             "question": self.question
-          
-#         }
-
-#     def get_question():
-#         all_question = Question.query.all()
-#         all_question = list(map(lambda x: x.serialize(),all_question))
-#         return all_question
 
 
 class Pet(db.Model):
@@ -78,8 +62,8 @@ class Pet(db.Model):
             "size":self.size,
             "other":self.other,
             "image":self.image
-
         }
+
     def get_pets():
         all_pets = Pet.query.all()
         all_pets = list(map(lambda x: x.serialize(),all_pets))
@@ -91,7 +75,6 @@ class Pet(db.Model):
         return all_type
 
 
-
 class Adopt(db.Model):
     id = Column(Integer,primary_key=True)
     full_name = Column(String(250),nullable=False)
@@ -99,8 +82,6 @@ class Adopt(db.Model):
     telephone = Column(String(250),nullable=True)
     mobile_phone = Column(String(250),nullable=False)
     email = Column(String(250),nullable=False)
-    # pet_id = Column(Integer, ForeignKey('pet.id'))
-    # pet = db.relationship("Pet", lazy=True)
     name_pet = Column(String(250),nullable=False)
 
 
@@ -114,9 +95,9 @@ class Adopt(db.Model):
             "mobile_phone":self.mobile_phone,
             "email":self.email,
             "name_pet":self.name_pet
-            # "pet_id":self.pet_id,
 
         }
+        
     def get_adopt():
         all_adopt = Adopt.query.all()
         all_adopt = list(map(lambda x: x.serialize(),all_adopt))
