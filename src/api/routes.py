@@ -47,13 +47,11 @@ def login():
 @api.route('/recovery',methods=['GET'])
 def recovery():
     if request.method == "GET":
-        email =  request.json["username"]
+        email =  request.json["email"]
        
-        if not username:
-            return jsonify({"Error":"usarname Invalid"}), 400
-        if not password:
-            return jsonify({"Error":"Password Invalid"}),400
-            
+        if not email:
+            return jsonify({"Error":"email Invalid"}), 400
+      
         user = User.query.filter_by(email=email).first()
 
         if not user:
@@ -93,7 +91,6 @@ def register_user():
     question = request.json.get("question",None)
     answer = request.json.get("answer",None)
 
-
     if username is None:
         return jsonify({"msg":"No username was provided"}),400
     if email is None:
@@ -131,20 +128,6 @@ def register_user():
         db.session.add(new_user)
         db.session.commit()
         return jsonify({"msg": "User created successfully"}), 200
-
-
-# @api.route('/change_password', methods=['PUT'])
-# @jwt_required()
-# def change_password():
-#     user = request.json.get('id')
-#     question = request.json.get["question"]
-#     email = request.json.get["email"]
-#     password = request.json.get["password"]
-#     user.password = password
-    
-#     db.session.commit()
-   
-#     return jsonify(user.serialize()), 200
 
 
 #Endpoints Pets******************************************
@@ -315,3 +298,14 @@ def create_adopt():
 def get_adopts():
     data = jsonify(Adopt.get_adopt())
     return data
+
+@api.route('/adopt/<int:id>', methods=['DELETE'])
+#@jwt_required()
+def  delete_adopt(id):
+    #current_user = get_jwt_identity()
+    adopt1 = Adopt.query.get(id)
+    if adopt1 is None:
+        raise APIException("adopt is not found",status_code=404)
+    db.session.delete(adopt1)
+    db.session.commit()
+    return jsonify({"Succesfully delete by":"hi"}),200
