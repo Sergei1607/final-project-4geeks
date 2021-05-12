@@ -32,7 +32,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					redirect: "follow"
 				};
 
-				fetch("https://3001-purple-cattle-f93fcd45.ws-us03.gitpod.io/api/get_caninos", requestOptions)
+				fetch("https://3001-purple-cattle-f93fcd45.ws-us04.gitpod.io/api/get_caninos", requestOptions)
 					.then(response => response.json())
 					.then(results => setStore({ perros: results }))
 					.catch(error => console.log("error", error));
@@ -42,7 +42,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					redirect: "follow"
 				};
 
-				fetch("https://3001-purple-cattle-f93fcd45.ws-us03.gitpod.io/api/get_felinos", requestOptions)
+				fetch("https://3001-purple-cattle-f93fcd45.ws-us04.gitpod.io/api/get_felinos", requestOptions)
 					.then(response => response.json())
 					.then(result => setStore({ gatos: result }))
 					.catch(error => console.log("error", error));
@@ -56,7 +56,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					redirect: "follow"
 				};
 
-				fetch("https://3001-purple-cattle-f93fcd45.ws-us03.gitpod.io/api/pet", requestOptions)
+				fetch("https://3001-purple-cattle-f93fcd45.ws-us04.gitpod.io/api/pet", requestOptions)
 					.then(response => response.json())
 					.then(result => setStore({ mascotas: result }))
 					.catch(error => console.log("error", error));
@@ -65,7 +65,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					method: "GET",
 					redirect: "follow"
 				};
-				fetch("https://3001-purple-cattle-f93fcd45.ws-us03.gitpod.io/api/adopt", requestOptions)
+				fetch("https://3001-purple-cattle-f93fcd45.ws-us04.gitpod.io/api/adopt", requestOptions)
 					.then(response => response.json())
 					.then(result => setStore({ adoptions: result }))
 					.catch(error => console.log("error", error));
@@ -80,7 +80,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					redirect: "follow"
 				};
 
-				fetch("https://3001-purple-cattle-f93fcd45.ws-us03.gitpod.io/api/pet/" + id, requestOptions)
+				fetch("https://3001-purple-cattle-f93fcd45.ws-us04.gitpod.io/api/pet/" + id, requestOptions)
 					.then(response => response.json())
 					.catch(error => console.log("error", error));
 			},
@@ -102,7 +102,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					redirect: "follow"
 				};
 
-				fetch("https://3001-purple-cattle-f93fcd45.ws-us03.gitpod.io/api/login", requestOptions)
+				fetch("https://3001-purple-cattle-f93fcd45.ws-us04.gitpod.io/api/login", requestOptions)
 					.then(response => response.json())
 					.then(result => setStore({ user: result.user }))
 					//.then(result => sessionStorage.setItem("token", data.token))

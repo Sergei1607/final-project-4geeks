@@ -19,9 +19,13 @@ export const Navbar = () => {
 		marginLeft: "20px"
 	};
 
+	let containerStyle = {
+		width: "1915px"
+	};
+
 	return (
-		<div className="container-flux">
-			<nav className="navbar navbar-light" style={colorStyle}>
+		<div className="container-flux" style={containerStyle}>
+			<nav className="navbar navbar-expand-lg navbar-light" style={colorStyle}>
 				<Link to="/">
 					<img id="test" src={Logo} height="75px" width="80px" style={imageStyle} />
 				</Link>

@@ -44,7 +44,7 @@ export const Home = () => {
 	};
 
 	let h1style = {
-		fontSize: "5vw",
+		fontSize: "70px",
 		marginTop: "50px",
 		color: "white",
 		marginBottom: "20px"

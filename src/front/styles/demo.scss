@@ -266,20 +266,20 @@
 
 @media screen and (min-width: 1030px) {
     .createUserContent {
-        width: 30%;
-        // height: 90%;
+        width: 600px;
         display: flex;
-        justify-content: center;
-        align-items: center;
         flex-direction: column;
         margin: auto;
-        margin-right: 510px;
+        justify-content: center;
+        align-items: center;
         background: #1de4e4;
         border-radius: 30px;
+       
     }
      .createUserContent2 {
         width: 30%;
-        height: 90%;
+        height: 100%;
+        margin-right: 510px;
         display: flex;
         justify-content: center;
         align-items: center;

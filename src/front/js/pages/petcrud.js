@@ -94,7 +94,7 @@ export function PetCRUD() {
 			redirect: "follow"
 		};
 
-		fetch("https://3001-purple-cattle-f93fcd45.ws-us03.gitpod.io/api/pet", requestOptions)
+		fetch("https://3001-purple-cattle-f93fcd45.ws-us04.gitpod.io/api/pet", requestOptions)
 			.then(response => response.text())
 			.then(result => console.log(result))
 			.catch(error => console.log("error", error));
@@ -126,7 +126,7 @@ export function PetCRUD() {
 
 		console.log(raw, id);
 
-		fetch("https://3001-purple-cattle-f93fcd45.ws-us03.gitpod.io/api/pet/" + id, requestOptions)
+		fetch("https://3001-purple-cattle-f93fcd45.ws-us04.gitpod.io/api/pet/" + id, requestOptions)
 			.then(response => response.text())
 			.then(result => console.log(result))
 			.catch(error => console.log("error", error));
@@ -137,34 +137,34 @@ export function PetCRUD() {
 			<div className="row">
 				<div className="row d-flex align-items-center" style={over2}>
 					<div className="col-2 text-center">
-						<h4>Acción</h4>
+						<h3>Acción</h3>
 					</div>
 					<div className="col-2 text-center">
-						<h4>Nombre</h4>
+						<h3>Nombre</h3>
 					</div>
 					<div className="col-2 text-center">
-						<h4>Tipo de mascota</h4>
+						<h3>Tipo de mascota</h3>
 					</div>
 					<div className="col-2 text-center">
-						<h4>Sexo</h4>
+						<h3>Sexo</h3>
 					</div>
 					<div className="col-2 text-center">
-						<h4>Raza</h4>
+						<h3>Raza</h3>
 					</div>
 					<div className="col-2 text-center">
-						<h4>Tamaño</h4>
+						<h3>Tamaño</h3>
 					</div>
 					<div className="col-2 text-center">
-						<h4>Comportamiento</h4>
+						<h3>Comportamiento</h3>
 					</div>
 					<div className="col-2 text-center">
-						<h4>Edad</h4>
+						<h3>Edad</h3>
 					</div>
 					<div className="col-2 text-center">
-						<h4>Historia</h4>
+						<h3>Historia</h3>
 					</div>
 					<div className="col-2 text-center">
-						<h4>Más información</h4>
+						<h3>Más información</h3>
 					</div>
 				</div>
 				{store.mascotas.map((item, index) => {

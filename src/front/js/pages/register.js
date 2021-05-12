@@ -55,7 +55,7 @@ export const Register = () => {
 			redirect: "follow"
 		};
 
-		fetch("https://3001-purple-cattle-f93fcd45.ws-us03.gitpod.io/api/register", requestOptions)
+		fetch("https://3001-purple-cattle-f93fcd45.ws-us04.gitpod.io/api/register", requestOptions)
 			.then(response => response.text())
 			.then(result => console.log(result))
 			.catch(error => console.log("error", error));
@@ -63,7 +63,7 @@ export const Register = () => {
 
 	return (
 		<div className="row justify-content-center" style={registerstyle}>
-			<div className="CreateUserContainer">
+			<div className="CreateUserContainer p-5">
 				<div className="createUserContent2">
 					<div className="formCreateUser">
 						<div className=" text-center">

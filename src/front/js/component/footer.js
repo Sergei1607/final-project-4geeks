@@ -32,7 +32,7 @@ export const Footer = () => {
 						<i className="fab fa-facebook fa-2x px-2 " style={iconStyle} />
 					</a>
 					<a href="https://www.instagram.com/angelesdelosanimales_cr/">
-						<i className="fab fa-instagram fa-2x px-2 mr-5" style={iconStyle} />
+						<i className="fab fa-instagram fa-2x px-2" style={iconStyle} />
 					</a>
 				</div>
 			</div>

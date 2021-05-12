@@ -45,7 +45,7 @@ export const Adoptions = () => {
 					<h4>Nombre</h4>
 				</div>
 				<div className="col-2 text-center">
-					<h4>Célular</h4>
+					<h4>Celular</h4>
 				</div>
 				<div className="col-2 text-center">
 					<h4>Teléfono</h4>

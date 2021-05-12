@@ -22,8 +22,7 @@ export const Login = () => {
 	let registerstyle = {
 		backgroundImage: `url(${blue})`,
 		position: "relative",
-		backgroundRepeat: "no-repeat",
-		height: "700px"
+		backgroundRepeat: "no-repeat"
 	};
 	let iconStyle = {
 		color: "#27A1C6",
@@ -31,10 +30,12 @@ export const Login = () => {
 		marginTop: "20px"
 	};
 
+	let containerStyle = { height: "770px", backgroundImage: `url(${blue})`, marginRight: "12px" };
+
 	return (
-		<div className="container-flux">
-			<div className="row justify-content-center" style={registerstyle}>
-				<div className="CreateUserContainer">
+		<div className="container-flux" style={containerStyle}>
+			<div className="row justify-content-center" style={containerStyle}>
+				<div className="CreateUserContainer" style={containerStyle}>
 					<div className="createUserContent">
 						<div className="formCreateUser">
 							<div className=" text-center">
@@ -74,7 +75,6 @@ export const Login = () => {
 							</div>
 							<div className="regularButtonLoginContainer">
 								<button
-									id="test"
 									className="regularButtonLoginDisabled"
 									onClick={() => {
 										actions.login(password, user);
@@ -112,15 +112,15 @@ export const Login = () => {
 								autohide
 								style={{
 									position: "absolute",
-									top: 50,
-									right: 50,
+									top: 40,
+									right: 120,
 									width: "350px"
 								}}>
 								<Toast.Header>
 									<img src={Logo} className="rounded mr-2" alt="" height="30px" width="30px" />
 									<strong className="mr-auto">Ángeles de los animales Santa Rosa</strong>
 								</Toast.Header>
-								<Toast.Body className="text-center"> ¡Bienvenida Administradora!</Toast.Body>
+								<Toast.Body className="text-center">¡Bienvenida Administradora!</Toast.Body>
 							</Toast>
 						</Col>
 					</Row>
@@ -135,8 +135,8 @@ export const Login = () => {
 								autohide
 								style={{
 									position: "absolute",
-									top: 50,
-									right: 50,
+									top: 40,
+									right: 100,
 									width: "350px"
 								}}>
 								<Toast.Header>
@@ -158,15 +158,15 @@ export const Login = () => {
 								autohide
 								style={{
 									position: "absolute",
-									top: 50,
-									right: 50,
+									top: 40,
+									right: 100,
 									width: "350px"
 								}}>
 								<Toast.Header>
 									<img src={Logo} className="rounded mr-2" alt="" height="30px" width="30px" />
 									<strong className="mr-auto">Ángeles de los animales Santa Rosa</strong>
 								</Toast.Header>
-								<Toast.Body className="text-center"> Contraseña o usuario no encontrado</Toast.Body>
+								<Toast.Body className="text-center p-2"> Contraseña o usuario no encontrado</Toast.Body>
 							</Toast>
 						</Col>
 					</Row>

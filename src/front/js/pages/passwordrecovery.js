@@ -60,31 +60,6 @@ export const PasswordRecovery = () => {
 							<form>
 								<div className="form-group">
 									<label htmlFor="exampleFormControlSelect1">Pregunta secreta</label>
-									{/* <div className="dropdown">
-										<button
-											className="btn btn-secondary dropdown-toggle"
-											type="button"
-											id="dropdownMenuButton"
-											data-toggle="dropdown"
-											aria-haspopup="true"
-											aria-expanded="false">
-											Dropdown button
-										</button>
-										<div
-											className="dropdown-menu"
-											aria-labelledby="dropdownMenuButton"
-											onChange={e => setQuestion(e.target.value)}>
-											<a className="dropdown-item" href="#">
-												¿Cual es tu Color Favorito?
-											</a>
-											<a className="dropdown-item" href="#">
-												¿Como se llama tu madre?
-											</a>
-											<a className="dropdown-item" href="#">
-												¿En donde Naciste?
-											</a>
-										</div>
-									</div> */}
 									<h3>{store.user.question}</h3>
 								</div>
 
