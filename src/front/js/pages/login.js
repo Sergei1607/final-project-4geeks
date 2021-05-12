@@ -23,7 +23,12 @@ export const Login = () => {
 		backgroundImage: `url(${blue})`,
 		position: "relative",
 		backgroundRepeat: "no-repeat",
-		height: "500px"
+		height: "700px"
+	};
+	let iconStyle = {
+		color: "#27A1C6",
+		// marginBottom: "30px",
+		marginTop: "20px"
 	};
 
 	return (
@@ -32,6 +37,9 @@ export const Login = () => {
 				<div className="CreateUserContainer">
 					<div className="createUserContent">
 						<div className="formCreateUser">
+							<div className=" text-center">
+								<i className="fas fa-paw fa-3x" id="changecolor" style={iconStyle} />
+							</div>
 							<div className="ItemComponent">
 								<label className="LabelItemTitle">
 									<strong>Inicio de Sesión</strong>
@@ -40,7 +48,7 @@ export const Login = () => {
 							<div className="inputContainer">
 								<input
 									id="username"
-									placeholder=" Usuario"
+									placeholder="  Usuario"
 									type="text"
 									className="regularStyle"
 									onChange={e => setUser(e.target.value)}
@@ -50,7 +58,7 @@ export const Login = () => {
 								<label className="LabelItemComponent" />
 							</div>
 							<div className="inputContainer">
-								<input id="email" placeholder=" Correo" type="email" className="regularStyle" />
+								<input id="email" placeholder="  Correo" type="email" className="regularStyle" />
 							</div>
 							<div className="ItemComponent">
 								<label className="LabelItemComponent" />
@@ -58,7 +66,7 @@ export const Login = () => {
 							<div className="inputContainer">
 								<input
 									id="password"
-									placeholder=" Contraseña"
+									placeholder=" Contraseña"
 									type="password"
 									className="regularStyle"
 									onChange={e => setPassword(e.target.value)}
