@@ -32,6 +32,18 @@ export const Adoptions = () => {
 		marginTop: "10px"
 	};
 
+	function deleteadoption(id) {
+		var requestOptions = {
+			method: "DELETE",
+			redirect: "follow"
+		};
+
+		fetch("https://3001-purple-cattle-f93fcd45.ws-us04.gitpod.io/api/adopt/" + id, requestOptions)
+			.then(response => response.text())
+			.then(result => console.log(result))
+			.catch(error => console.log("error", error));
+	}
+
 	return (
 		<div className="container" style={containerStyle}>
 			<div className="row d-flex align-items-center" style={over2}>
@@ -65,7 +77,7 @@ export const Adoptions = () => {
 								className="fas fa-trash fa-2x px-1"
 								style={iconStyle}
 								onClick={() => {
-									actions.deletepet(item.id);
+									deleteadoption(item.id);
 								}}
 							/>
 						</div>

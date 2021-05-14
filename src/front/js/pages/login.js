@@ -33,7 +33,7 @@ export const Login = () => {
 	let containerStyle = { height: "770px", backgroundImage: `url(${blue})`, marginRight: "12px" };
 
 	return (
-		<div className="container-flux" style={containerStyle}>
+		<div style={containerStyle}>
 			<div className="row justify-content-center" style={containerStyle}>
 				<div className="CreateUserContainer" style={containerStyle}>
 					<div className="createUserContent">
@@ -78,6 +78,7 @@ export const Login = () => {
 									className="regularButtonLoginDisabled"
 									onClick={() => {
 										actions.login(password, user);
+										actions.gettoken(password, user);
 										if (store.user.user_adm === "1") {
 											toggleShow();
 										} else if (store.user.user_adm === null) {
