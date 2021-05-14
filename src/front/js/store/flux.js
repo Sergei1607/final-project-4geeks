@@ -32,7 +32,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					redirect: "follow"
 				};
 
-				fetch("https://3001-purple-cattle-f93fcd45.ws-us03.gitpod.io/api/get_caninos", requestOptions)
+				fetch("https://3001-white-guanaco-4cowgqvv.ws-us04.gitpod.io/api/get_caninos", requestOptions)
 					.then(response => response.json())
 					.then(results => setStore({ perros: results }))
 					.catch(error => console.log("error", error));
@@ -56,7 +56,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					redirect: "follow"
 				};
 
-				fetch("https://3001-purple-cattle-f93fcd45.ws-us03.gitpod.io/api/pet", requestOptions)
+				fetch("https://3001-white-guanaco-4cowgqvv.ws-us04.gitpod.io/api/pet", requestOptions)
 					.then(response => response.json())
 					.then(result => setStore({ mascotas: result }))
 					.catch(error => console.log("error", error));
