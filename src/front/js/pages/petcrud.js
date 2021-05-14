@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Modal } from "react-bootstrap";
-import { Button } from "react-bootstrap";
-
+import { Row, Col, Toast, Button } from "react-bootstrap";
+import Logo from "../../img/Logo.png";
+import blue from "../../img/blue.jpg";
 import { Context } from "../store/appContext";
 
 import "../../styles/demo.scss";
@@ -10,12 +11,15 @@ import "../../styles/demo.scss";
 export function PetCRUD() {
 	const [show, setShow] = useState(false);
 	const [show2, setShow2] = useState(false);
+	const [show3, setShow3] = useState(false);
 	const { store, actions } = useContext(Context);
 
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
 	const handleClose2 = () => setShow2(false);
+	const handleClose3 = () => setShow3(false);
 	const handleShow2 = () => setShow2(true);
+	const toggleShow3 = () => setShow3(true);
 	const [loading, setLoading] = useState(false);
 	const [image, setImage] = useState("");
 	const [name, setName] = useState("");
@@ -126,7 +130,7 @@ export function PetCRUD() {
 
 		console.log(raw, id);
 
-		fetch("https://3001-purple-cattle-f93fcd45.ws-us03.gitpod.io/api/pet/" + id, requestOptions)
+		fetch("https://3001-white-guanaco-4cowgqvv.ws-us04.gitpod.io/api/pet/" + id, requestOptions)
 			.then(response => response.text())
 			.then(result => console.log(result))
 			.catch(error => console.log("error", error));
@@ -479,10 +483,45 @@ export function PetCRUD() {
 								</div>
 							</form>
 
-							<button className="btn btn-primary" onClick={createPet}>
+							<button
+								id="test"
+								className="regularButtonLoginDisabled"
+								onClick={() => {
+									createPet;
+									toggleShow3();
+								}}>
 								Agregar
 							</button>
 						</form>
+						<div className="row">
+							<Row>
+								<Col>
+									<Toast
+										show={show3}
+										onClose={() => setShow3(false)}
+										delay={10000}
+										autohide
+										style={{
+											position: "absolute",
+											bottom: 45,
+											left: 450,
+											width: "350px"
+										}}>
+										<Toast.Header>
+											<img
+												src={Logo}
+												className="rounded mr-2"
+												alt=""
+												height="30px"
+												width="30px"
+											/>
+											<strong className="mr-auto">Ángeles de los animales Santa Rosa</strong>
+										</Toast.Header>
+										<Toast.Body className="text-center"> ¡Mascota agregada!</Toast.Body>
+									</Toast>
+								</Col>
+							</Row>
+						</div>
 					</Modal.Body>
 					<Modal.Footer>
 						<Button variant="secondary" onClick={handleClose}>
@@ -491,6 +530,7 @@ export function PetCRUD() {
 					</Modal.Footer>
 				</Modal>
 			</div>
+
 			<br />
 		</div>
 	);
