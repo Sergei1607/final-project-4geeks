@@ -74,7 +74,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			deletepet: id => {
 				var raw = "";
-
+				var myHeaders = new Headers();
+				myHeaders.append("Authorization", "Bearer " + sessionStorage.getItem("token"));
 				var requestOptions = {
 					method: "DELETE",
 					body: raw,
@@ -130,13 +131,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				fetch("https://3001-red-narwhal-6swhjyze.ws-us04.gitpod.io/api/token", requestOptions)
 					.then(response => response.json())
-					.then(result => setStore({ token: result.token }))
-					.then(result => console.log(store.token))
+					.then(result => sessionStorage.setItem("token", result.token))
+					.then(result => console.log(sessionStorage.getItem("token")))
 					.catch(error => console.log("error", error));
 			},
 
 			getout: () => {
-				setStore({ user: "0" });
+				sessionStorage.removeItem("token");
 			}
 		}
 	};

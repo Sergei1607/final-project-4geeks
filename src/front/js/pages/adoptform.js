@@ -35,6 +35,7 @@ export const Adoptform = () => {
 	function postAdoption() {
 		var myHeaders = new Headers();
 		myHeaders.append("Content-Type", "application/json");
+		myHeaders.append("Authorization", "Bearer " + sessionStorage.getItem("token"));
 
 		var raw = JSON.stringify({
 			full_name: fullname,
