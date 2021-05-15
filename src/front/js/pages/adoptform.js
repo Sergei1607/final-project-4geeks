@@ -35,15 +35,14 @@ export const Adoptform = () => {
 	function postAdoption() {
 		var myHeaders = new Headers();
 		myHeaders.append("Content-Type", "application/json");
-		myHeaders.append("Authorization", "Bearer " + sessionStorage.getItem("token"));
 
 		var raw = JSON.stringify({
-			full_name: fullname,
-			address: address,
-			telephone: telephone,
-			mobile_phone: mobile,
-			email: email,
-			name_pet: petname
+			full_name: "Olger Garita Torres",
+			address: "Heredia,Sarapiqui",
+			telephone: "2764-16-35",
+			mobile_phone: "86-08-60-10",
+			email: "olgeragt@gmail.com",
+			name_pet: "1"
 		});
 
 		var requestOptions = {

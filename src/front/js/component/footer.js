@@ -14,8 +14,12 @@ export const Footer = () => {
 		fontSize: "20px"
 	};
 
+	let containerStyle = {
+		width: "1905px"
+	};
+
 	return (
-		<div className="container-flux">
+		<div className="container-flux" style={containerStyle}>
 			<div className="row" style={colorStyle}>
 				<div className="col 4 d-flex justify-content-center align-items-center">
 					<p className="mt-2 ml-5" style={fontStyle}>

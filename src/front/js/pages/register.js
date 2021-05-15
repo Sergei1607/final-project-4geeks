@@ -2,12 +2,17 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import quienes from "../../img/quienes.png";
 import blue from "../../img/blue.jpg";
+import { Row, Col, Toast, Button } from "react-bootstrap";
+import Logo from "../../img/Logo.png";
 
 import { Context } from "../store/appContext";
 import "../../styles/demo.scss";
 
 export const Register = () => {
 	const { store, actions } = useContext(Context);
+
+	const [show, setShow] = useState(false);
+	const toggleShow = () => setShow(true);
 
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
@@ -149,9 +154,10 @@ export const Register = () => {
 							<button
 								id="test"
 								style={colorStyle}
-								className="btn btn-primary"
+								className="regularButtonLoginDisabled"
 								onClick={() => {
 									registerUser();
+									toggleShow();
 								}}>
 								Registrarse
 							</button>
@@ -166,6 +172,29 @@ export const Register = () => {
 						</div>{" "}
 					</div>
 				</div>
+			</div>
+			<div className="row">
+				<Row>
+					<Col>
+						<Toast
+							show={show}
+							onClose={() => setShow(false)}
+							delay={3000}
+							autohide
+							style={{
+								position: "absolute",
+								top: 40,
+								right: 120,
+								width: "350px"
+							}}>
+							<Toast.Header>
+								<img src={Logo} className="rounded mr-2" alt="" height="30px" width="30px" />
+								<strong className="mr-auto">Ángeles de los animales Santa Rosa</strong>
+							</Toast.Header>
+							<Toast.Body className="text-center">Usuario creado, inicia sesión</Toast.Body>
+						</Toast>
+					</Col>
+				</Row>
 			</div>
 		</div>
 	);

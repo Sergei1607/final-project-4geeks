@@ -27,6 +27,7 @@ let textStyle = {
 };
 
 export function Condicional() {
+	console.log(sessionStorage.getItem("token"));
 	const { store, actions } = useContext(Context);
 
 	let counter = 0;
@@ -37,8 +38,6 @@ export function Condicional() {
 		return counter;
 	}
 
-	console.log(sessionStorage.getItem("token"));
-
 	if ((sessionStorage.getItem("token") != null) & (store.user.user_adm === null)) {
 		return (
 			<div className="ml-auto">
@@ -48,7 +47,7 @@ export function Condicional() {
 				</button>
 			</div>
 		);
-	} else if (sessionStorage.getItem("token") != null) {
+	} else if ((sessionStorage.getItem("token") != null) & (store.user.user_adm === "1")) {
 		return (
 			<div className="ml-auto">
 				<Link to="/PetCRUD">

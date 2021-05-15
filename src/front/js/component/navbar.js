@@ -20,7 +20,7 @@ export const Navbar = () => {
 	};
 
 	let containerStyle = {
-		width: "1915px"
+		width: "100%"
 	};
 
 	return (

@@ -19,7 +19,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			mascotas: [],
 			user: [],
 			adoptions: [],
-			token: []
+			user_recovery: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -74,8 +74,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			deletepet: id => {
 				var raw = "";
-				var myHeaders = new Headers();
-				myHeaders.append("Authorization", "Bearer " + sessionStorage.getItem("token"));
 				var requestOptions = {
 					method: "DELETE",
 					body: raw,
@@ -107,7 +105,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch("https://3001-red-narwhal-6swhjyze.ws-us04.gitpod.io/api/login", requestOptions)
 					.then(response => response.json())
 					.then(result => setStore({ user: result.user }))
-					//.then(result => sessionStorage.setItem("token", data.token))
 					.then(result => console.log(store.user))
 					.catch(error => console.log("error", error));
 			},
@@ -138,6 +135,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getout: () => {
 				sessionStorage.removeItem("token");
+			},
+
+			user_recovery: email => {
+				var myHeaders = new Headers();
+				myHeaders.append("Content-Type", "application/json");
+
+				var raw = JSON.stringify({
+					email: email
+				});
+
+				var requestOptions = {
+					method: "POST",
+					headers: myHeaders,
+					body: raw,
+					redirect: "follow"
+				};
+
+				fetch("https://3001-red-narwhal-6swhjyze.ws-us04.gitpod.io/api/recovery", requestOptions)
+					.then(response => response.json())
+					.then(result => setStore({ user_recovery: result.user }))
+					.catch(error => console.log("error", error));
 			}
 		}
 	};

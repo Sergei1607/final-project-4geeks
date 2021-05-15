@@ -25,25 +25,62 @@ export const PasswordRecovery = () => {
 		height: "500px"
 	};
 
+	let containerStyle = { height: "770px", backgroundImage: `url(${blue})`, marginRight: "12px" };
+
+	function modifyPassword(respuesta, contraseña) {
+		var myHeaders = new Headers();
+		myHeaders.append("Content-Type", "application/json");
+
+		var raw = JSON.stringify({
+			question: "Color favorito",
+			answer: respuesta,
+			password: contraseña
+		});
+
+		var requestOptions = {
+			method: "PUT",
+			headers: myHeaders,
+			body: raw,
+			redirect: "follow"
+		};
+
+		fetch("https://3001-red-narwhal-6swhjyze.ws-us04.gitpod.io/api/change_password", requestOptions)
+			.then(response => response.text())
+			.then(result => console.log(result))
+			.catch(error => console.log("error", error));
+	}
+
 	return (
-		<div className="container-flux">
-			<div className="row justify-content-center" style={registerstyle}>
-				<div className="CreateUserContainer">
-					<div className="createUserContent">
+		<div className="container-flux" style={containerStyle}>
+			<div className="row justify-content-center p-5" style={registerstyle}>
+				<div className="CreateUserContainer mt-5">
+					<div className="createUserContent   p-5">
 						<div className="formCreateUser">
-							<div className="ItemComponent">
+							<div className="ItemComponent ">
 								<label className="LabelItemTitle">
 									<strong>Recuperar Contraseña</strong>
 								</label>
 							</div>
 							<div className="inputContainer">
-								<input id="email" placeholder=" Email" type="text" className="regularStyle" />
+								<input
+									id="email"
+									placeholder=" Email"
+									type="text"
+									className="regularStyle"
+									onChange={e => setEmail(e.target.value)}
+								/>
 							</div>
 							<div className="ItemComponent">
 								<label className="LabelItemComponent" />
 							</div>
 							<div className="regularButtonLoginContainer">
-								<Button variant="primary" onClick={handleShow}>
+								<Button
+									className="regularButtonLoginDisabled"
+									onClick={() => {
+										actions.user_recovery(email);
+										console.log(email);
+										handleShow();
+									}}>
 									Enviar
 								</Button>
 							</div>
@@ -60,7 +97,7 @@ export const PasswordRecovery = () => {
 							<form>
 								<div className="form-group">
 									<label htmlFor="exampleFormControlSelect1">Pregunta secreta</label>
-									<h3>{store.user.question}</h3>
+									<h3>{store.user_recovery.question}</h3>
 								</div>
 
 								<div className="form-group">
@@ -87,11 +124,19 @@ export const PasswordRecovery = () => {
 							</form>
 						</Modal.Body>
 						<Modal.Footer>
-							<Button variant="primary">Guardar</Button>
-
-							<Button variant="secondary" onClick={handleClose}>
-								<Link to="/login">{`Volver al Login`}</Link>
+							<Button
+								className="regularButtonLoginDisabled"
+								variant="primary"
+								onClick={() => {
+									modifyPassword(answer, password);
+								}}>
+								Guardar
 							</Button>
+							<Link to="/login">
+								<Button className="regularButtonLoginDisabled" variant="primary" onClick={handleClose}>
+									Volver al login
+								</Button>
+							</Link>
 						</Modal.Footer>
 					</Modal>
 				</div>
