@@ -135,6 +135,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getout: () => {
 				sessionStorage.removeItem("token");
+				window.location.reload(false);
 			},
 
 			user_recovery: email => {

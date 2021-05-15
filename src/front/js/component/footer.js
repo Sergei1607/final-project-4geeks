@@ -15,7 +15,7 @@ export const Footer = () => {
 	};
 
 	let containerStyle = {
-		width: "1905px"
+		width: "100%"
 	};
 
 	return (

@@ -53,7 +53,7 @@ export const PasswordRecovery = () => {
 	return (
 		<div className="container-flux" style={containerStyle}>
 			<div className="row justify-content-center p-5" style={registerstyle}>
-				<div className="CreateUserContainer mt-5">
+				<div className="CreateUserContainer">
 					<div className="createUserContent   p-5">
 						<div className="formCreateUser">
 							<div className="ItemComponent ">
@@ -75,6 +75,7 @@ export const PasswordRecovery = () => {
 							</div>
 							<div className="regularButtonLoginContainer">
 								<Button
+									id="test"
 									className="regularButtonLoginDisabled"
 									onClick={() => {
 										actions.user_recovery(email);
@@ -97,7 +98,7 @@ export const PasswordRecovery = () => {
 							<form>
 								<div className="form-group">
 									<label htmlFor="exampleFormControlSelect1">Pregunta secreta</label>
-									<h3>{store.user_recovery.question}</h3>
+									<h3 className="p-3">{store.user_recovery.question}</h3>
 								</div>
 
 								<div className="form-group">
