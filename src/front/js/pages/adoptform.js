@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import foto from "../../img/pet.jpg";
 import "../../styles/adoptform.scss";
+import swal from "sweetalert";
 
 export const Adoptform = () => {
 	const { store, actions } = useContext(Context);
@@ -14,6 +15,15 @@ export const Adoptform = () => {
 	const [mobile, setMobile] = useState("");
 	const [email, setEmail] = useState("");
 	const [petname, setPetname] = useState("");
+
+	// Instalar npm  i  sweetalert
+	function mostrarAlerta() {
+		swal({
+			title: "Adopciones",
+			text: "Adopción Enviada!",
+			icon: "success"
+		});
+	}
 
 	let backgroundStyle = {
 		backgroundImage: `url(${foto})`,
@@ -143,6 +153,7 @@ export const Adoptform = () => {
 										style={colorStyle}
 										onClick={() => {
 											postAdoption();
+											mostrarAlerta();
 										}}>
 										Enviar
 									</button>
