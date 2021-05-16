@@ -85,7 +85,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => console.log("error", error));
 			},
 
-			login: (contraseña, usuario) => {
+			login: async (contraseña, usuario) => {
 				var store = getStore();
 				var myHeaders = new Headers();
 				myHeaders.append("Content-Type", "application/json");
@@ -102,14 +102,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 					redirect: "follow"
 				};
 
-				fetch("https://3001-red-narwhal-6swhjyze.ws-us04.gitpod.io/api/login", requestOptions)
+				await fetch("https://3001-red-narwhal-6swhjyze.ws-us04.gitpod.io/api/login", requestOptions)
 					.then(response => response.json())
 					.then(result => setStore({ user: result.user }))
 					.then(result => console.log(store.user))
 					.catch(error => console.log("error", error));
 			},
 
-			gettoken: (contraseña, usuario) => {
+			gettoken: async (contraseña, usuario) => {
 				var store = getStore();
 				var myHeaders = new Headers();
 				myHeaders.append("Content-Type", "application/json");
@@ -126,7 +126,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					redirect: "follow"
 				};
 
-				fetch("https://3001-red-narwhal-6swhjyze.ws-us04.gitpod.io/api/token", requestOptions)
+				await fetch("https://3001-red-narwhal-6swhjyze.ws-us04.gitpod.io/api/token", requestOptions)
 					.then(response => response.json())
 					.then(result => sessionStorage.setItem("token", result.token))
 					.then(result => console.log(sessionStorage.getItem("token")))

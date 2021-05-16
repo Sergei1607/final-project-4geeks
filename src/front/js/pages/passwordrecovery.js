@@ -32,7 +32,7 @@ export const PasswordRecovery = () => {
 		myHeaders.append("Content-Type", "application/json");
 
 		var raw = JSON.stringify({
-			question: "Color favorito",
+			question: store.user_recovery.question,
 			answer: respuesta,
 			password: contraseña
 		});
@@ -130,6 +130,8 @@ export const PasswordRecovery = () => {
 								variant="primary"
 								onClick={() => {
 									modifyPassword(answer, password);
+									alert("Contraseña cambiada");
+									window.location.reload(false);
 								}}>
 								Guardar
 							</Button>

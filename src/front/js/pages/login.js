@@ -30,6 +30,17 @@ export const Login = () => {
 
 	let containerStyle = { height: "770px", backgroundImage: `url(${blue})`, marginRight: "12px" };
 
+	const ingresar = async (password, user) => {
+		await actions.login(password, user);
+		await actions.gettoken(password, user);
+		console.log(store.user.user_adm);
+		if (store.user.user_adm === "1") {
+			toggleShow();
+		} else {
+			toggleShow2();
+		}
+	};
+
 	return (
 		<div style={containerStyle}>
 			<div className="row justify-content-center" style={containerStyle}>
@@ -76,13 +87,7 @@ export const Login = () => {
 									id="test"
 									className="regularButtonLoginDisabled"
 									onClick={() => {
-										actions.login(password, user);
-										actions.gettoken(password, user);
-										if (sessionStorage.getItem("token") != null) {
-											toggleShow();
-										} else {
-											toggleShow2();
-										}
+										ingresar(password, user);
 									}}>
 									Ingresar
 								</button>

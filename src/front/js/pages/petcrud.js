@@ -113,7 +113,7 @@ export function PetCRUD() {
 			history:
 				"Fue rescatada de un barrio conflictivo junto con su mamá, fue la única sobreviviente de la camada",
 			image: "TEST",
-			name: "ddd",
+			name: "Bruno",
 			other:
 				"Desparasitada, castración obligatoria cuando corresponda. Utiliza caja de arena, se recomienda casa anti escape",
 			sex: "Hembra",
@@ -570,7 +570,7 @@ export function PetCRUD() {
 								id="test"
 								className="regularButtonLoginDisabled"
 								onClick={() => {
-									createPet();
+									createPet;
 									toggleShow3();
 								}}>
 								Agregar

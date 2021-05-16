@@ -133,7 +133,7 @@ export const Register = () => {
 								className="regularStyle"
 								placeholder="Pregunta Secreta"
 								onChange={e => setQuestion(e.target.value)}>
-								<option>¿Cuál es su pelicula favorita?</option>
+								<option>¿Cuál es su película favorita?</option>
 
 								<option>¿Cuál fue el nombre de su primera mascota?</option>
 

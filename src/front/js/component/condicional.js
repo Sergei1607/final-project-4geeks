@@ -27,7 +27,6 @@ let textStyle = {
 };
 
 export function Condicional() {
-	console.log(sessionStorage.getItem("token"));
 	const { store, actions } = useContext(Context);
 
 	let counter = 0;

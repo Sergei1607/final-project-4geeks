@@ -130,7 +130,7 @@ export const Adoptform = () => {
 							<div className="form-group">
 								<label htmlFor="label">
 									<b>
-										El envío de este formulario es con el objetivo de recoplar la información para
+										El envío de este formulario es con el objetivo de recopilar la información para
 										contactar al interesado y realizar un estudio previo
 									</b>
 								</label>
