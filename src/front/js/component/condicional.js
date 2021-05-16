@@ -37,7 +37,16 @@ export function Condicional() {
 		return counter;
 	}
 
-	if (store.user.user_adm === "1") {
+	if ((sessionStorage.getItem("token") != null) & (store.user.user_adm === null)) {
+		return (
+			<div className="ml-auto">
+				<span style={textStyle}>{"¡Hola " + store.user.username + "!"}</span>
+				<button className="btn btn-primary" style={buttonStyle} onClick={actions.getout}>
+					Salir
+				</button>
+			</div>
+		);
+	} else if ((sessionStorage.getItem("token") != null) & (store.user.user_adm === "1")) {
 		return (
 			<div className="ml-auto">
 				<Link to="/PetCRUD">
@@ -51,15 +60,6 @@ export function Condicional() {
 						<span style={favoritestyle}>{count()}</span>
 					</button>
 				</Link>
-				<button className="btn btn-primary" style={buttonStyle} onClick={actions.getout}>
-					Salir
-				</button>
-			</div>
-		);
-	} else if (store.user.user_adm === null) {
-		return (
-			<div className="ml-auto">
-				<span style={textStyle}>{"¡Hola " + store.user.username + "!"}</span>
 				<button className="btn btn-primary" style={buttonStyle} onClick={actions.getout}>
 					Salir
 				</button>

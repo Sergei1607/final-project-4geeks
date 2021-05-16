@@ -47,12 +47,12 @@ export const Adoptform = () => {
 		myHeaders.append("Content-Type", "application/json");
 
 		var raw = JSON.stringify({
-			full_name: fullname,
-			address: address,
-			telephone: telephone,
-			mobile_phone: mobile,
-			email: email,
-			name_pet: petname
+			full_name: "Olger Garita Torres",
+			address: "Heredia,Sarapiqui",
+			telephone: "2764-16-35",
+			mobile_phone: "86-08-60-10",
+			email: "olgeragt@gmail.com",
+			name_pet: "1"
 		});
 
 		var requestOptions = {
@@ -62,7 +62,7 @@ export const Adoptform = () => {
 			redirect: "follow"
 		};
 
-		fetch("https://3001-purple-cattle-f93fcd45.ws-us03.gitpod.io/api/adopt", requestOptions)
+		fetch("https://3001-red-narwhal-6swhjyze.ws-us04.gitpod.io/api/adopt", requestOptions)
 			.then(response => response.text())
 			.then(result => console.log(result))
 			.catch(error => console.log("error", error));
@@ -140,8 +140,8 @@ export const Adoptform = () => {
 							<div className="form-group">
 								<label htmlFor="label">
 									<b>
-										El envío de este formulario es para contactar al interesado para un estudio
-										previo
+										El envío de este formulario es con el objetivo de recopilar la información para
+										contactar al interesado y realizar un estudio previo
 									</b>
 								</label>
 							</div>

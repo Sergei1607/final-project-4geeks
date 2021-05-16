@@ -25,7 +25,7 @@ export function Blogs(props) {
 		<div className="col-lg-12 col-sm-5 mb-3" style={size}>
 			<div className="row">
 				<div className="col-lg-3 col-sm-12 " style={imagestyle}>
-					<img className="card-img-top" src={props.image} alt="..." height="165px" width="260px" />
+					<img id="test" className="card-img-top" src={props.image} alt="..." height="165px" width="260px" />
 				</div>
 				<div className="col-lg-9 col-sm-12">
 					<div className="card-body" style={backgroundstyle}>

@@ -22,14 +22,35 @@ def get_users():
 @api.route('/login',methods=['POST'])
 def login():
     if request.method == "POST":
-        username =  request.json["username"]
-        password = request.json["password"]
-        if not username:
-            return jsonify({"Error":"usarname Invalid"}), 400
-        if not password:
-            return jsonify({"Error":"Password Invalid"}),400
+        username =  request.json.get("username", None)
+        password = request.json.get("password", None)
+        if username is None:
+            return jsonify({"user":{"user_adm":"4"}}), 400
+        if password is None:
+            return jsonify({"user":{"user_adm":"4"}}),400
             
-        user = User.query.filter_by(username=username).first()
+        user = User.query.filter_by(username=username, password=password).first()
+
+        if not user:
+            return jsonify({"user":"O"}),400
+
+        request_body = {
+            "user":user.serialize()
+        }
+
+        return jsonify(request_body),200
+
+@api.route('/token',methods=['POST'])
+def token():
+    if request.method == "POST":
+        username =  request.json.get("username", None)
+        password = request.json.get("password", None)
+        if username is None:
+            return jsonify({"user":{"user_adm":"4"}}), 400
+        if password is None:
+            return jsonify({"user":{"user_adm":"4"}}),400
+            
+        user = User.query.filter_by(username=username, password=password).first()
 
         if not user:
             return jsonify({"user":"O"}),400
@@ -38,15 +59,15 @@ def login():
         access_token = create_access_token(identity=username,expires_delta=expiration_date)
 
         request_body = {
-            "user":user.serialize(), 
+
             "token":access_token
         }
 
         return jsonify(request_body),200
 
-@api.route('/recovery',methods=['GET'])
+@api.route('/recovery',methods=['POST'])
 def recovery():
-    if request.method == "GET":
+    if request.method == "POST":
         email =  request.json["email"]
        
         if not email:
@@ -57,12 +78,11 @@ def recovery():
         if not user:
             return jsonify({"user":"O"}),400
         #Create Tokken
-        expiration_date = datetime.timedelta(days=1)
-        access_token = create_access_token(identity=username,expires_delta=expiration_date)
+        #expiration_date = datetime.timedelta(days=1)
+        #access_token = create_access_token(identity=username,expires_delta=expiration_date)
 
         request_body = {
-            "user":user.serialize(), 
-            "token":access_token
+            "user":user.serialize()
         }
 
         return jsonify(request_body),200
@@ -223,10 +243,11 @@ def  delete_pet(id):
     db.session.commit()
     return jsonify({"Succesfully delete by":"hi"}),200
 
-@api.route('/pet/<int:id>', methods = ['PUT'])
+@api.route('/updatepet', methods = ['PUT'])
 #@jwt_required()
-def update_pet(id):
-    pet1 = Pet.query.get(id)
+def update_pet():
+    ids = request.json["id"]
+    pet1 = Pet.query.get(ids)
     name = request.json["name"]
     type_pet = request.json["type_pet"]
     sex = request.json["sex"]

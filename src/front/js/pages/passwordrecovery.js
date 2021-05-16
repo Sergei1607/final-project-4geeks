@@ -25,25 +25,63 @@ export const PasswordRecovery = () => {
 		height: "500px"
 	};
 
+	let containerStyle = { height: "770px", backgroundImage: `url(${blue})`, marginRight: "12px" };
+
+	function modifyPassword(respuesta, contraseña) {
+		var myHeaders = new Headers();
+		myHeaders.append("Content-Type", "application/json");
+
+		var raw = JSON.stringify({
+			question: store.user_recovery.question,
+			answer: respuesta,
+			password: contraseña
+		});
+
+		var requestOptions = {
+			method: "PUT",
+			headers: myHeaders,
+			body: raw,
+			redirect: "follow"
+		};
+
+		fetch("https://3001-red-narwhal-6swhjyze.ws-us04.gitpod.io/api/change_password", requestOptions)
+			.then(response => response.text())
+			.then(result => console.log(result))
+			.catch(error => console.log("error", error));
+	}
+
 	return (
-		<div className="container-flux">
-			<div className="row justify-content-center" style={registerstyle}>
+		<div className="container-flux" style={containerStyle}>
+			<div className="row justify-content-center p-5" style={registerstyle}>
 				<div className="CreateUserContainer">
-					<div className="createUserContent">
+					<div className="createUserContent   p-5">
 						<div className="formCreateUser">
-							<div className="ItemComponent">
+							<div className="ItemComponent ">
 								<label className="LabelItemTitle">
 									<strong>Recuperar Contraseña</strong>
 								</label>
 							</div>
 							<div className="inputContainer">
-								<input id="email" placeholder=" Email" type="text" className="regularStyle" />
+								<input
+									id="email"
+									placeholder=" Email"
+									type="text"
+									className="regularStyle"
+									onChange={e => setEmail(e.target.value)}
+								/>
 							</div>
 							<div className="ItemComponent">
 								<label className="LabelItemComponent" />
 							</div>
 							<div className="regularButtonLoginContainer">
-								<Button variant="primary" onClick={handleShow}>
+								<Button
+									id="test"
+									className="regularButtonLoginDisabled"
+									onClick={() => {
+										actions.user_recovery(email);
+										console.log(email);
+										handleShow();
+									}}>
 									Enviar
 								</Button>
 							</div>
@@ -60,32 +98,7 @@ export const PasswordRecovery = () => {
 							<form>
 								<div className="form-group">
 									<label htmlFor="exampleFormControlSelect1">Pregunta secreta</label>
-									{/* <div className="dropdown">
-										<button
-											className="btn btn-secondary dropdown-toggle"
-											type="button"
-											id="dropdownMenuButton"
-											data-toggle="dropdown"
-											aria-haspopup="true"
-											aria-expanded="false">
-											Dropdown button
-										</button>
-										<div
-											className="dropdown-menu"
-											aria-labelledby="dropdownMenuButton"
-											onChange={e => setQuestion(e.target.value)}>
-											<a className="dropdown-item" href="#">
-												¿Cual es tu Color Favorito?
-											</a>
-											<a className="dropdown-item" href="#">
-												¿Como se llama tu madre?
-											</a>
-											<a className="dropdown-item" href="#">
-												¿En donde Naciste?
-											</a>
-										</div>
-									</div> */}
-									<h3>{store.user.question}</h3>
+									<h3 className="p-3">{store.user_recovery.question}</h3>
 								</div>
 
 								<div className="form-group">
@@ -112,11 +125,21 @@ export const PasswordRecovery = () => {
 							</form>
 						</Modal.Body>
 						<Modal.Footer>
-							<Button variant="primary">Guardar</Button>
-
-							<Button variant="secondary" onClick={handleClose}>
-								<Link to="/login">{`Volver al Login`}</Link>
+							<Button
+								className="regularButtonLoginDisabled"
+								variant="primary"
+								onClick={() => {
+									modifyPassword(answer, password);
+									alert("Contraseña cambiada");
+									window.location.reload(false);
+								}}>
+								Guardar
 							</Button>
+							<Link to="/login">
+								<Button className="regularButtonLoginDisabled" variant="primary" onClick={handleClose}>
+									Volver al login
+								</Button>
+							</Link>
 						</Modal.Footer>
 					</Modal>
 				</div>

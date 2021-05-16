@@ -9,10 +9,10 @@ import "../../styles/demo.scss";
 export const Login = () => {
 	const { store, actions } = useContext(Context);
 	const [show, setShow] = useState(false);
-	const [show1, setShow1] = useState(false);
+	const [show2, setShow2] = useState(false);
 
 	const toggleShow = () => setShow(true);
-	const toggleShow1 = () => setShow1(true);
+	const toggleShow2 = () => setShow2(true);
 
 	const [password, setPassword] = useState("");
 	const [user, setUser] = useState("");
@@ -20,8 +20,7 @@ export const Login = () => {
 	let registerstyle = {
 		backgroundImage: `url(${blue})`,
 		position: "relative",
-		backgroundRepeat: "no-repeat",
-		height: "700px"
+		backgroundRepeat: "no-repeat"
 	};
 	let iconStyle = {
 		color: "#27A1C6",
@@ -29,10 +28,23 @@ export const Login = () => {
 		marginTop: "20px"
 	};
 
+	let containerStyle = { height: "770px", backgroundImage: `url(${blue})`, marginRight: "12px" };
+
+	const ingresar = async (password, user) => {
+		await actions.login(password, user);
+		await actions.gettoken(password, user);
+		console.log(store.user.user_adm);
+		if (store.user.user_adm === "1") {
+			toggleShow();
+		} else {
+			toggleShow2();
+		}
+	};
+
 	return (
-		<div className="container-flux">
-			<div className="row justify-content-center" style={registerstyle}>
-				<div className="CreateUserContainer">
+		<div style={containerStyle}>
+			<div className="row justify-content-center" style={containerStyle}>
+				<div className="CreateUserContainer" style={containerStyle}>
 					<div className="createUserContent">
 						<div className="formCreateUser">
 							<div className=" text-center">
@@ -75,12 +87,7 @@ export const Login = () => {
 									id="test"
 									className="regularButtonLoginDisabled"
 									onClick={() => {
-										actions.login(password, user);
-										if (store.user.user_adm === "1") {
-											toggleShow();
-										} else {
-											toggleShow();
-										}
+										ingresar(password, user);
 									}}>
 									Ingresar
 								</button>
@@ -90,9 +97,9 @@ export const Login = () => {
 									<a className="LabelItemComponent">Quiero Registrarme </a>
 								</Link>
 							</div>{" "}
-							<div className="ItemComponent">
+							<div className="ItemComponent p-2">
 								<Link to="/passwordrecovery">
-									<a className="LabelItemComponent">¿Olvidó su Contraseña?</a>
+									<a className="LabelItemComponent p-4">¿Olvidó su Contraseña?</a>
 								</Link>
 							</div>{" "}
 						</div>
@@ -108,15 +115,15 @@ export const Login = () => {
 								autohide
 								style={{
 									position: "absolute",
-									top: 50,
-									right: 50,
+									top: 40,
+									right: 120,
 									width: "350px"
 								}}>
 								<Toast.Header>
 									<img src={Logo} className="rounded mr-2" alt="" height="30px" width="30px" />
 									<strong className="mr-auto">Ángeles de los animales Santa Rosa</strong>
 								</Toast.Header>
-								<Toast.Body className="text-center"> ¡Gracias por estar acá!</Toast.Body>
+								<Toast.Body className="text-center">¡Gracias por estár acá!</Toast.Body>
 							</Toast>
 						</Col>
 					</Row>
@@ -125,21 +132,21 @@ export const Login = () => {
 					<Row>
 						<Col>
 							<Toast
-								show={show1}
-								onClose={() => setShow1(false)}
+								show={show2}
+								onClose={() => setShow2(false)}
 								delay={3000}
 								autohide
 								style={{
 									position: "absolute",
-									top: 50,
-									right: 50,
+									top: 40,
+									right: 100,
 									width: "350px"
 								}}>
 								<Toast.Header>
 									<img src={Logo} className="rounded mr-2" alt="" height="30px" width="30px" />
 									<strong className="mr-auto">Ángeles de los animales Santa Rosa</strong>
 								</Toast.Header>
-								<Toast.Body className="text-center"> ¡Gsadsd!</Toast.Body>
+								<Toast.Body className="text-center p-2"> Contraseña o usuario no encontrado</Toast.Body>
 							</Toast>
 						</Col>
 					</Row>

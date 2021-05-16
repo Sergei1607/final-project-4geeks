@@ -14,8 +14,12 @@ export const Footer = () => {
 		fontSize: "20px"
 	};
 
+	let containerStyle = {
+		width: "100%"
+	};
+
 	return (
-		<div className="container-flux">
+		<div className="container-flux" style={containerStyle}>
 			<div className="row" style={colorStyle}>
 				<div className="col 4 d-flex justify-content-center align-items-center">
 					<p className="mt-2 ml-5" style={fontStyle}>
@@ -32,7 +36,7 @@ export const Footer = () => {
 						<i className="fab fa-facebook fa-2x px-2 " style={iconStyle} />
 					</a>
 					<a href="https://www.instagram.com/angelesdelosanimales_cr/">
-						<i className="fab fa-instagram fa-2x px-2 mr-5" style={iconStyle} />
+						<i className="fab fa-instagram fa-2x px-2" style={iconStyle} />
 					</a>
 				</div>
 			</div>

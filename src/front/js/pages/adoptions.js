@@ -32,6 +32,18 @@ export const Adoptions = () => {
 		marginTop: "10px"
 	};
 
+	function deleteadoption(id) {
+		var requestOptions = {
+			method: "DELETE",
+			redirect: "follow"
+		};
+
+		fetch("https://3001-red-narwhal-6swhjyze.ws-us04.gitpod.io/api/adopt/" + id, requestOptions)
+			.then(response => response.text())
+			.then(result => console.log(result))
+			.catch(error => console.log("error", error));
+	}
+
 	return (
 		<div className="container" style={containerStyle}>
 			<div className="row d-flex align-items-center" style={over2}>
@@ -45,7 +57,7 @@ export const Adoptions = () => {
 					<h4>Nombre</h4>
 				</div>
 				<div className="col-2 text-center">
-					<h4>Célular</h4>
+					<h4>Celular</h4>
 				</div>
 				<div className="col-2 text-center">
 					<h4>Teléfono</h4>
@@ -65,7 +77,7 @@ export const Adoptions = () => {
 								className="fas fa-trash fa-2x px-1"
 								style={iconStyle}
 								onClick={() => {
-									actions.deletepet(item.id);
+									deleteadoption(item.id);
 								}}
 							/>
 						</div>

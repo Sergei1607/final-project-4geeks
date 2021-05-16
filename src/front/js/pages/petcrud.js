@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { Link } from "react-router-dom";
 import { Modal } from "react-bootstrap";
 import { Row, Col, Toast, Button } from "react-bootstrap";
@@ -12,7 +12,10 @@ export function PetCRUD() {
 	const [show, setShow] = useState(false);
 	const [show2, setShow2] = useState(false);
 	const [show3, setShow3] = useState(false);
+	const [show4, setShow4] = useState(false);
 	const { store, actions } = useContext(Context);
+
+	const [render, setRender] = useState(false);
 
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
@@ -20,6 +23,8 @@ export function PetCRUD() {
 	const handleClose3 = () => setShow3(false);
 	const handleShow2 = () => setShow2(true);
 	const toggleShow3 = () => setShow3(true);
+	const toggleShow4 = () => setShow4(true);
+
 	const [loading, setLoading] = useState(false);
 	const [image, setImage] = useState("");
 	const [name, setName] = useState("");
@@ -32,6 +37,10 @@ export function PetCRUD() {
 	const [history, setHistory] = useState("");
 	const [ids, setIds] = useState("");
 	const [otro, setOtro] = useState("");
+	const [send, setSend] = useState(false);
+
+	const [value, setValue] = useState(false);
+	const [mascotas, setMascotas] = useState([]);
 
 	let styles = { height: "300", width: "300px" };
 
@@ -53,6 +62,80 @@ export function PetCRUD() {
 	let iconStyle = {
 		color: "#27A1C6"
 	};
+
+	useEffect(() => {
+		var myHeaders = new Headers();
+		myHeaders.append("Content-Type", "application/json");
+
+		var requestOptions = {
+			method: "GET",
+			headers: myHeaders,
+			redirect: "follow"
+		};
+
+		fetch("https://3001-red-narwhal-6swhjyze.ws-us04.gitpod.io/api/pet", requestOptions)
+			.then(response => response.json())
+			.then(result => setMascotas(result))
+			.catch(error => console.log("error", error));
+	}, [value]);
+
+	const nameRef = useRef(name);
+
+	useEffect(() => {
+		if (render === false) {
+			setRender(true);
+		} else {
+			nameRef.current = name;
+			console.log(nameRef.current);
+		}
+	}, [name]);
+
+	const initialRender = useRef(true);
+
+	useEffect(() => {
+		console.log("render");
+
+		if (initialRender.current) {
+			initialRender.current = false;
+		} else {
+			editPet();
+		}
+	}, [send]);
+
+	function editPet() {
+		var myHeaders = new Headers();
+		myHeaders.append("Content-Type", "application/json");
+
+		var raw = JSON.stringify({
+			age: "2 meses",
+			behaviour: "Cariñosa,juguetona",
+			breed: "Cariñosa,juguetona",
+			history:
+				"Fue rescatada de un barrio conflictivo junto con su mamá, fue la única sobreviviente de la camada",
+			image: "TEST",
+			name: "Bruno",
+			other:
+				"Desparasitada, castración obligatoria cuando corresponda. Utiliza caja de arena, se recomienda casa anti escape",
+			sex: "Hembra",
+			size: "N/A",
+			type_pet: "canino",
+			id: "4"
+		});
+
+		var requestOptions = {
+			method: "PUT",
+			headers: myHeaders,
+			body: raw
+		};
+
+		fetch("https://3001-red-narwhal-6swhjyze.ws-us04.gitpod.io/api/updatepet", requestOptions)
+			.then(response => response.json())
+			.then(result => console.log(result))
+			.then(e => {
+				setValue(true);
+			})
+			.catch(error => console.log("error", error));
+	}
 
 	const uploadImage = async e => {
 		const files = e.target.files;
@@ -98,39 +181,7 @@ export function PetCRUD() {
 			redirect: "follow"
 		};
 
-		fetch("https://3001-purple-cattle-f93fcd45.ws-us03.gitpod.io/api/pet", requestOptions)
-			.then(response => response.text())
-			.then(result => console.log(result))
-			.catch(error => console.log("error", error));
-	}
-
-	function editPet(id) {
-		var myHeaders = new Headers();
-		myHeaders.append("Content-Type", "application/json");
-
-		var raw = JSON.stringify({
-			age: age,
-			behaviour: behaviour,
-			breed: raza,
-			history: history,
-			name: name,
-			other: otro,
-			sex: sex,
-			size: size,
-			type_pet: typepet,
-			image: image
-		});
-
-		var requestOptions = {
-			method: "PUT",
-			headers: myHeaders,
-			body: raw,
-			redirect: "follow"
-		};
-
-		console.log(raw, id);
-
-		fetch("https://3001-white-guanaco-4cowgqvv.ws-us04.gitpod.io/api/pet/" + id, requestOptions)
+		fetch("https://3001-red-narwhal-6swhjyze.ws-us04.gitpod.io/api/pet", requestOptions)
 			.then(response => response.text())
 			.then(result => console.log(result))
 			.catch(error => console.log("error", error));
@@ -141,37 +192,37 @@ export function PetCRUD() {
 			<div className="row">
 				<div className="row d-flex align-items-center" style={over2}>
 					<div className="col-2 text-center">
-						<h4>Acción</h4>
+						<h3>Acción</h3>
 					</div>
 					<div className="col-2 text-center">
-						<h4>Nombre</h4>
+						<h3>Nombre</h3>
 					</div>
 					<div className="col-2 text-center">
-						<h4>Tipo de mascota</h4>
+						<h3>Tipo de mascota</h3>
 					</div>
 					<div className="col-2 text-center">
-						<h4>Sexo</h4>
+						<h3>Sexo</h3>
 					</div>
 					<div className="col-2 text-center">
-						<h4>Raza</h4>
+						<h3>Raza</h3>
 					</div>
 					<div className="col-2 text-center">
-						<h4>Tamaño</h4>
+						<h3>Tamaño</h3>
 					</div>
 					<div className="col-2 text-center">
-						<h4>Comportamiento</h4>
+						<h3>Comportamiento</h3>
 					</div>
 					<div className="col-2 text-center">
-						<h4>Edad</h4>
+						<h3>Edad</h3>
 					</div>
 					<div className="col-2 text-center">
-						<h4>Historia</h4>
+						<h3>Historia</h3>
 					</div>
 					<div className="col-2 text-center">
-						<h4>Más información</h4>
+						<h3>Más información</h3>
 					</div>
 				</div>
-				{store.mascotas.map((item, index) => {
+				{mascotas.map((item, index) => {
 					return (
 						<div className="row d-flex align-items-center" style={over} key={index}>
 							<div className="col-2 text-center">
@@ -354,11 +405,43 @@ export function PetCRUD() {
 										<button
 											className="btn btn-primary"
 											onClick={() => {
-												editPet(ids);
+												toggleShow4();
+												setSend(true);
 											}}>
 											Editar
 										</button>
 									</form>
+									<div className="row">
+										<Row>
+											<Col>
+												<Toast
+													show={show4}
+													onClose={() => setShow3(false)}
+													delay={10000}
+													autohide
+													style={{
+														position: "absolute",
+														bottom: 45,
+														left: 450,
+														width: "350px"
+													}}>
+													<Toast.Header>
+														<img
+															src={Logo}
+															className="rounded mr-2"
+															alt=""
+															height="30px"
+															width="30px"
+														/>
+														<strong className="mr-auto">
+															Ángeles de los animales Santa Rosa
+														</strong>
+													</Toast.Header>
+													<Toast.Body className="text-center"> ¡Mascota editada!</Toast.Body>
+												</Toast>
+											</Col>
+										</Row>
+									</div>
 								</Modal.Body>
 								<Modal.Footer>
 									<Button variant="secondary" onClick={handleClose}>
