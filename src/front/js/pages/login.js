@@ -39,6 +39,8 @@ export const Login = () => {
 		} else {
 			toggleShow2();
 		}
+		await new Promise(r => setTimeout(r, 1000));
+		window.location.reload(false);
 	};
 
 	return (
