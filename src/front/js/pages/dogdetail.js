@@ -111,7 +111,7 @@ export const Dogdetail = props => {
 								</div>
 								<div className="row d-flex justify-content-center">
 									<h5 style={warningStyle}>
-										¡Por favor inicia sección para acceder al formulario de adopción!
+										¡Por favor inicia sesión para acceder al formulario de adopción!
 									</h5>
 								</div>
 							</div>

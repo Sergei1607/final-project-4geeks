@@ -183,8 +183,22 @@ export const Home = () => {
 				</h1>
 			</div>
 			<div className="row" style={separation}>
-				<Blogs image={blog1} color={"#F2F2F2"} title={"Controlar los ladridos de tu mascota"} />
-				<Blogs image={blog2} color={"#F2F2F2"} title={"Primeros días de tu mascota en casa"} />
+				<Blogs
+					image={blog1}
+					color={"#F2F2F2"}
+					title={"¿Cuánto ejercicio necesita un perro al día?"}
+					text={
+						"El ejercicio que necesita un perro es un asunto en el que existen ciertas dudas comunes entre los propietarios. Prácticamente todos tenemos claro que, igual que nosotros, los perros también tienen que moverse para no atrofiarse."
+					}
+				/>
+				<Blogs
+					image={blog2}
+					color={"#F2F2F2"}
+					title={"10 Claves para la mejor convivencia entre el perro y el gato"}
+					text={
+						"Se trata sin duda de las dos especies de mascotas más habituales y que más éxito tienen como animales de compañía. Sin embargo, son bastante diferentes."
+					}
+				/>
 			</div>
 		</div>
 	);

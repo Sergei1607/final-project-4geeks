@@ -50,7 +50,8 @@ export const Register = () => {
 			name: name,
 			last_name: last_name,
 			question: question,
-			answer: answer
+			answer: answer,
+			user_adm: "0"
 		});
 
 		var requestOptions = {
