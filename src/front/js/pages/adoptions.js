@@ -33,8 +33,12 @@ export const Adoptions = () => {
 	};
 
 	function deleteadoption(id) {
+		var myHeaders = new Headers();
+		myHeaders.append("Authorization", "Bearer " + sessionStorage.getItem("token"));
+
 		var requestOptions = {
 			method: "DELETE",
+			headers: myHeaders,
 			redirect: "follow"
 		};
 

@@ -73,9 +73,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 			deletepet: id => {
+				var myHeaders = new Headers();
+				myHeaders.append("Authorization", "Bearer " + sessionStorage.getItem("token"));
 				var raw = "";
 				var requestOptions = {
 					method: "DELETE",
+					headers: myHeaders,
 					body: raw,
 					redirect: "follow"
 				};

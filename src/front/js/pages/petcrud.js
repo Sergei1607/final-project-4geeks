@@ -59,6 +59,7 @@ export function PetCRUD() {
 	function editPet() {
 		var myHeaders = new Headers();
 		myHeaders.append("Content-Type", "application/json");
+		myHeaders.append("Authorization", "Bearer " + sessionStorage.getItem("token"));
 
 		var raw = JSON.stringify({
 			age: age,
@@ -112,6 +113,7 @@ export function PetCRUD() {
 	function createPet() {
 		var myHeaders = new Headers();
 		myHeaders.append("Content-Type", "application/json");
+		myHeaders.append("Authorization", "Bearer " + sessionStorage.getItem("token"));
 
 		var raw = JSON.stringify({
 			age: age,
