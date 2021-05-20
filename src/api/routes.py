@@ -178,7 +178,7 @@ def get_type_canino():
 
 
 @api.route('/pet', methods=['POST'])
-#@jwt_required()
+@jwt_required()
 def create_pet():
     name = request.json.get("name", None)
     type_pet = request.json.get("type_pet", None)
@@ -235,7 +235,7 @@ def create_pet():
 
 
 @api.route('/pet/<int:id>', methods=['DELETE'])
-#@jwt_required()
+@jwt_required()
 def  delete_pet(id):
     #current_user = get_jwt_identity()
     pet1 = Pet.query.get(id)
@@ -246,7 +246,7 @@ def  delete_pet(id):
     return jsonify({"Succesfully delete by":"hi"}),200
 
 @api.route('/updatepet', methods = ['PUT'])
-#@jwt_required()
+@jwt_required()
 def update_pet():
     ids = request.json["id"]
     pet1 = Pet.query.get(ids)
@@ -323,7 +323,7 @@ def get_adopts():
     return data
 
 @api.route('/adopt/<int:id>', methods=['DELETE'])
-#@jwt_required()
+@jwt_required()
 def  delete_adopt(id):
     #current_user = get_jwt_identity()
     adopt1 = Adopt.query.get(id)
