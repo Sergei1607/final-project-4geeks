@@ -26,6 +26,8 @@ let textStyle = {
 	fontSize: "20px"
 };
 
+console.log(sessionStorage.getItem("token"));
+
 export function Condicional() {
 	const { store, actions } = useContext(Context);
 
@@ -37,16 +39,16 @@ export function Condicional() {
 		return counter;
 	}
 
-	if ((sessionStorage.getItem("token") != null) & (store.user.user_adm === null)) {
+	if ((sessionStorage.getItem("token") != null) & (sessionStorage.getItem("user") === "0")) {
 		return (
 			<div className="ml-auto">
-				<span style={textStyle}>{"¡Hola " + store.user.username + "!"}</span>
+				<span style={textStyle}>{"¡Hola " + sessionStorage.getItem("name") + "!"}</span>
 				<button className="btn btn-primary" style={buttonStyle} onClick={actions.getout}>
 					Salir
 				</button>
 			</div>
 		);
-	} else if ((sessionStorage.getItem("token") != null) & (store.user.user_adm === "1")) {
+	} else if ((sessionStorage.getItem("token") != null) & (sessionStorage.getItem("token") != "undefined")) {
 		return (
 			<div className="ml-auto">
 				<Link to="/PetCRUD">

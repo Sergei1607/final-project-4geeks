@@ -33,12 +33,15 @@ export const Login = () => {
 	const ingresar = async (password, user) => {
 		await actions.login(password, user);
 		await actions.gettoken(password, user);
-		console.log(store.user.user_adm);
-		if (store.user.user_adm === "1") {
+		if (store.user.user_adm === "1" || store.user.user_adm === "0") {
 			toggleShow();
 		} else {
 			toggleShow2();
 		}
+		sessionStorage.setItem("user", store.user.user_adm);
+		sessionStorage.setItem("name", store.user.username);
+		await new Promise(r => setTimeout(r, 1000));
+		window.location.reload(false);
 	};
 
 	return (

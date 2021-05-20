@@ -47,12 +47,12 @@ export const Adoptform = () => {
 		myHeaders.append("Content-Type", "application/json");
 
 		var raw = JSON.stringify({
-			full_name: "Olger Garita Torres",
-			address: "Heredia,Sarapiqui",
-			telephone: "2764-16-35",
-			mobile_phone: "86-08-60-10",
-			email: "olgeragt@gmail.com",
-			name_pet: "1"
+			full_name: fullname,
+			address: address,
+			telephone: telephone,
+			mobile_phone: mobile,
+			email: email,
+			name_pet: petname
 		});
 
 		var requestOptions = {
@@ -130,7 +130,7 @@ export const Adoptform = () => {
 										className="custom-select mr-sm-2"
 										id="inlineFormCustomSelect"
 										onChange={e => setPetname(e.target.value)}>
-										<option selected>Elige una mascota </option>
+										<option value>Elige una mascota </option>
 										{store.mascotas.map((item, index) => {
 											return <option key={index}>{item.name}</option>;
 										})}
@@ -152,8 +152,8 @@ export const Adoptform = () => {
 										className="btn btn-primary"
 										style={colorStyle}
 										onClick={() => {
-											postAdoption();
 											mostrarAlerta();
+											postAdoption();
 										}}>
 										Enviar
 									</button>

@@ -30,11 +30,7 @@ export function Blogs(props) {
 				<div className="col-lg-9 col-sm-12">
 					<div className="card-body" style={backgroundstyle}>
 						<h5 className="card-title ">{props.title}</h5>
-						<p className="card-text d-sm-none d-md-block">
-							It is a long established fact that a reader will be distracted by the readable content of a
-							page when looking at its layout. The point of using Lorem Ipsum is that it has a
-							more-or-less normal distribution of letters.
-						</p>
+						<p className="card-text d-sm-none d-md-block">{props.text}</p>
 						<p className="card-text">
 							<small className="text-muted">Creado por: Katherine Jimenez</small>
 						</p>
@@ -48,5 +44,6 @@ export function Blogs(props) {
 Blogs.propTypes = {
 	color: PropTypes.string,
 	title: PropTypes.string,
-	image: PropTypes.string
+	image: PropTypes.string,
+	text: PropTypes.string
 };

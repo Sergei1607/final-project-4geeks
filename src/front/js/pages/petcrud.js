@@ -14,9 +14,6 @@ export function PetCRUD() {
 	const [show3, setShow3] = useState(false);
 	const [show4, setShow4] = useState(false);
 	const { store, actions } = useContext(Context);
-
-	const [render, setRender] = useState(false);
-
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
 	const handleClose2 = () => setShow2(false);
@@ -37,10 +34,6 @@ export function PetCRUD() {
 	const [history, setHistory] = useState("");
 	const [ids, setIds] = useState("");
 	const [otro, setOtro] = useState("");
-	const [send, setSend] = useState(false);
-
-	const [value, setValue] = useState(false);
-	const [mascotas, setMascotas] = useState([]);
 
 	let styles = { height: "300", width: "300px" };
 
@@ -63,63 +56,22 @@ export function PetCRUD() {
 		color: "#27A1C6"
 	};
 
-	useEffect(() => {
-		var myHeaders = new Headers();
-		myHeaders.append("Content-Type", "application/json");
-
-		var requestOptions = {
-			method: "GET",
-			headers: myHeaders,
-			redirect: "follow"
-		};
-
-		fetch("https://3001-red-narwhal-6swhjyze.ws-us04.gitpod.io/api/pet", requestOptions)
-			.then(response => response.json())
-			.then(result => setMascotas(result))
-			.catch(error => console.log("error", error));
-	}, [value]);
-
-	const nameRef = useRef(name);
-
-	useEffect(() => {
-		if (render === false) {
-			setRender(true);
-		} else {
-			nameRef.current = name;
-			console.log(nameRef.current);
-		}
-	}, [name]);
-
-	const initialRender = useRef(true);
-
-	useEffect(() => {
-		console.log("render");
-
-		if (initialRender.current) {
-			initialRender.current = false;
-		} else {
-			editPet();
-		}
-	}, [send]);
-
 	function editPet() {
 		var myHeaders = new Headers();
 		myHeaders.append("Content-Type", "application/json");
 
 		var raw = JSON.stringify({
-			age: "2 meses",
-			behaviour: "Cariñosa,juguetona",
-			breed: "Cariñosa,juguetona",
-			history:
-				"Fue rescatada de un barrio conflictivo junto con su mamá, fue la única sobreviviente de la camada",
-			image: "TEST",
-			name: "Bruno",
-			other:
-				"Desparasitada, castración obligatoria cuando corresponda. Utiliza caja de arena, se recomienda casa anti escape",
-			sex: "Hembra",
-			size: "N/A",
-			type_pet: "canino",
-			id: "4"
+			age: age,
+			behaviour: behaviour,
+			breed: raza,
+			history: history,
+			image: image,
+			name: name,
+			other: otro,
+			sex: sex,
+			size: size,
+			type_pet: typepet,
+			id: ids
 		});
 
 		var requestOptions = {
@@ -222,7 +174,7 @@ export function PetCRUD() {
 						<h3>Más información</h3>
 					</div>
 				</div>
-				{mascotas.map((item, index) => {
+				{store.mascotas.map((item, index) => {
 					return (
 						<div className="row d-flex align-items-center" style={over} key={index}>
 							<div className="col-2 text-center">
@@ -406,7 +358,7 @@ export function PetCRUD() {
 											className="btn btn-primary"
 											onClick={() => {
 												toggleShow4();
-												setSend(true);
+												editPet();
 											}}>
 											Editar
 										</button>
@@ -570,7 +522,7 @@ export function PetCRUD() {
 								id="test"
 								className="regularButtonLoginDisabled"
 								onClick={() => {
-									createPet;
+									createPet();
 									toggleShow3();
 								}}>
 								Agregar

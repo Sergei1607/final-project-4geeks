@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import blue from "../../img/449940.jpg";
+import { Botoncondicional } from "../component/botoncondicional";
 
 export const Dogdetail = props => {
 	const { store, actions } = useContext(Context);
@@ -10,7 +11,7 @@ export const Dogdetail = props => {
 
 	let nameStyle = { fontSize: "60px", marginTop: "100px", color: "#005073" };
 
-	let imageStyle = { border: "5px solid #555" };
+	let warningStyle = { color: "#005073" };
 
 	let columnStyle = { color: "#005073" };
 
@@ -38,7 +39,7 @@ export const Dogdetail = props => {
 								<img
 									width={500}
 									height={500}
-									className="align-self-center mr-3"
+									className="align-self-center mr-3 border border-info rounded-3 rounded-bottom"
 									src={store.perros[params.theid].image}
 									alt="Generic placeholder"
 								/>
@@ -105,12 +106,13 @@ export const Dogdetail = props => {
 										</Link>
 									</div>
 									<div className="col-3 d-flex justify-content-end">
-										<Link to="/adoptform">
-											<button type="button" className="btn btn-primary" style={buttonStyle}>
-												Adopción
-											</button>
-										</Link>
+										<Botoncondicional />
 									</div>
+								</div>
+								<div className="row d-flex justify-content-center">
+									<h5 style={warningStyle}>
+										¡Por favor inicia sesión para acceder al formulario de adopción!
+									</h5>
 								</div>
 							</div>
 						</div>

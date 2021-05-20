@@ -6,6 +6,7 @@ import { Modal } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { Dropdown } from "react-bootstrap";
 import "../../styles/demo.scss";
+import swal from "sweetalert";
 
 export const PasswordRecovery = () => {
 	const { store, actions } = useContext(Context);
@@ -24,6 +25,14 @@ export const PasswordRecovery = () => {
 		backgroundRepeat: "no-repeat",
 		height: "500px"
 	};
+
+	function mostrarAlerta() {
+		swal({
+			title: "Recuperar contraseña",
+			text: "Contraseña cambiada",
+			icon: "success"
+		});
+	}
 
 	let containerStyle = { height: "770px", backgroundImage: `url(${blue})`, marginRight: "12px" };
 
@@ -130,7 +139,7 @@ export const PasswordRecovery = () => {
 								variant="primary"
 								onClick={() => {
 									modifyPassword(answer, password);
-									alert("Contraseña cambiada");
+									mostrarAlerta();
 									window.location.reload(false);
 								}}>
 								Guardar

@@ -110,6 +110,7 @@ def register_user():
     password = request.json.get("password", None)
     question = request.json.get("question",None)
     answer = request.json.get("answer",None)
+    user_adm = request.json.get("user_adm",None)
 
     if username is None:
         return jsonify({"msg":"No username was provided"}),400
@@ -143,6 +144,7 @@ def register_user():
         new_user.password = password
         new_user.question = question
         new_user.answer = answer
+        new_user.user_adm = user_adm
     
 
         db.session.add(new_user)

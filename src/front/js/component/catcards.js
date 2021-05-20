@@ -16,7 +16,7 @@ export function CatCards(props) {
 		backgroundColor: "#00BCEB",
 		borderRadius: "10%"
 	};
-
+	console.log(store.user);
 	return (
 		<div className="col-lg-3 col-sm-6">
 			<div className="card" id="test">
